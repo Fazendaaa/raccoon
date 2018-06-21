@@ -43,13 +43,5 @@ Since I will be keeping this README up to date with any major change and I don't
 # Authors
 * Only [me](https://github.com/Fazendaaa) for now.
 
-Consider buy me a coffee:
-
-[![Buy Me a Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/Fazenda)
-
-Or even becoming a patron:
-
-[![Patreon](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://www.patreon.com/Fazenda/overview)
-
 # License
 Like many Open-Source Software (OSS) the MIT license is used, more about it in [LICENSE](https://github.com/Fazendaaa/raccoon/blob/master/LICENSE).

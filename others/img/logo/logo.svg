@@ -15,7 +15,10 @@
    width="185.17194"
    height="106.89132"
    viewBox="0 0 185.17194 106.89132"
-   sodipodi:docname="logo.svg">
+   sodipodi:docname="logo.svg"
+   inkscape:export-filename="/home/farm/Documents/raccon/others/img/logo/logo.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
   <metadata
      id="metadata8">
     <rdf:RDF>
@@ -99,6 +102,16 @@
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="ccssccccccccc" />
     </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath845">
+      <path
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m -614.61065,91.525031 62.83628,63.333719 -0.69197,3.67095 32.74004,27.04738 17.60016,14.61355 67.64443,59.68558 c 24.2898,-10.87986 45.68303,-27.86991 62.18999,-43.28144 22.65041,-21.14727 38.23494,-56.20775 44.00516,-87.30534 3.75375,-20.23018 1.16681,-34.408726 1.15467,-56.958493 l -35.511,-34.439567 -79.50294,31.245688 19.70431,16.658271 -68.85218,49.399751 -1.52639,-9.43056 -67.63135,-66.873883 c -29.94947,-5.199246 -45.9427,15.144098 -54.15921,32.634394 z"
+         id="path847"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccccsscccccccc" />
+    </clipPath>
   </defs>
   <sodipodi:namedview
      pagecolor="#ffffff"
@@ -117,33 +130,33 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:zoom="1.6782222"
-     inkscape:cx="-361.94244"
-     inkscape:cy="-13.216004"
+     inkscape:zoom="1.1866823"
+     inkscape:cx="-771.0913"
+     inkscape:cy="-27.000732"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2" />
   <g
-     id="g960"
+     id="g837"
      inkscape:export-xdpi="96"
      inkscape:export-ydpi="96">
     <circle
        r="171.47211"
-       cy="102.45147"
-       cx="-284.99527"
+       cy="98.876259"
+       cx="-496.52863"
        id="path812"
        style="opacity:1;fill:#ff9a3e;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <rect
-       clip-path="url(#clipPath953)"
-       y="4.0836849"
-       x="-439.03915"
-       height="289.04114"
-       width="348.02911"
-       id="rect949"
-       style="opacity:0.322;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       clip-path="url(#clipPath845)"
+       y="-8.111331"
+       x="-668.56464"
+       height="300.91367"
+       width="389.10223"
+       id="rect833"
+       style="opacity:0.214;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <circle
-       transform="matrix(4.6610867,0,0,4.6610867,3663.0297,-130.94471)"
+       transform="matrix(4.6610867,0,0,4.6610867,3451.4963,-134.51992)"
        clip-path="url(#clipPath927)"
        r="36.429066"
        cy="48.928417"
