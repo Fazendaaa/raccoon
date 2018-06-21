@@ -2,13 +2,13 @@
 
 <div align = "center">
     <br>
-    <img src="./others/img/logo/logo.png" height=260>
+    <img src="../../others/img/logo/logo.png" height=260>
     <br>
 
 [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg?longCache=true&style=for-the-badge)](https://saythanks.io/to/Fazendaaa)
 
-[![English README](https://img.shields.io/badge/Language-EN-blue.svg?longCache=true&style=for-the-badge)](./README.md)
-[![Portuguese README](https://img.shields.io/badge/Linguagem-PT-green.svg?longCache=true&style=for-the-badge)](./docs/readme/README_PT.md)
+[![English README](https://img.shields.io/badge/Language-EN-blue.svg?longCache=true&style=for-the-badge)](../../README.md)
+[![Portuguese README](https://img.shields.io/badge/Linguagem-PT-green.svg?longCache=true&style=for-the-badge)](./README_PT.md)
 
 </div>
 
@@ -38,7 +38,7 @@ Plain and simple [Typescript](http://typescriptlang.org/) and the [Microsoft lin
 Just talk to me through opening a issue.
 
 # TODO
-Since I will be keeping this README up to date with any major change and I don't use any versioning system to log all the fixed bugs or previous projects updates, you can still have a taste of what comes next and what is being under analysis right in the [Projects](https://github.com/Fazendaaa/raccoon/projects/) tab.
+Since I will be keeping this README up to date with any major change and I don't use any versioning system to log all the fixed bugs or previous projects updates, you can still have a taste of what comes next and what is being under analysis right in the [Projects](https://github.com/Fazendaaa/MDNSearchBot/projects/) tab.
 
 # Authors
 * Only [me](https://github.com/Fazendaaa) for now.
@@ -52,4 +52,4 @@ Or even becoming a patron:
 [![Patreon](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://www.patreon.com/Fazenda/overview)
 
 # License
-Like many Open-Source Software (OSS) the MIT license is used, more about it in [LICENSE](https://github.com/Fazendaaa/raccoon/blob/master/LICENSE).
+Like many Open-Source Software (OSS) the MIT license is used, more about it in [LICENSE](https://github.com/Fazendaaa/MDNSearchBot/blob/master/LICENSE).
