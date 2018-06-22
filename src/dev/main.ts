@@ -2,19 +2,20 @@
 
 import { CronJob } from 'cron';
 import { getLogs, Request } from './lib/api/raccoon';
-import { reviewResponse } from './lib/info/analysis';
-
-const runRequest = async ({ authorization, hostname }: Request): Promise<void> => {
-    const logs = await getLogs({ authorization, hostname });
-    const analyzed = reviewResponse(logs);
-
-    console.log(analyzed);
-};
+import { getAnalysis__, initAnalysis } from './lib/info/analysis';
+import { Review, reviewResponse } from './lib/info/review';
 
 try {
-    const eachMinute = '00 0-59 * * * *';
+    const analysis = initAnalysis();
     const eachSecond = '* * * * * *';
-    const runLogs = new CronJob(eachMinute, async () => runRequest({}), () => console.log('Finished request.'), true);
+    // const eachMinute = '00 0-59 * * * *';
+    // const eachHour = '00 00 0-23 * * *';
+    const runLogs = new CronJob(eachSecond, async () => {
+        const logs = await getLogs({});
+        const reviewed = reviewResponse(logs);
+
+        console.log(getAnalysis__(analysis, reviewed));
+    }, () => console.log('Finished request.'), true);
 } catch (e) {
     console.error('Error on application:', e);
 }

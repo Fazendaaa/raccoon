@@ -11,20 +11,26 @@ type DEBUG = string;
 type ERROR = string;
 type CRITICAL = string;
 
-export interface Request {
+export interface Request extends Object {
     hostname?: string;
     authorization?: string;
 };
 
-export interface Response {
+export interface Response extends Object {
     project: string;
     message: string;
     timestamp: number;
     traceback?: string;
-    response_code: number;
+    response_code?: number;
     request_duration?: number;
     level: INFO | DEBUG | ERROR | CRITICAL;
 };
+
+export interface TotalRequest extends Object {
+    total_timestamp: number;
+    request_counter: number;
+    standard_deviation: number;
+}
 
 const handleApiData = (response: IncomingMessage): Promise<string | Error> => new Promise((resolve, reject) => {
     let chunk = '';
@@ -64,3 +70,5 @@ export const getLogs = async ({ authorization = defaultAuthorization, hostname =
         throw e;
     }
 };
+
+export const byTimestamp = (a: Response, b: Response): number => a.timestamp - b.timestamp;

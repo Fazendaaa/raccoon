@@ -31,7 +31,8 @@
         "class-name": false,
         "interface-name": false,
         "no-unnecessary-semicolons": false,
-        "semicolon": false
+        "semicolon": false,
+        "variable-name": false
     },
     "rulesDirectory": []
 }
