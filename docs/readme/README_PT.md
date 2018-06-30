@@ -17,7 +17,7 @@
 Software desenvolvido para um processo seletivo.
 
 ### Dev
-Comunicação com uma API REST que aceita apenas __GET__ e responde, no formato JSON -- unicode --, logs de softwares para que, desta maneira, desempenhe organização e agregação desses logs apresentando as seguintes informações:
+Uma programa de Interface de Linha de Comando (CLI) para mostrar infromações consumidos de alguns projetos. Essas informações são consumidas através de dados provenientes de uma Interface de Programação de Transferência de Dados de Transferência de Estados Representativos (REST API) que aceita apenas __GET__ e responde, no formato JSON -- unicode --, logs de softwares para que, desta maneira, desempenhe organização e agregação desses logs apresentando as seguintes informações:
 * Média e desvio padrão do tempo das requisições;
 * Últimos cinco tracebacks dentre todos os projetos;
 * Contador de erros e mensagens críticas, agrupados por projeto e hora.
@@ -41,8 +41,8 @@ Uma vez que a ideia não é ter o acesso a essas informações mas sim mostrar c
 Os requests serão feitos da seguinte maneira em um cabeçalho https:
 
 ```https
-authorization: "chave-da-api-aqui"
 hostname: "endpoint-da-api-aqui"
+authorization: "chave-da-api-aqui"
 ```
 
 Já a resposta será um array do tipo:
@@ -60,6 +60,8 @@ Já a resposta será um array do tipo:
 ```
 
 Como a API será consumida por uma aplicação Node -- e os números são todos _floats_ por causa do JavaScript (JS) em si -- modifiquei o estilo da resposta a ser apresentada aqui porque, para a aplicação, não vai importar se o número será __float__ ou __int__.
+
+#### CLI
 
 ## Tags
 
@@ -94,7 +96,6 @@ npm run tags
 
 # Construído com
 * [Dotenv](https://www.npmjs.com/package/dotenv)
-* [Cron](https://www.npmjs.com/package/cron)
 
 ## Código
 Simples [Typescript](http://typescriptlang.org/) com o padrão de escrita [Microsoft](https://github.com/Microsoft/tslint-microsoft-contrib).

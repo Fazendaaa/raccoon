@@ -29,6 +29,5 @@ export const reviewResponse = (array: Array<Response>): Review => array.sort(byT
     projects: {},
     tracebacks: [],
     request_counter: 0,
-    total_timestamp: 0,
-    standard_deviation: 0
+    total_timestamp: 0
 });

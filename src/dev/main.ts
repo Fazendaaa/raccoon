@@ -1,21 +1,18 @@
 'use strict';
 
-import { CronJob } from 'cron';
-import { getLogs, Request } from './lib/api/raccoon';
+import { getLogs__, Request } from './lib/api/raccoon';
+import { displayAnalysis__, initDisplay__ } from './lib/display/show';
 import { getAnalysis__, initAnalysis } from './lib/info/analysis';
-import { Review, reviewResponse } from './lib/info/review';
+import { reviewResponse } from './lib/info/review';
 
-try {
-    const analysis = initAnalysis();
-    const eachSecond = '* * * * * *';
-    // const eachMinute = '00 0-59 * * * *';
-    // const eachHour = '00 00 0-23 * * *';
-    const runLogs = new CronJob(eachSecond, async () => {
-        const logs = await getLogs({});
-        const reviewed = reviewResponse(logs);
+initDisplay__();
+const analysis = initAnalysis();
+setInterval(() => {
+    // const logs = await getLogs__({});
+    // const reviewed = reviewResponse(logs);
 
-        console.log(getAnalysis__(analysis, reviewed));
-    }, () => console.log('Finished request.'), true);
-} catch (e) {
-    console.error('Error on application:', e);
-}
+    // getAnalysis__(analysis, reviewed);
+    analysis.mean.push(Math.random());
+    analysis.standard_deviation.push(Math.random());
+    displayAnalysis__(analysis);
+}, 1 * 1000);

@@ -5,17 +5,18 @@ import { joinProjects } from './project';
 import { Review } from './review';
 
 export interface Analysis extends Review {
-    mean: number;
+    mean: Array<number>;
+    standard_deviation: Array<number>;
 }
 
 export const initAnalysis = (): Analysis => {
     return {
-        mean: 0,
+        mean: [],
         projects: {},
         tracebacks: [],
         request_counter: 0,
         total_timestamp: 0,
-        standard_deviation: 0
+        standard_deviation: []
     };
 };
 
@@ -57,8 +58,8 @@ export const getAnalysis__ = (total: Analysis, reviewed: Review): Analysis => {
     total.request_counter = updateRequestCounter(total, reviewed);
     total.total_timestamp = updateTimestampTotal(total, reviewed);
 
-    total.mean = calculateMean(total);
-    total.standard_deviation = calculateStandardDeviation(total);
+    total.mean.push(calculateMean(total));
+    total.standard_deviation.push(calculateStandardDeviation(total));
 
     return total;
 };

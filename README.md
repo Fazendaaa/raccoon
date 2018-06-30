@@ -17,7 +17,7 @@
 Job application.
 
 ### Dev
-Communication with a REST API that only accepts __GET__ method and it's response is a JSON, unicode, format; this response is an array of logs. This application needs to perform sorting and analysis of those logs, presenting the following:
+A Command Line Interface (CLI) application to show info about some projects. This info is processed through data consumed from an Representational State Transfer Application Programming Interface (REST API) that only accepts __GET__ method and it's response is a JSON, unicode, format; this response is an array of logs. This application needs to perform sorting and analysis of those logs, presenting the following:
 * Last five tracebacks of all projects;
 * Mean and the standard deviation from the requests;
 * Error and critical counter, grouped by hour and project.
@@ -41,8 +41,8 @@ Since the idea behind this project isn't to have access to this information but 
 The requests are being handle through the following https request:
 
 ```https
-authorization: "api-key-here"
 hostname: "endpoint-here"
+authorization: "api-key-here"
 ```
 
 The API response will be like that:
@@ -61,7 +61,9 @@ The API response will be like that:
 
 As the API are being consumed through a Node application -- and the all JavaScript (JS) numbers are _floats_ -- I've modified the response style presented here because, to the process, won't matter whether or not the numbers are __float__ or __int__.
 
-## Tags
+#### CLI
+
+### Tags
 
 # Installing
 The projects are written in [Node](https://nodejs.org/) and the help of [npm](https://www.npmjs.com/) to work. Once they are installed, just open the project directory and run the following command to install the dependencies:
@@ -94,7 +96,6 @@ npm run tags
 
 # Built with
 * [Dotenv](https://www.npmjs.com/package/dotenv)
-* [Cron](https://www.npmjs.com/package/cron)
 
 ## Code
 Plain and simple [Typescript](http://typescriptlang.org/) with the [Microsoft](https://github.com/Microsoft/tslint-microsoft-contrib) linter standards.
@@ -102,7 +103,7 @@ Plain and simple [Typescript](http://typescriptlang.org/) with the [Microsoft](h
 Some functions have side-effects, they are tagged with **__** at the end.
 
 ## Testing
-Tests are written with [Jest](https://facebook.github.io/jest/) through [ts-jest](https://www.npmjs.com/package/ts-jest) and are a integration with [Travis CI](http://travis-ci.org/). To run all tests just:
+Tests are written with [Jest](https://facebook.github.io/jest/) through [ts-jest](https://www.npmjs.com/package/ts-jest) and integrated with [Travis CI](http://travis-ci.org/). To run all tests just:
 
 ```bash
 npm test

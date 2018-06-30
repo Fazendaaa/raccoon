@@ -29,10 +29,9 @@ export interface Response extends Object {
 export interface TotalRequest extends Object {
     total_timestamp: number;
     request_counter: number;
-    standard_deviation: number;
 }
 
-const handleApiData = (response: IncomingMessage): Promise<string | Error> => new Promise((resolve, reject) => {
+const handleApiData__ = (response: IncomingMessage): Promise<string | Error> => new Promise((resolve, reject) => {
     let chunk = '';
 
     if (200 !== response.statusCode) {
@@ -44,8 +43,8 @@ const handleApiData = (response: IncomingMessage): Promise<string | Error> => ne
     response.on('end', () => resolve(chunk));
 });
 
-const getPromise = (request: RequestOptions): Promise<string | Error> => new Promise(resolve => {
-    get(request, async (response) => resolve(await handleApiData(response)))
+const getPromise__ = (request: RequestOptions): Promise<string | Error> => new Promise(resolve => {
+    get(request, async (response) => resolve(await handleApiData__(response)))
     .on('error', (e) => {
         throw e;
     });
@@ -54,7 +53,7 @@ const getPromise = (request: RequestOptions): Promise<string | Error> => new Pro
 const defaultAuthorization = <string> process.env.API_KEY;
 const defaultHostname = <string> process.env.HOSTNAME;
 
-export const getLogs = async ({ authorization = defaultAuthorization, hostname = defaultHostname }: Request): Promise<Array<Response>> => {
+export const getLogs__ = async ({ authorization = defaultAuthorization, hostname = defaultHostname }: Request): Promise<Array<Response>> => {
     const split = hostname.split(/\/(.+)/);
     const request =  {
         hostname: split[0],
@@ -63,7 +62,7 @@ export const getLogs = async ({ authorization = defaultAuthorization, hostname =
     };
 
     try {
-        const response = <string> await getPromise(request);
+        const response = <string> await getPromise__(request);
 
         return JSON.parse(response);
     } catch (e) {
