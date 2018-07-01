@@ -20,6 +20,5 @@ export const displayAnalysis__ = (data: Analysis): void => {
 
 export const displayRefresh__ = (): NodeJS.Timer => setInterval(() => {
     displayTimer__();
-    // update display errors each hour
     display.render();
 }, 1 * 1000);

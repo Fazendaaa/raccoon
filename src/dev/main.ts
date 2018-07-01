@@ -7,7 +7,7 @@ import { reviewResponse } from './lib/info/review';
 
 const analysis = initAnalysis();
 
-const execute = (): void => {
+const dataAnalysis = (): void => {
     // const logs = await getLogs__({});
     // const reviewed = reviewResponse(logs);
 
@@ -17,11 +17,17 @@ const execute = (): void => {
     displayAnalysis__(analysis);
 };
 
-const executeAndInterval = (seconds: number): NodeJS.Timer => {
-    execute();
-    displayRefresh__();
+const errorsCounter = (): void => {
+    // Update error bar
+};
 
-    return setInterval(execute, seconds * 1000);
+const executeAndInterval = (): void => {
+    dataAnalysis();
+
+    setInterval(dataAnalysis, 60 * 1000);
+    setInterval(errorsCounter, 60 * 1000 * 60);
+
+    displayRefresh__();
 }
 
-executeAndInterval(60);
+executeAndInterval();
