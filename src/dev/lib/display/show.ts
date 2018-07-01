@@ -2,30 +2,24 @@
 
 import { Analysis } from '../info/analysis';
 import { display, graph, timer, tracebacks } from './info';
-import { updateLine__ } from './update';
+import { addToTimer__, setTimer__, updateLine__ } from './update';
 
-let drawing;
+const displayTimer__ = (): void => {
+    const percentagePerSec = 100 / 60;
+    const added = addToTimer__(timer, percentagePerSec);
 
-const updateDisplay__ = (initial = 0): void => {
-    let percent = initial;
-
-    drawing = setInterval(() => {
-        timer.setData([{
-            percent,
-            color: 'green',
-            label: 'Countdown'
-        }]);
-        percent += 1.6;
-        display.render();
-    }, 1 * 1000);
-};
-
-export const initDisplay__ = (): void => updateDisplay__(new Date().getSeconds());
+    if (100 < added) {
+        setTimer__(timer, 0);
+    }
+}
 
 export const displayAnalysis__ = (data: Analysis): void => {
     updateLine__(graph, data.mean, data.standard_deviation);
     tracebacks.log('Lorem Ipsum');
-
-    clearInterval(drawing);
-    updateDisplay__();
 };
+
+export const displayRefresh__ = (): NodeJS.Timer => setInterval(() => {
+    displayTimer__();
+    // update display errors each hour
+    display.render();
+}, 1 * 1000);

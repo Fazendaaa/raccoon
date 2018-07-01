@@ -16,8 +16,14 @@ const deviationTotal = {
     x: [],
     y: [],
     style: {
-        line: 'green'
+        line: 'yellow'
     }
+};
+
+const timerTotal = {
+    percent: 0,
+    color: 'green',
+    label: 'Loading'
 };
 
 const setLineData__ = ({ x, y, ...remaining }: LineData, cur: number): void => {
@@ -33,4 +39,20 @@ export const updateLine__ = (graph: WidgetElements, mean: Array<number>, deviati
         meanTotal,
         deviationTotal
     ]);
+};
+
+export const setTimer__ = (timer: WidgetElements, value: number): number => {
+    timerTotal.percent = value;
+
+    timer.setData([ timerTotal ]);
+
+    return timerTotal.percent;
+};
+
+export const addToTimer__ = (timer: WidgetElements, value: number): number => {
+    timerTotal.percent += value;
+
+    timer.setData([ timerTotal ]);
+
+    return timerTotal.percent;
 };

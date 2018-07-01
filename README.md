@@ -26,7 +26,7 @@ The API presents the following rules:
 * 30 requisitions for minute;
 * 1200 logs each requisition or the difference between then.
 
-The application must update the data each minute, assuming the already consumed data. As discussed with the recruiter, I've decided the use the machine time to run the instead of the minute from the starting process point.
+The application must update the data each minute, assuming the already consumed data. As discussed with the recruiter, I've decided the running time from the app as the starting point for the requests.
 
 #### Data
 _Host_ and _authorization_ are being inserted in the request header through a __.env__ file as the following format:

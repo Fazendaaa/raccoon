@@ -26,7 +26,7 @@ O consumo da API possui as seguintes características:
 * Máximo de 30 requisições por minuto;
 * 1200 logs a cada requisição ou os que não foram consumidos entre as requisições.
 
-Atualizar os dados a cada minuto, levando em conta os já consumidos. Como discutido com o recrutador, decidi optar por utilizar o tempo da máquina para rodar a requisição não um minuto em relação a inicialização da aplicação.
+Atualizar os dados a cada minuto, levando em conta os já consumidos. Como discutido com o recrutador, decidi optar por utilizar o tempo de inicialização da aplicação como o contador de tempo das requisições.
 
 #### Dados
 O _host_ e a _authorization_ a serem inseridos no header da requisão encontram-se em um arquivo __.env__ no formato:

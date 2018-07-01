@@ -23,7 +23,7 @@ export const graph = background.set(0, 0, 8, 10, line, {
         y: [100]
     }],
     showNthLabel: 5,
-    label: 'Mean',
+    label: 'Time vs Value',
     showLegend: true
 });
 

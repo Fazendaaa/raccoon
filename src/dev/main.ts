@@ -1,13 +1,13 @@
 'use strict';
 
 import { getLogs__, Request } from './lib/api/raccoon';
-import { displayAnalysis__, initDisplay__ } from './lib/display/show';
+import { displayAnalysis__,  displayRefresh__ } from './lib/display/show';
 import { getAnalysis__, initAnalysis } from './lib/info/analysis';
 import { reviewResponse } from './lib/info/review';
 
-initDisplay__();
 const analysis = initAnalysis();
-setInterval(() => {
+
+const execute = (): void => {
     // const logs = await getLogs__({});
     // const reviewed = reviewResponse(logs);
 
@@ -15,4 +15,13 @@ setInterval(() => {
     analysis.mean.push(Math.random());
     analysis.standard_deviation.push(Math.random());
     displayAnalysis__(analysis);
-}, 1 * 1000);
+};
+
+const executeAndInterval = (seconds: number): NodeJS.Timer => {
+    execute();
+    displayRefresh__();
+
+    return setInterval(execute, seconds * 1000);
+}
+
+executeAndInterval(60);

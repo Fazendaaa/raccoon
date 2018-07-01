@@ -32,7 +32,8 @@
         "interface-name": false,
         "no-unnecessary-semicolons": false,
         "semicolon": false,
-        "variable-name": false
+        "variable-name": false,
+        "insecure-random": false
     },
     "rulesDirectory": []
 }
