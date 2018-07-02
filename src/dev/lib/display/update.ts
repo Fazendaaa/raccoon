@@ -38,13 +38,17 @@ const setAxis = (data: Array<number>) => {
     };
 };
 
-const randomColor = (): Array<number> => [ Math.random() * 255, Math.random() * 255, Math.random() * 255 ];
+const generateRandom = (min: number, max: number): number => Math.random() * ((max - min) + min);
+
+const randomColor = (): Array<number> => [ generateRandom(0, 255), generateRandom(0, 255), generateRandom(0, 255) ];
 
 const setCounterData__ = (data: Array<number>, title: string): BarData => {
     return {
         title,
         ...setAxis(data),
-        style: randomColor()
+        style: {
+            line: randomColor()
+        }
     };
 };
 
