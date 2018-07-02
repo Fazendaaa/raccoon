@@ -1,6 +1,7 @@
 'use strict';
 
 import { BarData, LineData, WidgetElements } from 'blessed-contrib';
+import { Response } from '../api/raccoon';
 
 const timerTotal = {
     percent: 0,
@@ -61,4 +62,14 @@ export const updateCounter__ = (error: WidgetElements, critical: WidgetElements,
 
     error.setData(counter.error_counter);
     critical.setData(counter.critical_counter);
+};
+
+export const updateTracebacks__ = (table: WidgetElements, tracebacks: Array<Response>): void => {
+    table.setData({
+        headers: ['Project', 'col2', 'col3'],
+        data: [
+            [1, 2, 3],
+            [4, 5, 6]
+        ]
+    });
 };

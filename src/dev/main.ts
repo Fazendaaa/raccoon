@@ -1,9 +1,9 @@
 'use strict';
 
 import { getLogs__, Request } from './lib/api/raccoon';
+import { Analysis, getAnalysis__, getCounters__, initAnalysis } from './lib/data/analysis';
+import { reviewResponse } from './lib/data/review';
 import { displayAnalysis__, displayCounter__, displayRefresh__ } from './lib/display/show';
-import { Analysis, getAnalysis__, getCounters__, initAnalysis } from './lib/info/analysis';
-import { reviewResponse } from './lib/info/review';
 
 const fetchAPI__ = async (data: Analysis): Promise<void> => {
     // const logs = await getLogs__({});

@@ -1,8 +1,8 @@
 'use strict';
 
-import { Analysis } from '../info/analysis';
-import { criticalCounter, display, errorCounter, graph, timer, tracebacks } from './info';
-import { updateCounter__, updateGraph__ } from './update';
+import { Analysis } from '../data/analysis';
+import { criticalCounter, display, errorCounter, graph, timer, tracing } from './info';
+import { updateCounter__, updateGraph__, updateTracebacks__ } from './update';
 
 let totalTimer = 1;
 
@@ -16,9 +16,9 @@ const displayTimer__ = (): void => {
     }
 }
 
-export const displayAnalysis__ = ({ mean, standard_deviation }: Analysis): void => {
+export const displayAnalysis__ = ({ mean, standard_deviation, tracebacks }: Analysis): void => {
     updateGraph__(graph, mean, standard_deviation);
-    tracebacks.log('Lorem Ipsum');
+    updateTracebacks__(tracing, tracebacks);
 };
 
 export const displayCounter__ = ({ projects }: Analysis): void => updateCounter__(errorCounter, criticalCounter, projects);

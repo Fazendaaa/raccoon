@@ -1,7 +1,7 @@
 'use strict';
 
 import { screen } from 'blessed';
-import { gauge, grid, line, log, markdown, set, stackedBar } from 'blessed-contrib';
+import { gauge, grid, line, markdown, set, stackedBar, table } from 'blessed-contrib';
 
 export const display = screen();
 
@@ -30,10 +30,23 @@ const header = background.set(9, 43, 22, 7, markdown, {
     label: 'Usage'
 });
 
-export const tracebacks = background.set(30, 0, 21, 25, log, {
-    fg: 'green',
-    label: 'Tracebacks',
-    selectedFg: 'green'
+header.setMarkdown('\n\
+To exit press: Escape (ESC), Ctrl + c, q\n\n\
+To save all the data as CSV just terminate the program.\n\
+');
+
+export const tracing = background.set(30, 0, 21, 25, table, {
+    keys: true
+    , fg: 'white'
+    , selectedFg: 'white'
+    , selectedBg: 'blue'
+    , interactive: true
+    , label: 'Active Processes'
+    , width: '30%'
+    , height: '30%'
+    , border: { type: 'line', fg: 'cyan' }
+    , columnSpacing: 10
+    , columnWidth: [16, 12, 12]
 });
 
 export const criticalCounter = background.set(30, 25, 10, 25, line, {
@@ -64,6 +77,6 @@ display.on('resize', () => {
     graph.emit('attach');
     timer.emit('attach');
     header.emit('attach');
-    tracebacks.emit('attach');
+    tracing.emit('attach');
     errorCounter.emit('attach');
 });
