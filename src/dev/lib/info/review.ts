@@ -1,7 +1,7 @@
 'use strict';
 
 import { byTimestamp, Response, TotalRequest } from '../api/raccoon';
-import { addToProject, joinProjects, newProject } from './project';
+import { addToProject, newProject } from './project';
 
 export interface Review extends TotalRequest {
     projects: object;

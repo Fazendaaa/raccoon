@@ -1,8 +1,8 @@
 'use strict';
 
 import { Analysis } from '../info/analysis';
-import { display, errorCounter, graph, timer, tracebacks } from './info';
-import { addToTimer__, setTimer__, updateErrorCounter__, updateGraph__ } from './update';
+import { criticalCounter, display, errorCounter, graph, timer, tracebacks } from './info';
+import { addToTimer__, setTimer__, updateCounter__, updateGraph__ } from './update';
 
 const displayTimer__ = (): void => {
     const percentagePerSec = 100 / 60;
@@ -13,14 +13,12 @@ const displayTimer__ = (): void => {
     }
 }
 
-export const displayAnalysis__ = (data: Analysis): void => {
-    updateGraph__(graph, data.mean, data.standard_deviation);
+export const displayAnalysis__ = ({ mean, standard_deviation }: Analysis): void => {
+    updateGraph__(graph, mean, standard_deviation);
     tracebacks.log('Lorem Ipsum');
 };
 
-export const displayErrorCounter__ = (data: Analysis): void => updateErrorCounter__(errorCounter, data.projects);
-
-export const displayCriticalCounter__ = (data: Analysis): void => updateErrorCounter__(errorCounter, data.projects);
+export const displayCounter__ = ({ projects }: Analysis): void => updateCounter__(errorCounter, criticalCounter, projects);
 
 export const displayRefresh__ = (): NodeJS.Timer => setInterval(() => {
     displayTimer__();
