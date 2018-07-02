@@ -14,16 +14,9 @@ export const initAnalysis = (): Analysis => {
         mean: [],
         projects: {},
         tracebacks: [],
-        request_counter: 0,
-        total_timestamp: 0,
+        total_timestamp: [],
         standard_deviation: []
     };
-};
-
-const updateTracebacks = (total: Analysis, { tracebacks }: Review): Array<Response> => {
-    const totalTracebacks = total.tracebacks.concat(tracebacks);
-
-    return totalTracebacks.slice(totalTracebacks.length - 5, totalTracebacks.length);
 };
 
 const updateProjects = (total: Analysis, { projects }: Review): object => {
@@ -38,25 +31,32 @@ const updateProjects = (total: Analysis, { projects }: Review): object => {
     }, total.projects);
 };
 
-const updateRequestCounter = (total: Analysis, { request_counter }: Review): number => {
-    return total.request_counter + request_counter;
+const updateTracebacks = (total: Analysis, { tracebacks }: Review): Array<Response> => {
+    const totalTracebacks = total.tracebacks.concat(tracebacks);
+
+    return totalTracebacks.slice(totalTracebacks.length - 5, totalTracebacks.length);
 };
 
-const updateTimestampTotal = (total: Analysis, { total_timestamp }: Review): number => {
-    return total.total_timestamp + total_timestamp;
+const updateTimestamp = (total: Analysis, { total_timestamp }: Review): Array<number> => {
+    return total.total_timestamp.concat(total_timestamp);
 };
 
-const calculateStandardDeviation = ({ total_timestamp, request_counter }: Analysis): number => 0;
+const calculateStandardDeviation = ({ total_timestamp, mean }: Analysis): number => {
+    const lastMean = mean[mean.length - 1];
+    const dividend = total_timestamp.reduce((acc, cur) => acc + (cur - lastMean), 0);
+    const divisor = total_timestamp.length;
 
-const calculateMean = ({ total_timestamp, request_counter }: Analysis): number => {
-    return Math.trunc(total_timestamp / request_counter);
+    return Math.sqrt(Math.pow(dividend, 2) / divisor);
+};
+
+const calculateMean = ({ total_timestamp }: Analysis): number => {
+    return Math.trunc(total_timestamp.reduce((acc, cur) => acc + cur, 0) / total_timestamp.length);
 };
 
 export const getAnalysis__ = (total: Analysis, reviewed: Review): Analysis => {
     total.projects = updateProjects(total, reviewed);
     total.tracebacks = updateTracebacks(total, reviewed);
-    total.request_counter = updateRequestCounter(total, reviewed);
-    total.total_timestamp = updateTimestampTotal(total, reviewed);
+    total.total_timestamp = updateTimestamp(total, reviewed);
 
     total.mean.push(calculateMean(total));
     total.standard_deviation.push(calculateStandardDeviation(total));

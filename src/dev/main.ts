@@ -7,25 +7,34 @@ import { reviewResponse } from './lib/info/review';
 
 const analysis = initAnalysis();
 
-const dataAnalysis = (): void => {
+const generateRandom = (min: number, max: number): number => Math.random() * ((max - min) + min);
+
+const dataAnalysis__ = (): void => {
     // const logs = await getLogs__({});
     // const reviewed = reviewResponse(logs);
-
     // getAnalysis__(analysis, reviewed);
-    analysis.mean.push(Math.random());
-    analysis.standard_deviation.push(Math.random());
+
+    const mock = {
+        projects: {},
+        tracebacks: [],
+        mean: [generateRandom(5, 20)],
+        total_timestamp: [generateRandom(5, 20)]
+    };
+
+    getAnalysis__(analysis, mock);
     displayAnalysis__(analysis);
 };
 
-const errorsCounter = (): void => {
+const errorsCounter__ = (): void => {
     // Update error bar
 };
 
 const executeAndInterval = (): void => {
-    dataAnalysis();
+    dataAnalysis__();
+    errorsCounter__();
 
-    setInterval(dataAnalysis, 60 * 1000);
-    setInterval(errorsCounter, 60 * 1000 * 60);
+    setInterval(dataAnalysis__, 1 * 1000);
+    setInterval(errorsCounter__, 60 * 1000 * 60);
 
     displayRefresh__();
 }

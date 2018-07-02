@@ -27,8 +27,7 @@ export interface Response extends Object {
 };
 
 export interface TotalRequest extends Object {
-    total_timestamp: number;
-    request_counter: number;
+    total_timestamp: Array<number>;
 }
 
 const handleApiData__ = (response: IncomingMessage): Promise<string | Error> => new Promise((resolve, reject) => {

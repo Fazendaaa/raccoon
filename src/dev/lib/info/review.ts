@@ -12,8 +12,7 @@ const toReview = (total: Review, current: Response): Review => {
     const name = current.project;
 
     if (current.hasOwnProperty('response_code') || current.hasOwnProperty('request_duration')) {
-        total.total_timestamp += current.timestamp;
-        total.request_counter += 1;
+        total.total_timestamp.push(current.timestamp);
     } if (current.hasOwnProperty('traceback')) {
         total.tracebacks.push(current);
     } if (!total.projects.hasOwnProperty(name)) {
@@ -28,6 +27,5 @@ const toReview = (total: Review, current: Response): Review => {
 export const reviewResponse = (array: Array<Response>): Review => array.sort(byTimestamp).reduce(toReview, {
     projects: {},
     tracebacks: [],
-    request_counter: 0,
-    total_timestamp: 0
+    total_timestamp: []
 });
