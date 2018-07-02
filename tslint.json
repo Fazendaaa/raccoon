@@ -33,7 +33,8 @@
         "no-unnecessary-semicolons": false,
         "semicolon": false,
         "variable-name": false,
-        "insecure-random": false
+        "insecure-random": false,
+        "no-return-await": false
     },
     "rulesDirectory": []
 }

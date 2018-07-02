@@ -31,7 +31,7 @@ const setLineData__ = ({ x, y, ...remaining }: LineData, cur: number): void => {
     x.push(x.length.toString());
 };
 
-export const updateLine__ = (graph: WidgetElements, mean: Array<number>, deviation: Array<number>): void => {
+export const updateGraph__ = (graph: WidgetElements, mean: Array<number>, deviation: Array<number>): void => {
     setLineData__(meanTotal, mean[mean.length - 1]);
     setLineData__(deviationTotal, deviation[deviation.length - 1]);
 
@@ -40,6 +40,14 @@ export const updateLine__ = (graph: WidgetElements, mean: Array<number>, deviati
         deviationTotal
     ]);
 };
+
+export const updateErrorCounter__ = (graph: WidgetElements, projects: object): void => {
+
+};
+
+export const updateCriticalCounter__ = (graph: WidgetElements, projects: object): void => {
+
+}
 
 export const setTimer__ = (timer: WidgetElements, value: number): number => {
     timerTotal.percent = value;

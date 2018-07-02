@@ -11,7 +11,7 @@ const background = new grid({
     screen: display
 });
 
-export const graph = background.set(0, 0, 8, 10, line, {
+export const graph = background.set(0, 0, 7, 10, line, {
     style: {
         text: 'green',
         line: 'yellow',
@@ -35,27 +35,32 @@ export const timer = background.set(0, 10, 3, 2, donut, {
     remainColor: 'black'
 });
 
-const header = background.set(3, 10, 5.2, 2, markdown, {
+const header = background.set(3, 10, 4.2, 2, markdown, {
     label: 'Usage'
 });
 
-export const tracebacks = background.set(8, 0, 4.25, 6, log, {
+export const tracebacks = background.set(7, 0, 5.25, 6, log, {
     fg: 'green',
     label: 'Tracebacks',
     selectedFg: 'green'
 });
 
-export const errorCounter = background.set(8, 6, 4.25, 6, line, {
+export const criticalCounter = background.set(7, 6, 2.5, 6, line, {
+    style: {
+        text: 'blue',
+        line: 'white',
+        baseline: 'black'
+    },
+    showLegend: true,
+    label: 'Critical Counter'
+});
+
+export const errorCounter = background.set(9.5, 6, 2.65, 6, line, {
     style: {
         text: 'green',
         line: 'yellow',
         baseline: 'black'
     },
-    data: [{
-        title: '',
-        x: [],
-        y: [10]
-    }],
     showLegend: true,
     label: 'Error Counter'
 });
