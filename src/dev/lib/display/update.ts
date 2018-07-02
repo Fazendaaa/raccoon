@@ -2,33 +2,10 @@
 
 import { BarData, LineData, WidgetElements } from 'blessed-contrib';
 
-const meanTotal = {
-    title: 'Mean',
-    x: [],
-    y: [],
-    style: {
-        line: 'red'
-    }
-};
-
-const deviationTotal = {
-    title: 'Deviation',
-    x: [],
-    y: [],
-    style: {
-        line: 'yellow'
-    }
-};
-
 const timerTotal = {
     percent: 0,
     color: 'green',
     label: 'Loading'
-};
-
-const setGraphData__ = ({ x, y, ...remaining }: LineData, cur: number): void => {
-    y.push(cur);
-    x.push(x.length.toString());
 };
 
 const setAxis = (data: Array<number>) => {
@@ -52,14 +29,20 @@ const setCounterData__ = (data: Array<number>, title: string): BarData => {
     };
 };
 
-export const updateGraph__ = (graph: WidgetElements, mean: Array<number>, deviation: Array<number>): void => {
-    setGraphData__(meanTotal, mean[mean.length - 1]);
-    setGraphData__(deviationTotal, deviation[deviation.length - 1]);
+const roundDeviation = (deviation: number): number => parseFloat(deviation.toFixed(1));
 
-    graph.setData([
-        meanTotal,
-        deviationTotal
-    ]);
+export const updateGraph__ = (graph: WidgetElements, mean: Array<number>, deviation: Array<number>): void => {
+    const joined = mean.map((value, index) => [ value, roundDeviation(deviation[index]) ]);
+    const length = joined.length;
+    const limit = 22;
+    const diff = (limit > length) ? 0 : Math.abs(limit - joined.length);
+    const data = joined.slice(diff, length);
+
+    graph.setData({
+        data,
+        stackedCategory: ['Mean', 'Deviation'],
+        barCategory: data.map((_, index) => (diff + index).toString())
+    });
 };
 
 export const updateCounter__ = (error: WidgetElements, critical: WidgetElements, projects: object): void => {
@@ -78,20 +61,4 @@ export const updateCounter__ = (error: WidgetElements, critical: WidgetElements,
 
     error.setData(counter.error_counter);
     critical.setData(counter.critical_counter);
-};
-
-export const setTimer__ = (timer: WidgetElements, value: number): number => {
-    timerTotal.percent = value;
-
-    timer.setData([ timerTotal ]);
-
-    return timerTotal.percent;
-};
-
-export const addToTimer__ = (timer: WidgetElements, value: number): number => {
-    timerTotal.percent += value;
-
-    timer.setData([ timerTotal ]);
-
-    return timerTotal.percent;
 };

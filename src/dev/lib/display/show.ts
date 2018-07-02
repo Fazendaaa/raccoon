@@ -2,14 +2,17 @@
 
 import { Analysis } from '../info/analysis';
 import { criticalCounter, display, errorCounter, graph, timer, tracebacks } from './info';
-import { addToTimer__, setTimer__, updateCounter__, updateGraph__ } from './update';
+import { updateCounter__, updateGraph__ } from './update';
+
+let totalTimer = 1;
 
 const displayTimer__ = (): void => {
     const percentagePerSec = 100 / 60;
-    const added = addToTimer__(timer, percentagePerSec);
+    timer.setPercent(totalTimer * percentagePerSec);
+    totalTimer += 1;
 
-    if (100 < added) {
-        setTimer__(timer, 0);
+    if (61 === totalTimer) {
+        totalTimer = 0;
     }
 }
 

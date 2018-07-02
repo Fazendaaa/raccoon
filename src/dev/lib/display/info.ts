@@ -1,51 +1,42 @@
 'use strict';
 
 import { screen } from 'blessed';
-import { donut, grid, line, log, markdown, set } from 'blessed-contrib';
+import { gauge, grid, line, log, markdown, set, stackedBar } from 'blessed-contrib';
 
 export const display = screen();
 
 const background = new grid({
-    rows: 12,
-    cols: 12,
+    rows: 50,
+    cols: 50,
     screen: display
 });
 
-export const graph = background.set(0, 0, 7, 10, line, {
-    style: {
-        text: 'green',
-        line: 'yellow',
-        baseline: 'black'
-    },
-    data: [{
-        title: '',
-        x: [],
-        y: [100]
-    }],
-    showNthLabel: 5,
-    label: 'Time vs Value',
-    showLegend: true
+export const graph = background.set(0, 0, 30, 43, stackedBar, {
+    label: 'Min vs Requests',
+    barWidth: 2,
+    barSpacing: -1,
+    xOffset: 1,
+    height: '100%',
+    barBgColor: ['red', 'blue']
 });
 
-export const timer = background.set(0, 10, 3, 2, donut, {
-    label: 'Next Update',
-    radius: 0,
-    yPadding: 2,
-    archWidth: 2,
-    remainColor: 'black'
+export const timer = background.set(0, 43, 9, 7, gauge, {
+    fill: 'white',
+    stroke: 'green',
+    label: 'Next Update'
 });
 
-const header = background.set(3, 10, 4.2, 2, markdown, {
+const header = background.set(9, 43, 22, 7, markdown, {
     label: 'Usage'
 });
 
-export const tracebacks = background.set(7, 0, 5.25, 6, log, {
+export const tracebacks = background.set(30, 0, 21, 25, log, {
     fg: 'green',
     label: 'Tracebacks',
     selectedFg: 'green'
 });
 
-export const criticalCounter = background.set(7, 6, 2.5, 6, line, {
+export const criticalCounter = background.set(30, 25, 10, 25, line, {
     style: {
         text: 'blue',
         line: 'white',
@@ -55,7 +46,7 @@ export const criticalCounter = background.set(7, 6, 2.5, 6, line, {
     label: 'Critical Counter'
 });
 
-export const errorCounter = background.set(9.5, 6, 2.65, 6, line, {
+export const errorCounter = background.set(40, 25, 11, 25, line, {
     style: {
         text: 'green',
         line: 'yellow',
