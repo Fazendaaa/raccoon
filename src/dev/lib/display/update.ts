@@ -79,15 +79,23 @@ const createChildren = ({ level, message, timestamp, traceback, response_code, r
     };
 };
 
-export const updateTracebacks__ = (table: WidgetElements, tracebacks: Array<Response>): void => {
-    const children = tracebacks.reduce((acc, { project, ...remaining }) => {
+const tracebackChildren = (tracebacks: Array<Response>): Object => {
+    if (0 === tracebacks.length) {
+        return {
+            'Soon data will be displayed here': {}
+        };
+    }
+
+    return tracebacks.reduce((acc, { project, ...remaining }) => {
         acc[project] = createChildren(remaining);
 
         return acc;
     }, {});
+};
 
+export const updateTracebacks__ = (table: WidgetElements, tracebacks: Array<Response>): void => {
     table.setData({
         extended: true,
-        children
+        children: tracebackChildren(tracebacks)
     });
 };

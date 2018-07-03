@@ -5,7 +5,7 @@ import { Analysis, getAnalysis__, getCounters__, initAnalysis } from './lib/data
 import { reviewResponse } from './lib/data/review';
 import { displayAnalysis__, displayCounter__, displayRefresh__ } from './lib/display/show';
 
-const execute__ = async (data: Analysis): Promise<void> => {
+const executeAnalysis__ = async (data: Analysis): Promise<void> => {
     const logs = await getLogs__({});
     const reviewed = reviewResponse(logs);
 
@@ -56,13 +56,13 @@ const executeAndInterval__ = async (): Promise<void> => {
 
     displayRefresh__();
 
-    await execute__(analysis);
+    await executeAnalysis__(analysis);
     getCounters__(analysis);
 
     displayAnalysis__(analysis);
     displayCounter__(analysis);
 
-    setInterval(async () => await execute__(analysis), eachTwoSec);
+    setInterval(async () => await executeAnalysis__(analysis), eachTwoSec);
     setInterval(() => getCounters__(analysis), eachHour);
 
     setInterval(() => displayAnalysis__(analysis), eachMinute);
