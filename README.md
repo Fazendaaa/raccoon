@@ -16,6 +16,8 @@
 ## About
 Job application.
 
+All of this work was made in a Linux environment only, using it in Mac or Windows might need some different steps; read carefully the steps about installing and configuring the applications.
+
 ### Dev
 A Command Line Interface (CLI) application to show info about some projects. This info is processed through data consumed from an Representational State Transfer Application Programming Interface (REST API) that only accepts __GET__ method and it's response is a JSON, unicode, format; this response is an array of logs. This application needs to perform sorting and analysis of those logs, presenting the following:
 * Last five tracebacks of all projects;
@@ -95,7 +97,11 @@ npm run tags
 ```
 
 # Built with
-* [Dotenv](https://www.npmjs.com/package/dotenv)
+* [blessed](https://github.com/chjj/blessed)
+* [blessed-contrib](https://github.com/yaronn/blessed-contrib)
+* [json2csv](https://github.com/zemirco/json2csv)
+* [Dotenv](https://github.com/motdotla/dotenv)
+* [TypeScript](http://typescriptlang.org/)
 
 ## Code
 Plain and simple [Typescript](http://typescriptlang.org/) with the [Microsoft](https://github.com/Microsoft/tslint-microsoft-contrib) linter standards.

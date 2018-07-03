@@ -16,6 +16,8 @@
 ## Sobre
 Software desenvolvido para um processo seletivo.
 
+Todo esses trabalhos foram feitos em Linux apenas, então utilizar eles no Mac ou Windows pode requerer passos diferentes; leia com cuidado os passos de instalção e configuração dos programas.
+
 ### Dev
 Um programa de Interface de Linha de Comando (CLI) para mostrar infromações consumidos de alguns projetos. Essas informações são consumidas através de dados provenientes de uma Interface de Programação de Transferência de Dados de Transferência de Estados Representativos (REST API) que aceita apenas __GET__ e responde, no formato JSON -- unicode --, logs de softwares para que, desta maneira, desempenhe organização e agregação desses logs apresentando as seguintes informações:
 * Média e desvio padrão do tempo das requisições;
@@ -95,7 +97,11 @@ npm run tags
 ```
 
 # Construído com
-* [Dotenv](https://www.npmjs.com/package/dotenv)
+* [blessed](https://github.com/chjj/blessed)
+* [blessed-contrib](https://github.com/yaronn/blessed-contrib)
+* [json2csv](https://github.com/zemirco/json2csv)
+* [Dotenv](https://github.com/motdotla/dotenv)
+* [TypeScript](http://typescriptlang.org/)
 
 ## Código
 Simples [Typescript](http://typescriptlang.org/) com o padrão de escrita [Microsoft](https://github.com/Microsoft/tslint-microsoft-contrib).

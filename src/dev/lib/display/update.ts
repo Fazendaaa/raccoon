@@ -17,18 +17,25 @@ const setAxis = (data: Array<number>) => {
     };
 };
 
-const roundToOne = (toRound: number): number => parseFloat(toRound.toFixed(1));
+const ceilingMilliseconds = (value: number): number => Math.ceil(new Date(value).getMilliseconds());
+
+const meanAndDeviationToSeconds = (mean: Array<number>, deviation: Array<number>): Array<Array<number>> => {
+    return mean.map((value, index) => [
+        ceilingMilliseconds(value),
+        ceilingMilliseconds(deviation[index])
+    ]);
+};
 
 export const updateGraph__ = (graph: WidgetElements, mean: Array<number>, deviation: Array<number>): void => {
-    const joined = mean.map((value, index) => [ value, roundToOne(deviation[index]) ]);
+    const joined = meanAndDeviationToSeconds(mean, deviation);
     const length = joined.length;
-    const limit = 22;
+    const limit = 30;
     const diff = (limit > length) ? 0 : Math.abs(limit - joined.length);
     const data = joined.slice(diff, length);
 
     graph.setData({
         data,
-        stackedCategory: ['Mean', 'Deviation'],
+        stackedCategory: [ 'Mean', 'Deviation' ],
         barCategory: data.map((_, index) => (diff + index).toString())
     });
 };
@@ -73,6 +80,7 @@ const createChildren = ({ level, message, timestamp, traceback, response_code, r
             level: childrenfy(level),
             message: childrenfy(message),
             traceback: childrenfy(traceback),
+            timestamp: childrenfy(new Date(timestamp).toDateString()),
             response_code: childrenfy(response_code),
             request_duration: childrenfy(request_duration)
         }

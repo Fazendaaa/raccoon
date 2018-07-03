@@ -5,64 +5,28 @@ import { Analysis, getAnalysis__, getCounters__, initAnalysis } from './lib/data
 import { reviewResponse } from './lib/data/review';
 import { displayAnalysis__, displayCounter__, displayRefresh__ } from './lib/display/show';
 
-const executeAnalysis__ = async (data: Analysis): Promise<void> => {
+export const analysis = initAnalysis();
+
+const executeAnalysis__ = async (): Promise<void> => {
     const logs = await getLogs__({});
     const reviewed = reviewResponse(logs);
 
-    getAnalysis__(data, reviewed);
-
-   /*
-    const generateRandom = (min: number, max: number): number => Math.random() * ((max - min) + min);
-    const mock = {
-        projects: {
-            foo: {
-                logs: [],
-                tmp_counter: {
-                    error_counter: [generateRandom(5, 10)],
-                    critical_counter: [generateRandom(5, 10)]
-                },
-                total_counter: {
-                    error_counter: [ ],
-                    critical_counter: [ ]
-                }
-            },
-            bar: {
-                logs: [],
-                tmp_counter: {
-                    error_counter: [ generateRandom(5, 10) ],
-                    critical_counter: [ generateRandom(5, 10) ]
-                },
-                total_counter: {
-                    error_counter: [ ],
-                    critical_counter: [ ]
-                }
-            }
-        },
-        tracebacks: [],
-        mean: [ generateRandom(5, 20) ],
-        total_timestamp: [ generateRandom(5, 20) ],
-        standard_deviation: []
-    };
-
-    getAnalysis__(data, mock);
-    */
+    getAnalysis__(analysis, reviewed);
 };
 
 const executeAndInterval__ = async (): Promise<void> => {
-    const eachTwoSec = 60 * 1000;
     const eachMinute = 60 * 1000;
     const eachHour = 60 * eachMinute;
-    const analysis = initAnalysis();
 
     displayRefresh__();
 
-    await executeAnalysis__(analysis);
+    await executeAnalysis__();
     getCounters__(analysis);
 
     displayAnalysis__(analysis);
     displayCounter__(analysis);
 
-    setInterval(async () => await executeAnalysis__(analysis), eachTwoSec);
+    setInterval(async () => await executeAnalysis__(), eachMinute);
     setInterval(() => getCounters__(analysis), eachHour);
 
     setInterval(() => displayAnalysis__(analysis), eachMinute);
