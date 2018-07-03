@@ -5,14 +5,13 @@ import { Analysis, getAnalysis__, getCounters__, initAnalysis } from './lib/data
 import { reviewResponse } from './lib/data/review';
 import { displayAnalysis__, displayCounter__, displayRefresh__ } from './lib/display/show';
 
-const fetchAPI__ = async (data: Analysis): Promise<void> => {
-    /*
+const execute__ = async (data: Analysis): Promise<void> => {
     const logs = await getLogs__({});
     const reviewed = reviewResponse(logs);
 
     getAnalysis__(data, reviewed);
-    */
 
+   /*
     const generateRandom = (min: number, max: number): number => Math.random() * ((max - min) + min);
     const mock = {
         projects: {
@@ -41,28 +40,29 @@ const fetchAPI__ = async (data: Analysis): Promise<void> => {
         },
         tracebacks: [],
         mean: [ generateRandom(5, 20) ],
-        total_timestamp: [ generateRandom(5, 20) ]
+        total_timestamp: [ generateRandom(5, 20) ],
+        standard_deviation: []
     };
 
     getAnalysis__(data, mock);
+    */
 };
 
 const executeAndInterval__ = async (): Promise<void> => {
-    const eachMinute = 5 * 1000;
+    const eachTwoSec = 60 * 1000;
+    const eachMinute = 60 * 1000;
     const eachHour = 60 * eachMinute;
-    // const eachMinute = 1 * 1000;
-    // const eachHour = 5 * eachMinute;
     const analysis = initAnalysis();
 
     displayRefresh__();
 
-    await fetchAPI__(analysis);
+    await execute__(analysis);
     getCounters__(analysis);
 
     displayAnalysis__(analysis);
     displayCounter__(analysis);
 
-    setInterval(async () => await fetchAPI__(analysis), eachMinute);
+    setInterval(async () => await execute__(analysis), eachTwoSec);
     setInterval(() => getCounters__(analysis), eachHour);
 
     setInterval(() => displayAnalysis__(analysis), eachMinute);

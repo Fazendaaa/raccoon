@@ -20,21 +20,17 @@ export const graph = background.set(0, 0, 30, 43, stackedBar, {
     barBgColor: ['red', 'blue']
 });
 
-export const timer = background.set(0, 43, 9, 7, gauge, {
+export const minute = background.set(0, 43, 9, 7, gauge, {
     fill: 'white',
     stroke: 'green',
-    label: 'Next Update'
+    label: 'Next Update Per Minute'
 });
 
-const header = background.set(9, 43, 22, 7, markdown, {
-    label: 'Usage'
+export const hour = background.set(9, 43, 10, 7, gauge, {
+    fill: 'white',
+    stroke: 'red',
+    label: 'Next Update Per Hour'
 });
-
-header.setMarkdown('\n\
-To exit press: Escape (ESC), q, Ctrl + c\n\n\
-To save all the data as CSV just terminate the program.\n\n\
-To see more of traceback and counter just hover mouse over a then navigate through arrows and Enter.\n\
-');
 
 const displayData = background.set(30, 20, 21, 30, markdown, {
     label: 'Display Data'
@@ -83,8 +79,7 @@ display.key(['escape', 'q', 'C-c'], (ch, key) => {
 
 display.on('resize', () => {
     graph.emit('attach');
-    timer.emit('attach');
-    header.emit('attach');
+    minute.emit('attach');
     tracing.emit('attach');
     counter.emit('attach');
 });

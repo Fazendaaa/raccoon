@@ -44,7 +44,7 @@ export const updateCounter__ = (counter: WidgetElements, projects: object): void
         }
 
         return acc;
-    }, projects);
+    }, {});
 
     counter.setData({
         extended: true,

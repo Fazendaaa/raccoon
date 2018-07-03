@@ -1,18 +1,27 @@
 'use strict';
 
 import { Analysis } from '../data/analysis';
-import { counter, display, graph, timer, tracing } from './info';
+import { counter, display, graph, hour, minute, tracing } from './info';
 import { updateCounter__, updateGraph__, updateTracebacks__ } from './update';
 
-let totalTimer = 1;
+const totalTimer = {
+    second: 1,
+    minute: 0
+};
 
 const displayTimer__ = (): void => {
-    const percentagePerSec = 100 / 60;
-    timer.setPercent(totalTimer * percentagePerSec);
-    totalTimer += 1;
+    const percentage = 100 / 60;
 
-    if (61 === totalTimer) {
-        totalTimer = 0;
+    minute.setPercent(totalTimer.second * percentage);
+    hour.setPercent(totalTimer.minute * percentage);
+
+    totalTimer.second += 1;
+
+    if (61 === totalTimer.second) {
+        totalTimer.second = 0;
+        totalTimer.minute += 1;
+    } if (61 === totalTimer.minute) {
+        totalTimer.minute = 0;
     }
 }
 
