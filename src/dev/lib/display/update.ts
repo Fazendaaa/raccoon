@@ -2,6 +2,7 @@
 
 import { BarData, LineData, WidgetElements } from 'blessed-contrib';
 import { Response } from '../api/raccoon';
+import { Counter } from '../data/project';
 
 const timerTotal = {
     percent: 0,
@@ -16,24 +17,10 @@ const setAxis = (data: Array<number>) => {
     };
 };
 
-const generateRandom = (min: number, max: number): number => Math.random() * ((max - min) + min);
-
-const randomColor = (): Array<number> => [ generateRandom(0, 255), generateRandom(0, 255), generateRandom(0, 255) ];
-
-const setCounterData__ = (data: Array<number>, title: string): BarData => {
-    return {
-        title,
-        ...setAxis(data),
-        style: {
-            line: randomColor()
-        }
-    };
-};
-
-const roundDeviation = (deviation: number): number => parseFloat(deviation.toFixed(1));
+const roundToOne = (toRound: number): number => parseFloat(toRound.toFixed(1));
 
 export const updateGraph__ = (graph: WidgetElements, mean: Array<number>, deviation: Array<number>): void => {
-    const joined = mean.map((value, index) => [ value, roundDeviation(deviation[index]) ]);
+    const joined = mean.map((value, index) => [ value, roundToOne(deviation[index]) ]);
     const length = joined.length;
     const limit = 22;
     const diff = (limit > length) ? 0 : Math.abs(limit - joined.length);
@@ -46,30 +33,61 @@ export const updateGraph__ = (graph: WidgetElements, mean: Array<number>, deviat
     });
 };
 
-export const updateCounter__ = (error: WidgetElements, critical: WidgetElements, projects: object): void => {
-    const counter = Object.keys(projects).reduce((acc, name: string) => {
-        const curError = projects[name].total_counter.error_counter;
-        const curCritical = projects[name].total_counter.critical_counter;
+const totalCounterToData = ({ critical_counter, error_counter }: Counter): Array<Array<number>> => {
+    return [ critical_counter, error_counter ];
+};
 
-        acc.error_counter.push(setCounterData__(curError, name));
-        acc.critical_counter.push(setCounterData__(curCritical, name));
+export const updateCounter__ = (counter: WidgetElements, projects: object): void => {
+    const children = Object.keys(projects).reduce((acc, name: string) => {
+        acc[name] = {
+            data: totalCounterToData(projects[name].total_counter)
+        }
 
         return acc;
-    }, {
-        error_counter: [],
-        critical_counter: []
-    });
+    }, projects);
 
-    error.setData(counter.error_counter);
-    critical.setData(counter.critical_counter);
+    counter.setData({
+        extended: true,
+        children
+    });
+};
+
+interface Father {
+    level: string;
+    message: string;
+    timestamp: number;
+    traceback?: string;
+    response_code?: number;
+    request_duration?: number;
+}
+
+const childrenfy = (value: any) => {
+    return {
+        data: (undefined !== value) ? value.toString() : 'Not available'
+    };
+};
+
+const createChildren = ({ level, message, timestamp, traceback, response_code, request_duration }: Father) => {
+    return {
+        children: {
+            level: childrenfy(level),
+            message: childrenfy(message),
+            traceback: childrenfy(traceback),
+            response_code: childrenfy(response_code),
+            request_duration: childrenfy(request_duration)
+        }
+    };
 };
 
 export const updateTracebacks__ = (table: WidgetElements, tracebacks: Array<Response>): void => {
+    const children = tracebacks.reduce((acc, { project, ...remaining }) => {
+        acc[project] = createChildren(remaining);
+
+        return acc;
+    }, {});
+
     table.setData({
-        headers: ['Project', 'col2', 'col3'],
-        data: [
-            [1, 2, 3],
-            [4, 5, 6]
-        ]
+        extended: true,
+        children
     });
 };

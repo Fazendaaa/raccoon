@@ -6,9 +6,12 @@ import { reviewResponse } from './lib/data/review';
 import { displayAnalysis__, displayCounter__, displayRefresh__ } from './lib/display/show';
 
 const fetchAPI__ = async (data: Analysis): Promise<void> => {
-    // const logs = await getLogs__({});
-    // const reviewed = reviewResponse(logs);
-    // getAnalysis__(analysis, reviewed);
+    /*
+    const logs = await getLogs__({});
+    const reviewed = reviewResponse(logs);
+
+    getAnalysis__(data, reviewed);
+    */
 
     const generateRandom = (min: number, max: number): number => Math.random() * ((max - min) + min);
     const mock = {
@@ -45,10 +48,10 @@ const fetchAPI__ = async (data: Analysis): Promise<void> => {
 };
 
 const executeAndInterval__ = async (): Promise<void> => {
-    // const eachMinute = 60 * 1000;
-    // const eachHour = 60 * eachMinute;
-    const eachMinute = 1 * 1000;
-    const eachHour = 5 * eachMinute;
+    const eachMinute = 5 * 1000;
+    const eachHour = 60 * eachMinute;
+    // const eachMinute = 1 * 1000;
+    // const eachHour = 5 * eachMinute;
     const analysis = initAnalysis();
 
     displayRefresh__();

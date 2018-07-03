@@ -1,7 +1,7 @@
 'use strict';
 
 import { Analysis } from '../data/analysis';
-import { criticalCounter, display, errorCounter, graph, timer, tracing } from './info';
+import { counter, display, graph, timer, tracing } from './info';
 import { updateCounter__, updateGraph__, updateTracebacks__ } from './update';
 
 let totalTimer = 1;
@@ -21,7 +21,7 @@ export const displayAnalysis__ = ({ mean, standard_deviation, tracebacks }: Anal
     updateTracebacks__(tracing, tracebacks);
 };
 
-export const displayCounter__ = ({ projects }: Analysis): void => updateCounter__(errorCounter, criticalCounter, projects);
+export const displayCounter__ = ({ projects }: Analysis): void => updateCounter__(counter, projects);
 
 export const displayRefresh__ = (): NodeJS.Timer => setInterval(() => {
     displayTimer__();
