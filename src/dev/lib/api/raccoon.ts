@@ -31,15 +31,15 @@ export interface TotalRequest extends Object {
 }
 
 const handleApiData__ = (response: IncomingMessage): Promise<string | Error> => new Promise((resolve, reject) => {
-    let chunk = '';
+    const chunk = [];
 
     if (200 !== response.statusCode) {
         throw new Error('Connection not accepted.');
     }
 
     response.setEncoding('utf8');
-    response.on('data', (data: string) => chunk += data);
-    response.on('end', () => resolve(chunk));
+    response.on('data', (data: string) => chunk.push(data));
+    response.on('end', () => resolve(chunk.join('')));
 });
 
 const getPromise__ = (request: RequestOptions): Promise<string | Error> => new Promise(resolve => {

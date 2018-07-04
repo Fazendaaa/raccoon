@@ -9,30 +9,36 @@ export interface Analysis extends Review {
     standard_deviation: Array<number>;
 }
 
-const updateProjects = (total: Analysis, { projects }: Review): object => {
-    return Object.keys(projects).reduce((acc: object, name: string) => {
-        if (acc.hasOwnProperty(name)) {
-            acc[name] = joinProjects(acc[name], projects[name]);
-        } if (!acc.hasOwnProperty(name)) {
-            acc[name] = projects[name];
-        }
+const __updateProjects = (projects: Object, acc: Object, name: string): Object => {
+    if (acc.hasOwnProperty(name)) {
+        acc[name] = joinProjects(acc[name], projects[name]);
+    } if (!acc.hasOwnProperty(name)) {
+        acc[name] = projects[name];
+    }
 
-        return acc;
-    }, total.projects);
+    return acc;
 };
 
-const updateCounter = ({ projects }: Analysis): object => {
-    return Object.keys(projects).reduce((acc: object, name: string) => {
-        const lastHourError = acc[name].tmp_counter.error_counter.reduce((acc, cur) => acc + cur, 0);
-        const lastHourCritical = acc[name].tmp_counter.critical_counter.reduce((acc, cur) => acc + cur, 0);
+const updateProjects = (total: Analysis, { projects }: Review): Object => {
+    const curried = (projects: Object) => ((acc: Object, name: string)  => __updateProjects(projects, acc, name));
 
-        acc[name].tmp_counter = newCounter();
+    return Object.keys(projects).reduce(curried, total.projects);
+};
 
-        acc[name].total_counter.error_counter.push(lastHourError);
-        acc[name].total_counter.critical_counter.push(lastHourCritical);
+const __updateCounter = (acc: Object, name: string): Object => {
+    const lastHourError = acc[name].tmp_counter.error_counter.reduce((acc, cur) => acc + cur, 0);
+    const lastHourCritical = acc[name].tmp_counter.critical_counter.reduce((acc, cur) => acc + cur, 0);
 
-        return acc;
-    }, projects);
+    acc[name].tmp_counter = newCounter();
+
+    acc[name].total_counter.error_counter.push(lastHourError);
+    acc[name].total_counter.critical_counter.push(lastHourCritical);
+
+    return acc;
+}
+
+const updateCounter = ({ projects }: Analysis): Object => {
+    return Object.keys(projects).reduce(__updateCounter, projects);
 };
 
 const updateTracebacks = (total: Analysis, { tracebacks }: Review): Array<Response> => {

@@ -106,7 +106,7 @@ npm run tags
 ## Code
 Plain and simple [Typescript](http://typescriptlang.org/) with the [Microsoft](https://github.com/Microsoft/tslint-microsoft-contrib) linter standards.
 
-Some functions have side-effects, they are tagged with **__** at the end.
+Some functions have side-effects, they are tagged with **__** at the end and those whom are callbacks have it at the beginning.
 
 ## Testing
 Tests are written with [Jest](https://facebook.github.io/jest/) through [ts-jest](https://www.npmjs.com/package/ts-jest) and integrated with [Travis CI](http://travis-ci.org/). To run all tests just:

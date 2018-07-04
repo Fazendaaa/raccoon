@@ -106,7 +106,7 @@ npm run tags
 ## Código
 Simples [Typescript](http://typescriptlang.org/) com o padrão de escrita [Microsoft](https://github.com/Microsoft/tslint-microsoft-contrib).
 
-Algumas funções possuem _side-effects_, elas possuem **__** no final do nome.
+Algumas funções possuem _side-effects_, elas possuem **__** no final do nome e aquelas que são callbacks no começo.
 
 ## Testes
 Testes foram escritos com [Jest](https://facebook.github.io/jest/) atavés do pacote [ts-jest](https://www.npmjs.com/package/ts-jest) e há uma integração com [Travis CI](http://travis-ci.org/). Para rodar todos os testes basta rodar:

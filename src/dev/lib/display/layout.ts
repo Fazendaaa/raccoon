@@ -2,7 +2,7 @@
 
 import { question, screen } from 'blessed';
 import { gauge, grid, markdown, stackedBar, table, tree } from 'blessed-contrib';
-import { exiting__, initHandle__, killAll__, loadingData__ } from './handle';
+import { exiting__, initHandle__, killAll__ } from './handle';
 
 export const display = screen();
 
@@ -40,12 +40,6 @@ export const minute = background.set(0, 43, 6, 7, gauge, {
     fill: 'white',
     stroke: 'green',
     label: 'Next Update Per Minute'
-});
-
-export const loading = background.set(30, 19.8, 21, 30.2, gauge, {
-    fill: 'white',
-    stroke: 'magenta',
-    label: 'Display Loading'
 });
 
 export const graph = background.set(0, 0, 30, 43, stackedBar, {

@@ -30,20 +30,23 @@ const totalCounterToData = ({ critical_counter, error_counter }: Counter): Array
     return critical_counter.map((value, index) => [ index, value, error_counter[index] ]);
 };
 
-const counterChildren = (projects: object): Object => {
+const __counterChildren = (projects, acc, name) => {
+    acc[name] = {
+        data: totalCounterToData(projects[name].total_counter)
+    }
+
+    return acc;
+};
+
+const counterChildren = (projects: Object): Object => {
     const fathers = Object.keys(projects);
+    const curried = (projects: Object) => ((acc: Object, name: string) => __counterChildren(projects, acc, name));
 
     if (0 === fathers.length) {
         return mockChildren;
     }
 
-    return fathers.reduce((acc, name) => {
-        acc[name] = {
-            data: totalCounterToData(projects[name].total_counter)
-        }
-
-        return acc;
-    }, {});
+    return fathers.reduce(curried(projects), {});
 };
 
 const childrenfy = (value: any) => {
@@ -65,16 +68,18 @@ const createChildren = ({ level, message, timestamp, traceback, response_code, r
     };
 };
 
+const __tracebackChildren = (acc: Object, { project, ...remaining }: Response) : Object => {
+    acc[project] = createChildren(remaining);
+
+    return acc;
+};
+
 const tracebackChildren = (tracebacks: Array<Response>): Object => {
     if (0 === tracebacks.length) {
         return mockChildren;
     }
 
-    return tracebacks.reduce((acc, { project, ...remaining }) => {
-        acc[project] = createChildren(remaining);
-
-        return acc;
-    }, {});
+    return tracebacks.reduce(__tracebackChildren, {});
 };
 
 export const updateCounter__ = (counter: WidgetElements, projects: object): void => {
