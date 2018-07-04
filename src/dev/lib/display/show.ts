@@ -1,7 +1,7 @@
 'use strict';
 
 import { Analysis } from '../data/analysis';
-import { counter, display, graph, hour, minute, tracing } from './info';
+import { counter, display, graph, hour, minute, tracing } from './layout';
 import { updateCounter__, updateGraph__, updateTracebacks__ } from './update';
 
 const totalTimer = {

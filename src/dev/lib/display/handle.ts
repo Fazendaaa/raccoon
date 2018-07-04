@@ -2,17 +2,24 @@
 
 import { analysis } from '../../main';
 import { toCSV } from '../export/CSV';
-import { counter, display, displayData, displayGraph, graph, header, hour, leave, loading, minute, tracing } from './info';
+import { counter, display, displayData, displayGraph, graph, header, hour, leave, loading, minute, tracing } from './layout';
 
 const leave__ = (): void => process.exit(0);
 
+// https://stackoverflow.com/q/33843091/7092954
+const promiseTimeout__ = (time: number) => new Promise((resolve) => setTimeout(() => resolve(time), time));
+
+const __loadingData__ = async (percentage = 0): Promise<void> => {
+    if (100 >= percentage) {
+        await promiseTimeout__(100);
+        loading.setPercent(percentage);
+        __loadingData__(percentage + 10);
+    }
+};
+
 export const loadingData__ = async (): Promise<void> => {
     loading.show();
-
-    for (let index = 0; index <= 100; index += 10) {
-        setTimeout(() => loading.setPercent(10 * index), 800);
-    }
-
+    await __loadingData__();
     loading.hide();
 };
 
@@ -73,4 +80,70 @@ export const exiting__ = (): void => {
             returnToProgram();
         }
     });
+};
+
+const handleClick__ = (): void => {
+    tracing.on('click', () => tracing.focus());
+    counter.on('click', () => counter.focus());
+    displayGraph.on('click', () => displayGraph.focus());
+};
+
+const handleSelect__ = (): void => {
+    tracing.on('select', async ({ data }) => {
+        if (undefined !== data) {
+            displayGraph.hide();
+            await loadingData__();
+
+            displayData.show();
+            displayData.setMarkdown(data);
+        }
+    });
+
+    counter.on('select', async ({ data }) => {
+        if (undefined !== data) {
+            displayData.hide();
+            await loadingData__();
+
+            displayGraph.show();
+            displayGraph.setData({
+                data,
+                headers: ['Hour', 'Errors', 'Critical']
+            });
+        }
+    });
+};
+
+const handleResize__ = (): void => {
+    display.on('resize', () => {
+        hour.emit('attach');
+        graph.emit('attach');
+        header.emit('attach');
+        minute.emit('attach');
+        loading.emit('attach');
+        tracing.emit('attach');
+        counter.emit('attach');
+        displayData.emit('attach');
+        displayGraph.emit('attach');
+    });
+};
+
+const handleOn__ = (): void => {
+    handleClick__();
+    handleSelect__();
+    handleResize__();
+};
+
+export const initHandle__ = (): void => {
+    header.setMarkdown('\
+To allow easy visualization, the milliseconds in the graph are ceiled -- "round up".\n\n\
+Just click on Traceback or Counters area and then navigate through arrows.\n\n\
+When exiting, you will be asked whether or not want to export the data to CSV.\n\
+');
+
+    display.key(['escape', 'q', 'C-c'], () => {
+        killAll__();
+        exiting__();
+    });
+
+    handleOn__();
 };
