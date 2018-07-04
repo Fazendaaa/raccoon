@@ -4,6 +4,15 @@ import { WidgetElements } from 'blessed-contrib';
 import { Response } from '../api/raccoon';
 import { Counter } from '../data/project';
 
+interface Father {
+    level: string;
+    message: string;
+    timestamp: number;
+    traceback?: string;
+    response_code?: number;
+    request_duration?: number;
+}
+
 const ceilingMilliseconds = (value: number): number => Math.ceil(new Date(value).getMilliseconds());
 
 const meanAndDeviationToSeconds = (mean: Array<number>, deviation: Array<number>): Array<Array<number>> => {
@@ -13,47 +22,29 @@ const meanAndDeviationToSeconds = (mean: Array<number>, deviation: Array<number>
     ]);
 };
 
-export const updateGraph__ = (graph: WidgetElements, mean: Array<number>, deviation: Array<number>): void => {
-    const joined = meanAndDeviationToSeconds(mean, deviation);
-    const length = joined.length;
-    const limit = 30;
-    const diff = (limit > length) ? 0 : Math.abs(limit - joined.length);
-    const data = joined.slice(diff, length);
-
-    graph.setData({
-        data,
-        stackedCategory: [ 'Mean', 'Deviation' ],
-        barCategory: data.map((_, index) => (diff + index).toString())
-    });
+const mockChildren = {
+    'No data available yet': {}
 };
 
 const totalCounterToData = ({ critical_counter, error_counter }: Counter): Array<Array<number>> => {
     return critical_counter.map((value, index) => [ index, value, error_counter[index] ]);
 };
 
-export const updateCounter__ = (counter: WidgetElements, projects: object): void => {
-    const children = Object.keys(projects).reduce((acc, name) => {
+const counterChildren = (projects: object): Object => {
+    const fathers = Object.keys(projects);
+
+    if (0 === fathers.length) {
+        return mockChildren;
+    }
+
+    return fathers.reduce((acc, name) => {
         acc[name] = {
             data: totalCounterToData(projects[name].total_counter)
         }
 
         return acc;
     }, {});
-
-    counter.setData({
-        extended: true,
-        children
-    });
 };
-
-interface Father {
-    level: string;
-    message: string;
-    timestamp: number;
-    traceback?: string;
-    response_code?: number;
-    request_duration?: number;
-}
 
 const childrenfy = (value: any) => {
     return {
@@ -76,9 +67,7 @@ const createChildren = ({ level, message, timestamp, traceback, response_code, r
 
 const tracebackChildren = (tracebacks: Array<Response>): Object => {
     if (0 === tracebacks.length) {
-        return {
-            'Soon data will be displayed here': {}
-        };
+        return mockChildren;
     }
 
     return tracebacks.reduce((acc, { project, ...remaining }) => {
@@ -86,6 +75,27 @@ const tracebackChildren = (tracebacks: Array<Response>): Object => {
 
         return acc;
     }, {});
+};
+
+export const updateCounter__ = (counter: WidgetElements, projects: object): void => {
+    counter.setData({
+        extended: true,
+        children: counterChildren(projects)
+    });
+};
+
+export const updateGraph__ = (graph: WidgetElements, mean: Array<number>, deviation: Array<number>): void => {
+    const joined = meanAndDeviationToSeconds(mean, deviation);
+    const length = joined.length;
+    const limit = 30;
+    const diff = (limit > length) ? 0 : Math.abs(limit - joined.length);
+    const data = joined.slice(diff, length);
+
+    graph.setData({
+        data,
+        stackedCategory: ['Mean', 'Deviation'],
+        barCategory: data.map((_, index) => (diff + index).toString())
+    });
 };
 
 export const updateTracebacks__ = (table: WidgetElements, tracebacks: Array<Response>): void => {

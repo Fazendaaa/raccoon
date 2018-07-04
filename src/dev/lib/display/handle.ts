@@ -17,23 +17,6 @@ const __loadingData__ = async (percentage = 0): Promise<void> => {
     }
 };
 
-export const loadingData__ = async (): Promise<void> => {
-    loading.show();
-    await __loadingData__();
-    loading.hide();
-};
-
-export const killAll__ = (): void => {
-    hour.hide();
-    graph.hide();
-    header.hide();
-    minute.hide();
-    tracing.hide();
-    counter.hide();
-    displayData.hide();
-    displayGraph.hide();
-};
-
 const respawnAll = (): void => {
     hour.show();
     graph.show();
@@ -64,20 +47,6 @@ const returnToProgram = (): void => {
             respawnAll();
         } else {
             leave__();
-        }
-    });
-};
-
-export const exiting__ = (): void => {
-    display.append(leave);
-
-    leave.ask('Would you like to export to CSV?', (err, value) => {
-        if (null !== err) {
-            unexpectedTermination__(err);
-        } if (true === typingBoolean(value)) {
-            leave__();
-        } else {
-            returnToProgram();
         }
     });
 };
@@ -131,6 +100,37 @@ const handleOn__ = (): void => {
     handleClick__();
     handleSelect__();
     handleResize__();
+};
+
+export const loadingData__ = async (): Promise<void> => {
+    loading.show();
+    await __loadingData__();
+    loading.hide();
+};
+
+export const killAll__ = (): void => {
+    hour.hide();
+    graph.hide();
+    header.hide();
+    minute.hide();
+    tracing.hide();
+    counter.hide();
+    displayData.hide();
+    displayGraph.hide();
+};
+
+export const exiting__ = (): void => {
+    display.append(leave);
+
+    leave.ask('Would you like to export to CSV?', (err, value) => {
+        if (null !== err) {
+            unexpectedTermination__(err);
+        } if (true === typingBoolean(value)) {
+            leave__();
+        } else {
+            returnToProgram();
+        }
+    });
 };
 
 export const initHandle__ = (): void => {
