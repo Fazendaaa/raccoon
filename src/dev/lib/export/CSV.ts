@@ -4,9 +4,9 @@ import { writeFileSync } from 'fs';
 import { parse } from 'json2csv';
 import { Analysis } from '../data/analysis';
 
-export const toCSV = (data: Analysis): boolean => {
+export const toCSV = (data: Analysis, name = 'dev.csv'): boolean => {
     try {
-        writeFileSync('dev.csv', parse(data), 'utf8');
+        writeFileSync(name, parse(data), 'utf8');
 
         return true;
     } catch (e) {

@@ -15,7 +15,7 @@ const executeAnalysis__ = async (): Promise<void> => {
 };
 
 const executeAndInterval__ = async (): Promise<void> => {
-    const eachMinute = 60 * 1000;
+    const eachMinute = 2 * 1000;
     const eachHour = 60 * eachMinute;
 
     displayRefresh__();

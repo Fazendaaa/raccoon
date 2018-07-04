@@ -1,21 +1,8 @@
 'use strict';
 
-import { BarData, LineData, WidgetElements } from 'blessed-contrib';
+import { WidgetElements } from 'blessed-contrib';
 import { Response } from '../api/raccoon';
 import { Counter } from '../data/project';
-
-const timerTotal = {
-    percent: 0,
-    color: 'green',
-    label: 'Loading'
-};
-
-const setAxis = (data: Array<number>) => {
-    return {
-        y: data,
-        x: data.map((value, index) => index.toString())
-    };
-};
 
 const ceilingMilliseconds = (value: number): number => Math.ceil(new Date(value).getMilliseconds());
 
@@ -41,11 +28,11 @@ export const updateGraph__ = (graph: WidgetElements, mean: Array<number>, deviat
 };
 
 const totalCounterToData = ({ critical_counter, error_counter }: Counter): Array<Array<number>> => {
-    return [ critical_counter, error_counter ];
+    return critical_counter.map((value, index) => [ index, value, error_counter[index] ]);
 };
 
 export const updateCounter__ = (counter: WidgetElements, projects: object): void => {
-    const children = Object.keys(projects).reduce((acc, name: string) => {
+    const children = Object.keys(projects).reduce((acc, name) => {
         acc[name] = {
             data: totalCounterToData(projects[name].total_counter)
         }

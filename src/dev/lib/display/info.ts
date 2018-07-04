@@ -1,9 +1,8 @@
 'use strict';
 
 import { question, screen } from 'blessed';
-import { gauge, grid, markdown, stackedBar, tree } from 'blessed-contrib';
-import { analysis } from '../../main';
-import { toCSV } from '../export/CSV';
+import { gauge, grid, markdown, stackedBar, table, tree } from 'blessed-contrib';
+import { exiting__, killAll__, loadingData__ } from './handle';
 
 export const display = screen();
 
@@ -13,23 +12,23 @@ const background = new grid({
     screen: display
 });
 
-const header = background.set(12, 43, 18, 7, markdown, {
+export const header = background.set(12, 43, 18, 7, markdown, {
     label: 'Usage'
 });
 
-const displayGraph = background.set(30, 20, 21, 30, stackedBar, {
-    xOffset: 1,
-    barWidth: 2,
-    height: '100%',
-    barSpacing: -1,
+export const displayGraph = background.set(30, 19.8, 21, 30.2, table, {
+    keys: true,
+    fg: 'green',
+    columnSpacing: 1,
     label: 'Display Data',
-    barBgColor: [
-        'blue',
-        'magenta'
+    columnWidth: [
+        40,
+        40,
+        40
     ]
 });
 
-const displayData = background.set(30, 20, 21, 30, markdown, {
+export const displayData = background.set(30, 19.8, 21, 30.2, markdown, {
     label: 'Display Data'
 });
 
@@ -57,6 +56,12 @@ export const hour = background.set(6, 43, 6, 7, gauge, {
     label: 'Next Update Per Hour'
 });
 
+export const loading = background.set(30, 19.8, 21, 30.2, gauge, {
+    fill: 'white',
+    stroke: 'magenta',
+    label: 'Display Loading'
+});
+
 export const tracing = background.set(30, 0, 21, 10, tree, {
     fg: 'cyan',
     label: 'Tracebacks'
@@ -67,9 +72,18 @@ export const counter = background.set(30, 10, 21, 10, tree, {
     label: 'Counters'
 });
 
+export const leave = question({
+    keys: true,
+    mouse: true,
+    top: 25,
+    left: 90
+});
+
+loading.hide();
+
 header.setMarkdown('\
-To allow easy visualization, the seconds in the graph are ceiled -- "round up".\n\n\
-Just click on traceback or Counters area and then navigate through arrows.\n\n\
+To allow easy visualization, the milliseconds in the graph are ceiled -- "round up".\n\n\
+Just click on Traceback or Counters area and then navigate through arrows.\n\n\
 When exiting, you will be asked whether or not want to export the data to CSV.\n\
 ');
 
@@ -84,6 +98,7 @@ counter.on('click', () => {
 tracing.on('select', ({ data }) => {
     if (undefined !== data) {
         displayGraph.hide();
+        loadingData__();
         displayData.show();
         displayData.setMarkdown(data);
     }
@@ -92,74 +107,14 @@ tracing.on('select', ({ data }) => {
 counter.on('select', ({ data }) => {
     if (undefined !== data) {
         displayData.hide();
+        loadingData__();
         displayGraph.show();
         displayGraph.setData({
             data,
-            stackedCategory: [ 'Critical', 'Error' ],
-            barCategory: data.map((_, index) => index.toString())
+            headers: ['Hour', 'Errors', 'Critical']
         });
     }
 });
-
-const killAll__ = (): void => {
-    hour.hide();
-    graph.hide();
-    header.hide();
-    minute.hide();
-    tracing.hide();
-    counter.hide();
-    displayData.hide();
-    displayGraph.hide();
-};
-
-const respawnAll = (): void => {
-    hour.show();
-    graph.show();
-    header.show();
-    minute.show();
-    tracing.show();
-    counter.show();
-    displayData.show();
-    displayGraph.show();
-};
-
-const leave__ = (): void => process.exit(0);
-
-const leave = question({
-    keys: true,
-    mouse: true,
-    top: 25,
-    left: 90
-});
-
-const returnToProgram = (): void => {
-    leave.ask('Would you like to return to the application?', (err, value) => {
-        if (err) {
-            console.error(value);
-            toCSV(analysis);
-            leave__();
-        } if ('true' === value) {
-            respawnAll();
-        } else {
-            leave__();
-        }
-    });
-};
-
-const exiting__ = (): void => {
-    display.append(leave);
-
-    leave.ask('Would you like to export to CSV?', (err, value) => {
-        if (err) {
-            console.error(value);
-        } if ('false' === value) {
-            returnToProgram();
-        }
-
-        toCSV(analysis);
-        leave__();
-    });
-};
 
 display.key(['escape', 'q', 'C-c'], () => {
     killAll__();
@@ -171,6 +126,7 @@ display.on('resize', () => {
     graph.emit('attach');
     header.emit('attach');
     minute.emit('attach');
+    loading.emit('attach');
     tracing.emit('attach');
     counter.emit('attach');
     displayData.emit('attach');
