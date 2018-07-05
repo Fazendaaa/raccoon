@@ -1,5 +1,3 @@
-'use strict';
-
 import { Product } from '../main';
 import { fetchDivId, fetchDivName, fetchDivPrice, fetchDivUrl } from './utils';
 

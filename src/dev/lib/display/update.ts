@@ -1,5 +1,3 @@
-'use strict';
-
 import { WidgetElements } from 'blessed-contrib';
 import { Response } from '../api/raccoon';
 import { Counter } from '../data/project';

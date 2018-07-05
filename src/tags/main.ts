@@ -1,7 +1,6 @@
-'use strict';
-
 import { config } from 'dotenv';
 import { DOMWindow, JSDOM } from 'jsdom';
+import { fetchProductsFromLocal, saveProductsToLocal__ } from './lib/challenge';
 import { availableIds, DOMAvailableIds, DOMSmartphonesIds, smartphonesIds } from './lib/first';
 import { joinBaseProducts } from './lib/second';
 import { joinProducts } from './lib/third';
@@ -29,15 +28,18 @@ const initHTML__ = async (): Promise<void> => {
         resources: 'usable',
         runScripts: 'dangerously'
     });
-    const { document } = <TagWindow> window;
+    const { document, localStorage, productList } = <TagWindow> window;
     const DOMProducts = document.getElementsByClassName('product');
+    const total = joinProducts(productList, DOMProducts);
+
+    saveProductsToLocal__(total, localStorage);
+    console.log(fetchProductsFromLocal(localStorage));
 
     // console.log(availableIds(productList));
     // console.log(smartphonesIds(productList));
     // console.log(DOMAvailableIds(DOMProducts));
     // console.log(DOMSmartphonesIds(DOMProducts));
     // console.log(joinBaseProducts(productList, DOMProducts));
-    // console.log(joinProducts(productList, DOMProducts));
 };
 
 initHTML__();

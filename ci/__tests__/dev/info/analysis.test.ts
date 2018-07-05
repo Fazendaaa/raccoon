@@ -1,4 +1,4 @@
-'use strict';
+
 
 import { reviewResponse } from '../../../../src/dev/lib/info/analysis';
 

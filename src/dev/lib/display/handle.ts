@@ -1,5 +1,3 @@
-'use strict';
-
 import { Widgets } from 'blessed';
 import { analysis } from '../../main';
 import { toCSV } from '../export/CSV';

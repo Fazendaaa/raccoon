@@ -1,5 +1,3 @@
-'use strict';
-
 import { Response } from '../api/raccoon';
 import { joinProjects, newCounter } from './project';
 import { Review } from './review';

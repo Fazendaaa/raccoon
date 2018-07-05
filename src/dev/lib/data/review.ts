@@ -1,5 +1,3 @@
-'use strict';
-
 import { byTimestamp, Response, TotalRequest } from '../api/raccoon';
 import { addToProject, newProject } from './project';
 

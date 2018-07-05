@@ -1,8 +1,6 @@
-'use strict';
-
 import { question, screen } from 'blessed';
 import { gauge, grid, markdown, stackedBar, table, tree } from 'blessed-contrib';
-import { exiting__, initHandle__, killAll__ } from './handle';
+import { initHandle__ } from './handle';
 
 export const display = screen();
 

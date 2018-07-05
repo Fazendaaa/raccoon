@@ -1,4 +1,4 @@
-'use strict';
+
 
 import { getLogs } from '../../../../src/dev/lib/api/raccoon';
 

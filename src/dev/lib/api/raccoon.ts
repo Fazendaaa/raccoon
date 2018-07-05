@@ -1,5 +1,3 @@
-'use strict';
-
 import { config } from 'dotenv';
 import { IncomingMessage } from 'http';
 import { get, RequestOptions } from 'https';

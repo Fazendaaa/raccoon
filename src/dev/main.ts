@@ -1,7 +1,5 @@
-'use strict';
-
 import { getLogs__, Request } from './lib/api/raccoon';
-import { Analysis, getAnalysis__, getCounters__, initAnalysis } from './lib/data/analysis';
+import { getAnalysis__, getCounters__, initAnalysis } from './lib/data/analysis';
 import { reviewResponse } from './lib/data/review';
 import { displayAnalysis__, displayCounter__, displayRefresh__ } from './lib/display/show';
 

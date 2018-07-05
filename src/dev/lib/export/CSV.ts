@@ -1,5 +1,3 @@
-'use strict';
-
 import { writeFileSync } from 'fs';
 import { parse } from 'json2csv';
 import { Analysis } from '../data/analysis';

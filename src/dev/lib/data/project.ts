@@ -1,5 +1,3 @@
-'use strict';
-
 import { Response } from '../api/raccoon';
 
 export interface Counter extends Object {
