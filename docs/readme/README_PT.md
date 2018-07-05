@@ -14,11 +14,13 @@
 </div>
 
 ## Sobre
-Software desenvolvido para um processo seletivo.
+Software desenvolvido para um processo seletivo das duas seguintes vagas:
+* [Dev](./README_PT.md#Dev)
+* [Tags](./README_PT.md#Tags)
 
 Todo esses trabalhos foram feitos em Linux apenas, então utilizar eles no Mac ou Windows pode requerer passos diferentes; leia com cuidado os passos de instalção e configuração dos programas.
 
-### Dev
+# Dev
 Um programa de Interface de Linha de Comando (CLI) para mostrar infromações consumidos de alguns projetos. Essas informações são consumidas através de dados provenientes de uma Interface de Programação de Transferência de Dados de Transferência de Estados Representativos (REST API) que aceita apenas __GET__ e responde, no formato JSON -- unicode --, logs de softwares para que, desta maneira, desempenhe organização e agregação desses logs apresentando as seguintes informações:
 * Média e desvio padrão do tempo das requisições;
 * Últimos cinco tracebacks dentre todos os projetos;
@@ -30,7 +32,7 @@ O consumo da API possui as seguintes características:
 
 Atualizar os dados a cada minuto, levando em conta os já consumidos. Como discutido com o recrutador, decidi optar por utilizar o tempo de inicialização da aplicação como o contador de tempo das requisições.
 
-#### Dados
+## Dados
 O _host_ e a _authorization_ a serem inseridos no header da requisão encontram-se em um arquivo __.env__ no formato:
 
 ```bash
@@ -63,9 +65,36 @@ Já a resposta será um array do tipo:
 
 Como a API será consumida por uma aplicação Node -- e os números são todos _floats_ por causa do JavaScript (JS) em si -- modifiquei o estilo da resposta a ser apresentada aqui porque, para a aplicação, não vai importar se o número será __float__ ou __int__.
 
-#### CLI
+## CLI
 
-## Tags
+# Tags
+Questões sobre JS. Eu implementei algumas dela em TS para qe pudessem servir como uma prova de conceito e estão na pasta [tags](../../src/tags/).
+
+Todas as questões respondidas podem ser encontradas no arquivo [tags_pt.md](./tags_pt.md).
+
+As questões se atém ao que foi pedido na descrição do manual do candidato, decidi implementar em Node mesmo para facilitar testes e não depender apenas de trabalho manual de ficar verificando no navegador sempre o comportamento quando eles podem ser simulados com o auxílio de algumas ferramentas.
+
+Como o foco do projeto é em si mostrar como manipular os arquivos por isso não foram fornecidos, para rodar os testes adicione na pasta _html_ na raíz do diretório com os arquivos html/JS desejados. Os meus são os seguintes:
+
+```
+...
+├── html
+│   ├── Processo seletivo - Tags_files
+│   │   ├── 1QVSA15PTA_PRD_447_1.jpg
+│   │   ├── 44831_PRD_447_1.jpg
+│   │   ├── AEMD818BZA_PRD_447_1.jpg
+│   │   ├── AEMRRM2BZAVRM_PRD_447_1.jpg
+│   │   ├── js.js
+│   │   ├── MRXT19295AZL_PRD_447_1.jpg
+│   │   ├── SGG570MWDRD_PRD_447_1.jpg
+│   │   ├── SGG570MZPTO_PRD_447_1.jpg
+│   │   ├── SGSMG611PTO_PRD_447_1.jpg
+│   │   └── UXZB570DRD_PRD_447_1.jpg
+│   └── Processo seletivo - Tags.html
+...
+```
+
+O JSDOM deveria funcionar normalmente com uma url mas acredito que algo de errado aconteceu com a última versão do pacote -- ou até mesmo mudaram sem atualizar a documentação --, assim sendo eu abri uma [issue](https://github.com/jsdom/jsdom/issues/2286) comentando o ocorrido.
 
 # Instalação
 Os projetos dependem de [Node](https://nodejs.org/) e do [npm](https://www.npmjs.com/) para funcionar, então basta instalar eles e rodar em seguida no diretório contendo os arquivos o seguinte comando no terminal:
@@ -99,12 +128,13 @@ npm run tags
 # Construído com
 * [blessed](https://github.com/chjj/blessed)
 * [blessed-contrib](https://github.com/yaronn/blessed-contrib)
-* [json2csv](https://github.com/zemirco/json2csv)
 * [Dotenv](https://github.com/motdotla/dotenv)
+* [jsdom](https://github.com/jsdom/jsdom)
+* [json2csv](https://github.com/zemirco/json2csv)
 * [TypeScript](http://typescriptlang.org/)
 
 ## Código
-Simples [Typescript](http://typescriptlang.org/) com o padrão de escrita [Microsoft](https://github.com/Microsoft/tslint-microsoft-contrib).
+Simples [Typescript](http://typescriptlang.org/) com o padrão de escrita [Microsoft](https://github.com/Microsoft/tslint-microsoft-contrib) como base.
 
 Algumas funções possuem _side-effects_, elas possuem **__** no final do nome e aquelas que são callbacks no começo.
 
@@ -114,6 +144,8 @@ Testes foram escritos com [Jest](https://facebook.github.io/jest/) atavés do pa
 ```bash
 npm test
 ```
+
+Para rodar os testes não precisa "buildar" antes os arquivos de TS para JS, apenas os TS serão necessários.
 
 # Contribuindo
 Converse comigo através de uma _issue_ sobre isso e analizarei o pedido.

@@ -1,5 +1,6 @@
 coverage
 description
 dist
+html
 node_modules
 .env

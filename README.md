@@ -14,11 +14,13 @@
 </div>
 
 ## About
-Job application.
+Job application to two categories are described as follows:
+* [Dev](./README.md#Dev)
+* [Tags](./README.md#Tags)
 
-All of this work was made in a Linux environment only, using it in Mac or Windows might need some different steps; read carefully the steps about installing and configuring the applications.
+All of this work was made in a Linux environment only, using it in Mac or Windows might need some different steps; read carefully the steps about installing and configuring the applications. 
 
-### Dev
+# Dev
 A Command Line Interface (CLI) application to show info about some projects. This info is processed through data consumed from an Representational State Transfer Application Programming Interface (REST API) that only accepts __GET__ method and it's response is a JSON, unicode, format; this response is an array of logs. This application needs to perform sorting and analysis of those logs, presenting the following:
 * Last five tracebacks of all projects;
 * Mean and the standard deviation from the requests;
@@ -30,7 +32,7 @@ The API presents the following rules:
 
 The application must update the data each minute, assuming the already consumed data. As discussed with the recruiter, I've decided the running time from the app as the starting point for the requests.
 
-#### Data
+## Data
 _Host_ and _authorization_ are being inserted in the request header through a __.env__ file as the following format:
 
 ```bash
@@ -63,9 +65,36 @@ The API response will be like that:
 
 As the API are being consumed through a Node application -- and the all JavaScript (JS) numbers are _floats_ -- I've modified the response style presented here because, to the process, won't matter whether or not the numbers are __float__ or __int__.
 
-#### CLI
+## CLI
 
-### Tags
+# Tags
+A series of JS questions. I've implemented some of them in TS so they could be my proof of concept located at [tags](./src/tags/) folder.
+
+All of the answered questions can be found at [tags.md](./tags.md) file.
+
+The questions are the things that the job description asked, even so I've decided to implement it in Node to allow me testing it as automatically possible; that way I won't be attached to always needing to open my browser to see whether or not it works.
+
+Since the idea is to provide the answers to the questions only, I won't be attaching the website used as dependency, to run tests you should configure the _html_ folder at the root directory containing the desired html/JS files. Mine is as follows:
+
+```
+...
+├── html
+│   ├── Processo seletivo - Tags_files
+│   │   ├── 1QVSA15PTA_PRD_447_1.jpg
+│   │   ├── 44831_PRD_447_1.jpg
+│   │   ├── AEMD818BZA_PRD_447_1.jpg
+│   │   ├── AEMRRM2BZAVRM_PRD_447_1.jpg
+│   │   ├── js.js
+│   │   ├── MRXT19295AZL_PRD_447_1.jpg
+│   │   ├── SGG570MWDRD_PRD_447_1.jpg
+│   │   ├── SGG570MZPTO_PRD_447_1.jpg
+│   │   ├── SGSMG611PTO_PRD_447_1.jpg
+│   │   └── UXZB570DRD_PRD_447_1.jpg
+│   └── Processo seletivo - Tags.html
+...
+```
+
+The JSDOM should work just fine with an url option but I think that something in the latest build probably broke some usage about it -- or even they changed it _how to do it_ --, anyways I've opened an [issue](https://github.com/jsdom/jsdom/issues/2286) asking about it.
 
 # Installing
 The projects are written in [Node](https://nodejs.org/) and the help of [npm](https://www.npmjs.com/) to work. Once they are installed, just open the project directory and run the following command to install the dependencies:
@@ -99,12 +128,13 @@ npm run tags
 # Built with
 * [blessed](https://github.com/chjj/blessed)
 * [blessed-contrib](https://github.com/yaronn/blessed-contrib)
-* [json2csv](https://github.com/zemirco/json2csv)
 * [Dotenv](https://github.com/motdotla/dotenv)
+* [jsdom](https://github.com/jsdom/jsdom)
+* [json2csv](https://github.com/zemirco/json2csv)
 * [TypeScript](http://typescriptlang.org/)
 
 ## Code
-Plain and simple [Typescript](http://typescriptlang.org/) with the [Microsoft](https://github.com/Microsoft/tslint-microsoft-contrib) linter standards.
+Plain and simple [Typescript](http://typescriptlang.org/) with the [Microsoft](https://github.com/Microsoft/tslint-microsoft-contrib) linter standards as base.
 
 Some functions have side-effects, they are tagged with **__** at the end and those whom are callbacks have it at the beginning.
 
@@ -114,6 +144,8 @@ Tests are written with [Jest](https://facebook.github.io/jest/) through [ts-jest
 ```bash
 npm test
 ```
+
+When running the tests, there's no need of previously building it; the TS files only are needed.
 
 # Contributing
 Just talk to me through an _issue_.
