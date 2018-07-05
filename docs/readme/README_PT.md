@@ -74,28 +74,11 @@ Todas as questões respondidas podem ser encontradas no arquivo [tags_pt.md](./t
 
 As questões se atém ao que foi pedido na descrição do manual do candidato, decidi implementar em Node mesmo para facilitar testes e não depender apenas de trabalho manual de ficar verificando no navegador sempre o comportamento quando eles podem ser simulados com o auxílio de algumas ferramentas.
 
-Como o foco do projeto é em si mostrar como manipular os arquivos por isso não foram fornecidos, para rodar os testes adicione na pasta _html_ na raíz do diretório com os arquivos html/JS desejados. Os meus são os seguintes:
+Como o foco do projeto é em si mostrar como manipular os arquivos por isso não foram fornecidos, o link está do site utilizado está configurado no arquivo __.env__ como:
 
+```bash
+URL="url-do-site-aqui"
 ```
-...
-├── html
-│   ├── Tags_files
-│   │   ├── 1QVSA15PTA_PRD_447_1.jpg
-│   │   ├── 44831_PRD_447_1.jpg
-│   │   ├── AEMD818BZA_PRD_447_1.jpg
-│   │   ├── AEMRRM2BZAVRM_PRD_447_1.jpg
-│   │   ├── MRXT19295AZL_PRD_447_1.jpg
-│   │   ├── SGG570MWDRD_PRD_447_1.jpg
-│   │   ├── SGG570MZPTO_PRD_447_1.jpg
-│   │   ├── SGSMG611PTO_PRD_447_1.jpg
-│   │   └── UXZB570DRD_PRD_447_1.jpg
-│   └── Tags.html
-...
-```
-
-O JSDOM deveria funcionar normalmente com uma url mas acredito que algo de errado aconteceu com a última versão do pacote -- ou até mesmo mudaram sem atualizar a documentação --, assim sendo eu abri uma [issue](https://github.com/jsdom/jsdom/issues/2286) comentando o ocorrido.
-
-__IMPORTANTE__: eu tive que remover o __js.js__ salvo em _Tags_files_, ele é um arquivo de análise do Google e não funciona com o JSDOM.
 
 # Instalação
 Os projetos dependem de [Node](https://nodejs.org/) e do [npm](https://www.npmjs.com/) para funcionar, então basta instalar eles e rodar em seguida no diretório contendo os arquivos o seguinte comando no terminal:
