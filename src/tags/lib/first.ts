@@ -1,6 +1,7 @@
 'use strict';
 
 import { Product } from '../main';
+import { fetchDivId, fetchDivUrl, isDivAvailable } from './utils';
 
 export interface PartialProduct {
     id: string;
@@ -8,8 +9,6 @@ export interface PartialProduct {
 }
 
 const isAvailable = (value: Product): boolean => value.available;
-
-const isDivAvailable = (value: HTMLDivElement): boolean => 'true' === value.getAttribute('available');
 
 const isSmartphone = (value: Product): boolean => {
     const matched = value.category.match(/smartphone/gm);
@@ -22,10 +21,6 @@ const isSmartphone = (value: Product): boolean => {
 };
 
 const fetchId = (value: Product): string => value.id;
-
-const fetchDivId = (value: HTMLDivElement): string => value.dataset.id;
-
-const fetchDivUrl = (value: HTMLDivElement): string => value.getElementsByTagName('img').item(0).src;
 
 const fetchPartialProduct = (value: HTMLDivElement): PartialProduct => {
     return {
