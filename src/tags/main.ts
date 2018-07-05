@@ -1,15 +1,31 @@
 'use strict';
 
-import { config } from 'dotenv';
 import { readFileSync } from 'fs';
-import { JSDOM } from 'jsdom';
+import { DOMWindow, JSDOM } from 'jsdom';
 import { join } from 'path';
+import { availableIds, smartphonesIds } from './lib/first';
 
-config();
+export interface Product {
+    id: string;
+    category: string;
+    available: boolean;
+}
 
-const htmlPath = join(__dirname, '../../html/Processo seletivo - Tags.html');
+export interface TagWindow extends DOMWindow {
+    productList?: Array<Product>;
+}
+
+const htmlPath = join(__dirname, '../../html/Tags.html');
 const html = readFileSync(htmlPath);
-const { window } = new JSDOM(html);
+const { window, nodeLocation } = new JSDOM(html, {
+    resources: 'usable',
+    contentType: 'text/html',
+    runScripts: 'dangerously',
+    includeNodeLocations: true
+});
 const { document } = window;
+const { productList } = <TagWindow> window;
 
-console.log(document.getElementsByTagName('div.product[data-id="AEMD818BZA_PRD"]'));
+// console.log(availableIds(productList));
+// console.log(smartphonesIds(productList));
+console.log(document.getElementsByClassName('product').item(0).getElementsByTagName('img').item(0).src);

@@ -79,22 +79,23 @@ Since the idea is to provide the answers to the questions only, I won't be attac
 ```
 ...
 ├── html
-│   ├── Processo seletivo - Tags_files
+│   ├── Tags_files
 │   │   ├── 1QVSA15PTA_PRD_447_1.jpg
 │   │   ├── 44831_PRD_447_1.jpg
 │   │   ├── AEMD818BZA_PRD_447_1.jpg
 │   │   ├── AEMRRM2BZAVRM_PRD_447_1.jpg
-│   │   ├── js.js
 │   │   ├── MRXT19295AZL_PRD_447_1.jpg
 │   │   ├── SGG570MWDRD_PRD_447_1.jpg
 │   │   ├── SGG570MZPTO_PRD_447_1.jpg
 │   │   ├── SGSMG611PTO_PRD_447_1.jpg
 │   │   └── UXZB570DRD_PRD_447_1.jpg
-│   └── Processo seletivo - Tags.html
+│   └── Tags.html
 ...
 ```
 
 The JSDOM should work just fine with an url option but I think that something in the latest build probably broke some usage about it -- or even they changed it _how to do it_ --, anyways I've opened an [issue](https://github.com/jsdom/jsdom/issues/2286) asking about it.
+
+__WARNING__: I've had to remove __js.js__ in _Tags_files_ folder, it's a Google analytics file and doesn't work with JSDOM.
 
 # Installing
 The projects are written in [Node](https://nodejs.org/) and the help of [npm](https://www.npmjs.com/) to work. Once they are installed, just open the project directory and run the following command to install the dependencies:
