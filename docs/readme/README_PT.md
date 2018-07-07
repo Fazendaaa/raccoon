@@ -11,6 +11,7 @@
 [![English README](https://img.shields.io/badge/Language-EN-blue.svg?longCache=true&style=for-the-badge)](../../README.md)
 [![Portuguese README](https://img.shields.io/badge/Linguagem-PT-green.svg?longCache=true&style=for-the-badge)](./README_PT.md)
 
+[![Build Status](https://travis-ci.com/Fazendaaa/raccoon.svg?style=flat-square&token=BF94uxZFxQqzoeyPcajX&branch=master)](https://travis-ci.com/Fazendaaa/raccoon)
 [![Codacy Badge](https://img.shields.io/codacy/grade/bd29e1bc8b5c4bf6a5a595f3f59dbaaa.svg?style=flat-square)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Fazendaaa/raccoon&amp;utm_campaign=Badge_Grade)
 
 </div>
@@ -69,9 +70,9 @@ Como a API será consumida por uma aplicação Node -- e os números são todos 
 
 ## CLI
 
-<video autoplay loop muted width="400" height="400">
-    <source type="video/webm" src="../../others/gif/cli/cli.webm">
-</video>
+<div align="center">
+    <img src="https://giant.gfycat.com/ImprobableJitteryFlea.webm" width="980" height="720" />
+</div>
 
 # Tags
 Questões sobre JS. Eu implementei algumas dela em TS para qe pudessem servir como uma prova de conceito e estão na pasta [tags](../../src/tags/).
