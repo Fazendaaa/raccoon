@@ -6,10 +6,17 @@ import { productList, readDOMProducts__ } from '../data';
 const basePath = join(__dirname, '../../../__mocks__/tags/third');
 const output = JSON.parse(readFileSync(`${basePath}/joinProducts.json`, 'utf8'));
 
-describe.skip('Testing third question.', () => {
+describe('Testing third question.', () => {
     test('Same as the last one second question but with the caveat of matching price and then transforming it to number.', async () => {
-        const input = await readDOMProducts__();
+        const input = joinProducts(productList, await readDOMProducts__());
 
-        expect(joinProducts(productList, input)).toEqual(output);
+        input.map((value, index) => {
+            const { imageURL, ...remaining } = output[index];
+
+            expect(value).toMatchObject({
+                ...remaining,
+                imageURL: expect.stringContaining(imageURL)
+            });
+        });
     });
 });

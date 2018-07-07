@@ -34,7 +34,8 @@
         "semicolon": false,
         "variable-name": false,
         "insecure-random": false,
-        "no-return-await": false
+        "no-return-await": false,
+        "mocha-unneeded-done": false
     },
     "rulesDirectory": []
 }
