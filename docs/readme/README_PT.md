@@ -71,7 +71,8 @@ Como a API será consumida por uma aplicação Node -- e os números são todos 
 ## CLI
 
 <div align="center">
-    <img src="../../others/gif/cli/cli.gif" width=900px height=507px/></div>
+    <img src="../../others/gif/cli/cli.gif"/>
+</div>
 
 # Tags
 Questões sobre JS. Eu implementei algumas dela em TS para qe pudessem servir como uma prova de conceito e estão na pasta [tags](../../src/tags/).

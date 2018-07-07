@@ -71,7 +71,7 @@ As the API are being consumed through a Node application -- and the all JavaScri
 ## CLI
 
 <div align="center">
-    <img src="./others/gif/cli/cli.gif" width=900px height=507px/>
+    <img src="./others/gif/cli/cli.gif"/>
 </div>
 
 # Tags
