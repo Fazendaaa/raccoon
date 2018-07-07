@@ -14,6 +14,7 @@
 [![Build Status](https://travis-ci.com/Fazendaaa/raccoon.svg?style=flat-square&token=BF94uxZFxQqzoeyPcajX&branch=master)](https://travis-ci.com/Fazendaaa/raccoon)
 [![codecov](https://img.shields.io/codecov/c/token/Uj7D7Luago/github/Fazendaaa/raccoon/master.svg?style=flat-square)](https://codecov.io/gh/Fazendaaa/raccoon)
 [![Codacy Badge](https://img.shields.io/codacy/grade/bd29e1bc8b5c4bf6a5a595f3f59dbaaa.svg?style=flat-square)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Fazendaaa/raccoon&amp;utm_campaign=Badge_Grade)
+[![Dependencies](https://david-dm.org/Fazendaaa/raccoon.svg?style=flat-square)](https://codeclimate.com/github/Fazendaaa/raccoon/master/package.json)
 
 </div>
 
