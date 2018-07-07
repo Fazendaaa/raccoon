@@ -1,0 +1,11 @@
+{
+    "label": "Default test",
+    "output": {
+        "error_counter": [
+            0
+        ],
+        "critical_counter": [
+            0
+        ]
+    }
+}

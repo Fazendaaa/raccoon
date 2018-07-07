@@ -35,15 +35,13 @@ export const newProject = (value: Response): Project => {
 
 export const addToProject = ({ logs, tmp_counter, ...remaining }: Project, value: Response): Project => {
     const currentError = hasError(value) ? 1 : 0;
-    const currentCritical = hasError(value) ? 1 : 0;
+    const currentCritical = hasCritical(value) ? 1 : 0;
     const lastError = tmp_counter.error_counter.pop() + currentError;
     const lastCritical = tmp_counter.critical_counter.pop() + currentCritical;
 
-    logs.push(value);
-
     return {
-        logs,
         ...remaining,
+        logs: logs.concat(value),
         tmp_counter: {
             error_counter: tmp_counter.error_counter.concat(lastError),
             critical_counter: tmp_counter.critical_counter.concat(lastCritical)

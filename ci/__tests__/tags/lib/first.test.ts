@@ -10,6 +10,8 @@ const third = JSON.parse(readFileSync(`${basePath}/DOMPartialProduct.json`, 'utf
 
 const input = [];
 
+jest.setTimeout(10000);
+
 beforeAll(async (done) => {
     input.push(...DOMPartialProduct(await readDOMProducts__()))
 

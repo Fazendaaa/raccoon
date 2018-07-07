@@ -1,0 +1,91 @@
+{
+    "label": "Default test.",
+    "input": {
+        "src": {
+            "logs": [
+                {
+                    "project": "foo",
+                    "message": "lorem ipsum",
+                    "timestamp": 1530940060,
+                    "level": "INFO"
+                }
+            ],
+            "tmp_counter": {
+                "error_counter": [
+                    0
+                ],
+                "critical_counter": [
+                    0
+                ]
+            },
+            "total_counter": {
+                "error_counter": [
+                    0
+                ],
+                "critical_counter": [
+                    0
+                ]
+            }
+        },
+        "dst": {
+            "logs": [
+                {
+                    "project": "bar",
+                    "message": "consectetur adipiscing elit",
+                    "timestamp": 1530941995,
+                    "level": "DEBUG"
+                }
+            ],
+            "tmp_counter": {
+                "error_counter": [
+                    0
+                ],
+                "critical_counter": [
+                    0
+                ]
+            },
+            "total_counter": {
+                "error_counter": [
+                    0
+                ],
+                "critical_counter": [
+                    0
+                ]
+            }
+        }
+    },
+    "output": {
+        "logs": [
+            {
+                "project": "bar",
+                "message": "consectetur adipiscing elit",
+                "timestamp": 1530941995,
+                "level": "DEBUG"
+            },
+            {
+                "project": "foo",
+                "message": "lorem ipsum",
+                "timestamp": 1530940060,
+                "level": "INFO"
+            }
+        ],
+        "tmp_counter": {
+            "error_counter": [
+                0,
+                0
+            ],
+            "critical_counter": [
+                0,
+                0
+            ]
+        },
+        "total_counter": {
+            "error_counter": [
+                0
+            ],
+            "critical_counter": [
+                0
+            ]
+        }
+    }
+}

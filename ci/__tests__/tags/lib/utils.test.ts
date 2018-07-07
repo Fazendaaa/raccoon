@@ -7,6 +7,8 @@ const basePath = join(__dirname, '../../../__mocks__/tags/utils');
 const first = JSON.parse(readFileSync(`${basePath}/priceFrom.json`, 'utf8'));
 const second = JSON.parse(readFileSync(`${basePath}/priceTo.json`, 'utf8'));
 
+jest.setTimeout(10000);
+
 describe('Testing utils library.', () => {
     test('Testing fetchDivPrice with missing priceFrom option.', async () => {
         const mockHTML = basePath.concat('/priceFrom.html');

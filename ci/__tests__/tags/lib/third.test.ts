@@ -6,6 +6,8 @@ import { productList, readDOMProducts__ } from '../data';
 const basePath = join(__dirname, '../../../__mocks__/tags/third');
 const output = JSON.parse(readFileSync(`${basePath}/joinProducts.json`, 'utf8'));
 
+jest.setTimeout(10000);
+
 describe('Testing third question.', () => {
     test('Same as the last one second question but with the caveat of matching price and then transforming it to number.', async () => {
         const input = joinProducts(productList, await readDOMProducts__());

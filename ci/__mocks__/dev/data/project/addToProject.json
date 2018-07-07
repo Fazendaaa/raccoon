@@ -1,0 +1,170 @@
+[
+    {
+        "label": "Default test.",
+        "input": {
+            "total": {
+                "logs": [],
+                "tmp_counter": {
+                    "error_counter": [
+                        0
+                    ],
+                    "critical_counter": [
+                        0
+                    ]
+                },
+                "total_counter": {
+                    "error_counter": [
+                        0
+                    ],
+                    "critical_counter": [
+                        0
+                    ]
+                }
+            },
+            "current": {
+                "project": "bar",
+                "message": "consectetur adipiscing elit",
+                "timestamp": 1530941995,
+                "level": "DEBUG"
+            }
+        },
+        "output": {
+            "logs": [
+                {
+                    "project": "bar",
+                    "message": "consectetur adipiscing elit",
+                    "timestamp": 1530941995,
+                    "level": "DEBUG"
+                }
+            ],
+            "tmp_counter": {
+                "error_counter": [
+                    0
+                ],
+                "critical_counter": [
+                    0
+                ]
+            },
+            "total_counter": {
+                "error_counter": [
+                    0
+                ],
+                "critical_counter": [
+                    0
+                ]
+            }
+        }
+    },
+    {
+        "label": "Adding error.",
+        "input": {
+            "total": {
+                "logs": [],
+                "tmp_counter": {
+                    "error_counter": [
+                        0
+                    ],
+                    "critical_counter": [
+                        0
+                    ]
+                },
+                "total_counter": {
+                    "error_counter": [
+                        0
+                    ],
+                    "critical_counter": [
+                        0
+                    ]
+                }
+            },
+            "current": {
+                "project": "bar",
+                "message": "consectetur adipiscing elit",
+                "timestamp": 1530941995,
+                "level": "ERROR"
+            }
+        },
+        "output": {
+            "logs": [
+                {
+                    "project": "bar",
+                    "message": "consectetur adipiscing elit",
+                    "timestamp": 1530941995,
+                    "level": "ERROR"
+                }
+            ],
+            "tmp_counter": {
+                "error_counter": [
+                    1
+                ],
+                "critical_counter": [
+                    0
+                ]
+            },
+            "total_counter": {
+                "error_counter": [
+                    0
+                ],
+                "critical_counter": [
+                    0
+                ]
+            }
+        }
+    },
+    {
+        "label": "Adding critical.",
+        "input": {
+            "total": {
+                "logs": [],
+                "tmp_counter": {
+                    "error_counter": [
+                        0
+                    ],
+                    "critical_counter": [
+                        0
+                    ]
+                },
+                "total_counter": {
+                    "error_counter": [
+                        0
+                    ],
+                    "critical_counter": [
+                        0
+                    ]
+                }
+            },
+            "current": {
+                "project": "bar",
+                "message": "consectetur adipiscing elit",
+                "timestamp": 1530941995,
+                "level": "CRITICAL"
+            }
+        },
+        "output": {
+            "logs": [
+                {
+                    "project": "bar",
+                    "message": "consectetur adipiscing elit",
+                    "timestamp": 1530941995,
+                    "level": "CRITICAL"
+                }
+            ],
+            "tmp_counter": {
+                "error_counter": [
+                    0
+                ],
+                "critical_counter": [
+                    1
+                ]
+            },
+            "total_counter": {
+                "error_counter": [
+                    0
+                ],
+                "critical_counter": [
+                    0
+                ]
+            }
+        }
+    }
+]

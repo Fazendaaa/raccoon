@@ -1,0 +1,107 @@
+[
+    {
+        "label": "Default test",
+        "input": {
+            "project": "bar",
+            "message": "consectetur adipiscing elit",
+            "timestamp": 1530941995,
+            "level": "INFO"
+        },
+        "output": {
+            "logs": [
+                {
+                    "level": "INFO",
+                    "message": "consectetur adipiscing elit",
+                    "project": "bar",
+                    "timestamp": 1530941995
+                }
+            ],
+            "tmp_counter": {
+                "critical_counter": [
+                    0
+                ],
+                "error_counter": [
+                    0
+                ]
+            },
+            "total_counter": {
+                "critical_counter": [
+                    0
+                ],
+                "error_counter": [
+                    0
+                ]
+            }
+        }
+    },
+    {
+        "label": "Error test",
+        "input": {
+            "project": "bar",
+            "message": "consectetur adipiscing elit",
+            "timestamp": 1530941995,
+            "level": "ERROR"
+        },
+        "output": {
+            "logs": [
+                {
+                    "level": "ERROR",
+                    "message": "consectetur adipiscing elit",
+                    "project": "bar",
+                    "timestamp": 1530941995
+                }
+            ],
+            "tmp_counter": {
+                "critical_counter": [
+                    0
+                ],
+                "error_counter": [
+                    1
+                ]
+            },
+            "total_counter": {
+                "critical_counter": [
+                    0
+                ],
+                "error_counter": [
+                    0
+                ]
+            }
+        }
+    },
+    {
+        "label": "Critical test",
+        "input": {
+            "project": "bar",
+            "message": "consectetur adipiscing elit",
+            "timestamp": 1530941995,
+            "level": "CRITICAL"
+        },
+        "output": {
+            "logs": [
+                {
+                    "level": "CRITICAL",
+                    "message": "consectetur adipiscing elit",
+                    "project": "bar",
+                    "timestamp": 1530941995
+                }
+            ],
+            "tmp_counter": {
+                "critical_counter": [
+                    1
+                ],
+                "error_counter": [
+                    0
+                ]
+            },
+            "total_counter": {
+                "critical_counter": [
+                    0
+                ],
+                "error_counter": [
+                    0
+                ]
+            }
+        }
+    }
+]
