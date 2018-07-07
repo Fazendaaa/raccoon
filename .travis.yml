@@ -7,4 +7,4 @@ cache:
 scripts:
   - npm install codecov -g
 after_success:
-  - codecov --token=CODECOV_TOKEN
+  - codecov
