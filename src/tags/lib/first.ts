@@ -35,6 +35,6 @@ export const DOMAvailableIds = (products: HTMLCollection): Array<string> => {
     return Array.from(products).filter(isDivAvailable).map(fetchDivId);
 };
 
-export const DOMSmartphonesIds = (products: HTMLCollection): Array<PartialProduct> => {
+export const DOMPartialProduct = (products: HTMLCollection): Array<PartialProduct> => {
     return Array.from(products).map(fetchPartialProduct);
 };

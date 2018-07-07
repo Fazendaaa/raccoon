@@ -32,5 +32,9 @@
     ],
     "expand": true,
     "logHeapUsage": true,
-    "bail": true
+    "bail": true,
+    "testPathIgnorePatterns": [
+        "./ci/__tests__/tags/data.ts",
+        "./ci/__tests__/dev/data.ts"
+    ]
 }

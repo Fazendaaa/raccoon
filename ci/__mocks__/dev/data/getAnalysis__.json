@@ -1,0 +1,1367 @@
+[
+    {
+        "label": "Empty total and reviewed.",
+        "input": {
+            "total": {
+                "mean": [],
+                "standard_deviation": [],
+                "projects": {},
+                "tracebacks": [],
+                "total_timestamp": []
+            },
+            "reviewed": {
+                "projects": {},
+                "tracebacks": [],
+                "total_timestamp": []
+            }
+        },
+        "output": {
+            "mean": [
+                0
+            ],
+            "standard_deviation": [
+                0
+            ],
+            "projects": {},
+            "tracebacks": [],
+            "total_timestamp": []
+        }
+    },
+    {
+        "label": "Empty total and reviewed populated only with total timestamp.",
+        "input": {
+            "total": {
+                "mean": [],
+                "standard_deviation": [],
+                "projects": {},
+                "tracebacks": [],
+                "total_timestamp": []
+            },
+            "reviewed": {
+                "projects": {},
+                "tracebacks": [],
+                "total_timestamp": [
+                    1,
+                    1,
+                    2,
+                    3,
+                    5,
+                    8,
+                    13,
+                    21,
+                    34,
+                    55
+                ]
+            }
+        },
+        "output": {
+            "mean": [
+                14.3
+            ],
+            "standard_deviation": [
+                16.88223918797504
+            ],
+            "projects": {},
+            "tracebacks": [],
+            "total_timestamp": [
+                1,
+                1,
+                2,
+                3,
+                5,
+                8,
+                13,
+                21,
+                34,
+                55
+            ]
+        }
+    },
+    {
+        "label": "Total populated with: total timestamp, mean and standard deviation. Empty reviewed.",
+        "input": {
+            "total": {
+                "mean": [
+                    14.3
+                ],
+                "standard_deviation": [
+                    16.88223918797504
+                ],
+                "projects": {},
+                "tracebacks": [],
+                "total_timestamp": [
+                    1,
+                    1,
+                    2,
+                    3,
+                    5,
+                    8,
+                    13,
+                    21,
+                    34,
+                    55
+                ]
+            },
+            "reviewed": {
+                "projects": {},
+                "tracebacks": [],
+                "total_timestamp": []
+            }
+        },
+        "output": {
+            "mean": [
+                14.3,
+                14.3
+            ],
+            "standard_deviation": [
+                16.88223918797504,
+                16.88223918797504
+            ],
+            "projects": {},
+            "tracebacks": [],
+            "total_timestamp": [
+                1,
+                1,
+                2,
+                3,
+                5,
+                8,
+                13,
+                21,
+                34,
+                55
+            ]
+        }
+    },
+    {
+        "label": "Total populated with: total timestamp, mean and standard deviation. Reviewed only with total timestamp.",
+        "input": {
+            "total": {
+                "mean": [
+                    14.3
+                ],
+                "standard_deviation": [
+                    16.88223918797504
+                ],
+                "projects": {},
+                "tracebacks": [],
+                "total_timestamp": [
+                    1,
+                    1,
+                    2,
+                    3,
+                    5,
+                    8,
+                    13,
+                    21,
+                    34,
+                    55
+                ]
+            },
+            "reviewed": {
+                "projects": {},
+                "tracebacks": [],
+                "total_timestamp": [
+                    89
+                ]
+            }
+        },
+        "output": {
+            "mean": [
+                14.3,
+                21.09090909090909
+            ],
+            "standard_deviation": [
+                16.88223918797504,
+                26.837743251061877
+            ],
+            "projects": {},
+            "tracebacks": [],
+            "total_timestamp": [
+                1,
+                1,
+                2,
+                3,
+                5,
+                8,
+                13,
+                21,
+                34,
+                55,
+                89
+            ]
+        }
+    },
+    {
+        "label": "Total populated with: total timestamp, mean and standard deviation. Reviewed only with total timestamp and one project.",
+        "input": {
+            "total": {
+                "mean": [
+                    14.3
+                ],
+                "standard_deviation": [
+                    16.88223918797504
+                ],
+                "projects": {},
+                "tracebacks": [],
+                "total_timestamp": [
+                    1,
+                    1,
+                    2,
+                    3,
+                    5,
+                    8,
+                    13,
+                    21,
+                    34,
+                    55
+                ]
+            },
+            "reviewed": {
+                "projects": {
+                    "foo": {
+                        "logs": [
+                            {
+                                "project": "foo",
+                                "message": "lorem ipsum",
+                                "timestamp": 1530940060,
+                                "level": "INFO"
+                            }
+                        ],
+                        "tmp_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        },
+                        "total_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        }
+                    }
+                },
+                "tracebacks": [],
+                "total_timestamp": [
+                    89
+                ]
+            }
+        },
+        "output": {
+            "mean": [
+                14.3,
+                21.09090909090909
+            ],
+            "standard_deviation": [
+                16.88223918797504,
+                26.837743251061877
+            ],
+            "projects": {
+                "foo": {
+                    "logs": [
+                        {
+                            "project": "foo",
+                            "message": "lorem ipsum",
+                            "timestamp": 1530940060,
+                            "level": "INFO"
+                        }
+                    ],
+                    "tmp_counter": {
+                        "error_counter": [
+                            0
+                        ],
+                        "critical_counter": [
+                            0
+                        ]
+                    },
+                    "total_counter": {
+                        "error_counter": [
+                            0
+                        ],
+                        "critical_counter": [
+                            0
+                        ]
+                    }
+                }
+            },
+            "tracebacks": [],
+            "total_timestamp": [
+                1,
+                1,
+                2,
+                3,
+                5,
+                8,
+                13,
+                21,
+                34,
+                55,
+                89
+            ]
+        }
+    },
+    {
+        "label": "Total populated with: total timestamp, mean, standard deviation and projects. Reviewed only with total timestamp and one project.",
+        "input": {
+            "total": {
+                "mean": [
+                    14.3,
+                    21.09090909090909
+                ],
+                "standard_deviation": [
+                    16.88223918797504,
+                    26.837743251061877
+                ],
+                "projects": {
+                    "foo": {
+                        "logs": [
+                            {
+                                "project": "foo",
+                                "message": "lorem ipsum",
+                                "timestamp": 1530940060,
+                                "level": "INFO"
+                            }
+                        ],
+                        "tmp_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        },
+                        "total_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        }
+                    }
+                },
+                "tracebacks": [],
+                "total_timestamp": [
+                    1,
+                    1,
+                    2,
+                    3,
+                    5,
+                    8,
+                    13,
+                    21,
+                    34,
+                    55,
+                    89
+                ]
+            },
+            "reviewed": {
+                "projects": {
+                    "foo": {
+                        "logs": [
+                            {
+                                "project": "foo",
+                                "message": "dolor sit amet",
+                                "timestamp": 1530941380,
+                                "level": "DEBUG"
+                            }
+                        ],
+                        "tmp_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        },
+                        "total_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        }
+                    }
+                },
+                "tracebacks": [],
+                "total_timestamp": [
+                    144
+                ]
+            }
+        },
+        "output": {
+            "mean": [
+                14.3,
+                21.09090909090909,
+                31.333333333333332
+            ],
+            "standard_deviation": [
+                16.88223918797504,
+                26.837743251061877,
+                42.59368758656877
+            ],
+            "projects": {
+                "foo": {
+                    "logs": [
+                        {
+                            "project": "foo",
+                            "message": "lorem ipsum",
+                            "timestamp": 1530940060,
+                            "level": "INFO"
+                        },
+                        {
+                            "project": "foo",
+                            "message": "dolor sit amet",
+                            "timestamp": 1530941380,
+                            "level": "DEBUG"
+                        }
+                    ],
+                    "tmp_counter": {
+                        "error_counter": [
+                            0,
+                            0
+                        ],
+                        "critical_counter": [
+                            0,
+                            0
+                        ]
+                    },
+                    "total_counter": {
+                        "error_counter": [
+                            0
+                        ],
+                        "critical_counter": [
+                            0
+                        ]
+                    }
+                }
+            },
+            "tracebacks": [],
+            "total_timestamp": [
+                1,
+                1,
+                2,
+                3,
+                5,
+                8,
+                13,
+                21,
+                34,
+                55,
+                89,
+                144
+            ]
+        }
+    },
+    {
+        "label": "Total populated with: total timestamp, mean, standard deviation and projects. Reviewed only with total timestamp and more than one project.",
+        "input": {
+            "total": {
+                "mean": [
+                    14.3,
+                    21.09090909090909,
+                    31.333333333333332
+                ],
+                "standard_deviation": [
+                    16.88223918797504,
+                    26.837743251061877,
+                    42.59368758656877
+                ],
+                "projects": {
+                    "foo": {
+                        "logs": [
+                            {
+                                "project": "foo",
+                                "message": "lorem ipsum",
+                                "timestamp": 1530940060,
+                                "level": "INFO"
+                            },
+                            {
+                                "project": "foo",
+                                "message": "dolor sit amet",
+                                "timestamp": 1530941380,
+                                "level": "DEBUG"
+                            }
+                        ],
+                        "tmp_counter": {
+                            "error_counter": [
+                                0,
+                                0
+                            ],
+                            "critical_counter": [
+                                0,
+                                0
+                            ]
+                        },
+                        "total_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        }
+                    }
+                },
+                "tracebacks": [],
+                "total_timestamp": [
+                    1,
+                    1,
+                    2,
+                    3,
+                    5,
+                    8,
+                    13,
+                    21,
+                    34,
+                    55,
+                    89,
+                    144
+                ]
+            },
+            "reviewed": {
+                "projects": {
+                    "foo": {
+                        "logs": [
+                            {
+                                "project": "foo",
+                                "message": "consectetur adipiscing elit",
+                                "timestamp": 1530943313,
+                                "level": "DEBUG"
+                            }
+                        ],
+                        "tmp_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        },
+                        "total_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        }
+                    },
+                    "bar": {
+                        "logs": [
+                            {
+                                "project": "bar",
+                                "message": "consectetur adipiscing elit",
+                                "timestamp": 1530941995,
+                                "level": "DEBUG"
+                            }
+                        ],
+                        "tmp_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        },
+                        "total_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        }
+                    }
+                },
+                "tracebacks": [],
+                "total_timestamp": [
+                    233
+                ]
+            }
+        },
+        "output": {
+            "mean": [
+                14.3,
+                21.09090909090909,
+                31.333333333333332,
+                46.84615384615385
+            ],
+            "standard_deviation": [
+                16.88223918797504,
+                26.837743251061877,
+                42.59368758656877,
+                67.54582052075824
+            ],
+            "projects": {
+                "foo": {
+                    "logs": [
+                        {
+                            "project": "foo",
+                            "message": "lorem ipsum",
+                            "timestamp": 1530940060,
+                            "level": "INFO"
+                        },
+                        {
+                            "project": "foo",
+                            "message": "dolor sit amet",
+                            "timestamp": 1530941380,
+                            "level": "DEBUG"
+                        },
+                        {
+                            "project": "foo",
+                            "message": "consectetur adipiscing elit",
+                            "timestamp": 1530943313,
+                            "level": "DEBUG"
+                        }
+                    ],
+                    "tmp_counter": {
+                        "error_counter": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "critical_counter": [
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    "total_counter": {
+                        "error_counter": [
+                            0,
+                            0
+                        ],
+                        "critical_counter": [
+                            0,
+                            0
+                        ]
+                    }
+                },
+                "bar": {
+                    "logs": [
+                        {
+                            "project": "bar",
+                            "message": "consectetur adipiscing elit",
+                            "timestamp": 1530941995,
+                            "level": "DEBUG"
+                        }
+                    ],
+                    "tmp_counter": {
+                        "error_counter": [
+                            0
+                        ],
+                        "critical_counter": [
+                            0
+                        ]
+                    },
+                    "total_counter": {
+                        "error_counter": [
+                            0
+                        ],
+                        "critical_counter": [
+                            0
+                        ]
+                    }
+                }
+            },
+            "tracebacks": [],
+            "total_timestamp": [
+                1,
+                1,
+                2,
+                3,
+                5,
+                8,
+                13,
+                21,
+                34,
+                55,
+                89,
+                144,
+                233
+            ]
+        }
+    },
+    {
+        "label": "Total populated with: total timestamp, mean, standard deviation and projects. Reviewed complete.",
+        "input": {
+            "total": {
+                "mean": [
+                    14.3,
+                    21.09090909090909,
+                    31.333333333333332,
+                    46.84615384615385
+                ],
+                "standard_deviation": [
+                    16.88223918797504,
+                    26.837743251061877,
+                    42.59368758656877,
+                    67.54582052075824
+                ],
+                "projects": {
+                    "foo": {
+                        "logs": [
+                            {
+                                "project": "foo",
+                                "message": "lorem ipsum",
+                                "timestamp": 1530940060,
+                                "level": "INFO"
+                            },
+                            {
+                                "project": "foo",
+                                "message": "dolor sit amet",
+                                "timestamp": 1530941380,
+                                "level": "DEBUG"
+                            },
+                            {
+                                "project": "foo",
+                                "message": "consectetur adipiscing elit",
+                                "timestamp": 1530943313,
+                                "level": "DEBUG"
+                            }
+                        ],
+                        "tmp_counter": {
+                            "error_counter": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "critical_counter": [
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        "total_counter": {
+                            "error_counter": [
+                                0,
+                                0
+                            ],
+                            "critical_counter": [
+                                0,
+                                0
+                            ]
+                        }
+                    },
+                    "bar": {
+                        "logs": [
+                            {
+                                "project": "bar",
+                                "message": "consectetur adipiscing elit",
+                                "timestamp": 1530941995,
+                                "level": "DEBUG"
+                            }
+                        ],
+                        "tmp_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        },
+                        "total_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        }
+                    }
+                },
+                "tracebacks": [],
+                "total_timestamp": [
+                    1,
+                    1,
+                    2,
+                    3,
+                    5,
+                    8,
+                    13,
+                    21,
+                    34,
+                    55,
+                    89,
+                    144,
+                    233,
+                    377
+                ]
+            },
+            "reviewed": {
+                "projects": {
+                    "foo": {
+                        "logs": [
+                            {
+                                "project": "foo",
+                                "message": "in reprehenderit in voluptate",
+                                "timestamp": 1530944223,
+                                "level": "DEBUG"
+                            }
+                        ],
+                        "tmp_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        },
+                        "total_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        }
+                    },
+                    "bar": {
+                        "logs": [
+                            {
+                                "project": "bar",
+                                "message": "ullamco laboris nisi ut",
+                                "timestamp": 1530944232,
+                                "level": "DEBUG"
+                            }
+                        ],
+                        "tmp_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        },
+                        "total_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        }
+                    }
+                },
+                "tracebacks": [
+                    {
+                        "project": "bar",
+                        "message": "aliquip ex ea commodo consequat",
+                        "traceback": "Duis aute irure dolor",
+                        "timestamp": 1530941995,
+                        "level": "DEBUG"
+                    }
+                ],
+                "total_timestamp": [
+                    610
+                ]
+            }
+        },
+        "output": {
+            "mean": [
+                14.3,
+                21.09090909090909,
+                31.333333333333332,
+                46.84615384615385,
+                106.4
+            ],
+            "standard_deviation": [
+                16.88223918797504,
+                26.837743251061877,
+                42.59368758656877,
+                67.54582052075824,
+                169.7558246423374
+            ],
+            "projects": {
+                "foo": {
+                    "logs": [
+                        {
+                            "project": "foo",
+                            "message": "lorem ipsum",
+                            "timestamp": 1530940060,
+                            "level": "INFO"
+                        },
+                        {
+                            "project": "foo",
+                            "message": "dolor sit amet",
+                            "timestamp": 1530941380,
+                            "level": "DEBUG"
+                        },
+                        {
+                            "project": "foo",
+                            "message": "consectetur adipiscing elit",
+                            "timestamp": 1530943313,
+                            "level": "DEBUG"
+                        },
+                        {
+                            "project": "foo",
+                            "message": "in reprehenderit in voluptate",
+                            "timestamp": 1530944223,
+                            "level": "DEBUG"
+                        }
+                    ],
+                    "tmp_counter": {
+                        "error_counter": [
+                            0,
+                            0,
+                            0,
+                            0
+                        ],
+                        "critical_counter": [
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    "total_counter": {
+                        "error_counter": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "critical_counter": [
+                            0,
+                            0,
+                            0                            
+                        ]
+                    }
+                },
+                "bar": {
+                    "logs": [
+                        {
+                            "project": "bar",
+                            "message": "consectetur adipiscing elit",
+                            "timestamp": 1530941995,
+                            "level": "DEBUG"
+                        },
+                        {
+                            "project": "bar",
+                            "message": "ullamco laboris nisi ut",
+                            "timestamp": 1530944232,
+                            "level": "DEBUG"
+                        }
+                    ],
+                    "tmp_counter": {
+                        "error_counter": [
+                            0,
+                            0
+                        ],
+                        "critical_counter": [
+                            0,
+                            0
+                        ]
+                    },
+                    "total_counter": {
+                        "error_counter": [
+                            0
+                        ],
+                        "critical_counter": [
+                            0
+                        ]
+                    }
+                }
+            },
+            "tracebacks": [
+                {
+                    "project": "bar",
+                    "message": "aliquip ex ea commodo consequat",
+                    "traceback": "Duis aute irure dolor",
+                    "timestamp": 1530941995,
+                    "level": "DEBUG"
+                }
+            ],
+            "total_timestamp": [
+                1,
+                1,
+                2,
+                3,
+                5,
+                8,
+                13,
+                21,
+                34,
+                55,
+                89,
+                144,
+                233,
+                377,
+                610
+            ]
+        }
+    },
+    {
+        "label": "Total complete. Reviewed complete.",
+        "input": {
+            "total": {
+                "mean": [
+                    14.3,
+                    21.09090909090909,
+                    31.333333333333332,
+                    46.84615384615385,
+                    106.4
+                ],
+                "standard_deviation": [
+                    16.88223918797504,
+                    26.837743251061877,
+                    42.59368758656877,
+                    67.54582052075824,
+                    169.7558246423374
+                ],
+                "projects": {
+                    "foo": {
+                        "logs": [
+                            {
+                                "project": "foo",
+                                "message": "lorem ipsum",
+                                "timestamp": 1530940060,
+                                "level": "INFO"
+                            },
+                            {
+                                "project": "foo",
+                                "message": "dolor sit amet",
+                                "timestamp": 1530941380,
+                                "level": "DEBUG"
+                            },
+                            {
+                                "project": "foo",
+                                "message": "consectetur adipiscing elit",
+                                "timestamp": 1530943313,
+                                "level": "DEBUG"
+                            },
+                            {
+                                "project": "foo",
+                                "message": "in reprehenderit in voluptate",
+                                "timestamp": 1530944223,
+                                "level": "DEBUG"
+                            }
+                        ],
+                        "tmp_counter": {
+                            "error_counter": [
+                                0,
+                                0,
+                                0,
+                                0
+                            ],
+                            "critical_counter": [
+                                0,
+                                0,
+                                0,
+                                0
+                            ]
+                        },
+                        "total_counter": {
+                            "error_counter": [
+                                0,
+                                0,
+                                0
+                            ],
+                            "critical_counter": [
+                                0,
+                                0,
+                                0
+                            ]
+                        }
+                    },
+                    "bar": {
+                        "logs": [
+                            {
+                                "project": "bar",
+                                "message": "consectetur adipiscing elit",
+                                "timestamp": 1530941995,
+                                "level": "DEBUG"
+                            },
+                            {
+                                "project": "bar",
+                                "message": "ullamco laboris nisi ut",
+                                "timestamp": 1530944232,
+                                "level": "DEBUG"
+                            }
+                        ],
+                        "tmp_counter": {
+                            "error_counter": [
+                                0,
+                                0
+                            ],
+                            "critical_counter": [
+                                0,
+                                0
+                            ]
+                        },
+                        "total_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        }
+                    }
+                },
+                "tracebacks": [
+                    {
+                        "project": "bar",
+                        "message": "aliquip ex ea commodo consequat",
+                        "traceback": "Duis aute irure dolor",
+                        "timestamp": 1530941995,
+                        "level": "DEBUG"
+                    }
+                ],
+                "total_timestamp": [
+                    1,
+                    1,
+                    2,
+                    3,
+                    5,
+                    8,
+                    13,
+                    21,
+                    34,
+                    55,
+                    89,
+                    144,
+                    233,
+                    377,
+                    610
+                ]
+            },
+            "reviewed": {
+                "projects": {
+                    "foo": {
+                        "logs": [
+                            {
+                                "project": "foo",
+                                "message": "eu fugiat nulla pariatur",
+                                "timestamp": 1530945075,
+                                "level": "DEBUG"
+                            }
+                        ],
+                        "tmp_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        },
+                        "total_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        }
+                    },
+                    "bar": {
+                        "logs": [
+                            {
+                                "project": "bar",
+                                "message": "Excepteur sint occaecat",
+                                "timestamp": 1530945099,
+                                "level": "DEBUG"
+                            }
+                        ],
+                        "tmp_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        },
+                        "total_counter": {
+                            "error_counter": [
+                                0
+                            ],
+                            "critical_counter": [
+                                0
+                            ]
+                        }
+                    }
+                },
+                "tracebacks": [
+                    {
+                        "project": "foo",
+                        "message": "cupidatat non proident",
+                        "traceback": "sunt in culpa",
+                        "timestamp": 1530945136,
+                        "level": "DEBUG"
+                    }
+                ],
+                "total_timestamp": [
+                    987
+                ]
+            }
+        },
+        "output": {
+            "mean": [
+                14.3,
+                21.09090909090909,
+                31.333333333333332,
+                46.84615384615385,
+                106.4,
+                161.4375
+            ],
+            "standard_deviation": [
+                16.88223918797504,
+                26.837743251061877,
+                42.59368758656877,
+                67.54582052075824,
+                169.7558246423374,
+                269.17070994770216
+            ],
+            "projects": {
+                "foo": {
+                    "logs": [
+                        {
+                            "project": "foo",
+                            "message": "lorem ipsum",
+                            "timestamp": 1530940060,
+                            "level": "INFO"
+                        },
+                        {
+                            "project": "foo",
+                            "message": "dolor sit amet",
+                            "timestamp": 1530941380,
+                            "level": "DEBUG"
+                        },
+                        {
+                            "project": "foo",
+                            "message": "consectetur adipiscing elit",
+                            "timestamp": 1530943313,
+                            "level": "DEBUG"
+                        },
+                        {
+                            "project": "foo",
+                            "message": "in reprehenderit in voluptate",
+                            "timestamp": 1530944223,
+                            "level": "DEBUG"
+                        },
+                        {
+                            "project": "foo",
+                            "message": "eu fugiat nulla pariatur",
+                            "timestamp": 1530945075,
+                            "level": "DEBUG"
+                        }
+                    ],
+                    "tmp_counter": {
+                        "error_counter": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ],
+                        "critical_counter": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    "total_counter": {
+                        "error_counter": [
+                            0,
+                            0,
+                            0,
+                            0
+                        ],
+                        "critical_counter": [
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    }
+                },
+                "bar": {
+                    "logs": [
+                        {
+                            "project": "bar",
+                            "message": "consectetur adipiscing elit",
+                            "timestamp": 1530941995,
+                            "level": "DEBUG"
+                        },
+                        {
+                            "project": "bar",
+                            "message": "ullamco laboris nisi ut",
+                            "timestamp": 1530944232,
+                            "level": "DEBUG"
+                        },
+                        {
+                            "project": "bar",
+                            "message": "Excepteur sint occaecat",
+                            "timestamp": 1530945099,
+                            "level": "DEBUG"
+                        }
+                    ],
+                    "tmp_counter": {
+                        "error_counter": [
+                            0,
+                            0,
+                            0
+                        ],
+                        "critical_counter": [
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    "total_counter": {
+                        "error_counter": [
+                            0,
+                            0
+                        ],
+                        "critical_counter": [
+                            0,
+                            0
+                        ]
+                    }
+                }
+            },
+            "tracebacks": [
+                {
+                    "project": "bar",
+                    "message": "aliquip ex ea commodo consequat",
+                    "traceback": "Duis aute irure dolor",
+                    "timestamp": 1530941995,
+                    "level": "DEBUG"
+                },
+                {
+                    "project": "foo",
+                    "message": "cupidatat non proident",
+                    "traceback": "sunt in culpa",
+                    "timestamp": 1530945136,
+                    "level": "DEBUG"
+                }
+            ],
+            "total_timestamp": [
+                1,
+                1,
+                2,
+                3,
+                5,
+                8,
+                13,
+                21,
+                34,
+                55,
+                89,
+                144,
+                233,
+                377,
+                610,
+                987
+            ]
+        }
+    }
+]

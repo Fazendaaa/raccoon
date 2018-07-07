@@ -1,0 +1,56 @@
+[
+    {
+        "id": "AEMD818BZA_PRD",
+        "category": "smartphone/acessorios",
+        "available": true,
+        "name": "Cabo Lightning USB Apple com 1 metro para iPod, iPhone e iPad – MD818BZ/A"
+    },
+    {
+        "id": "44831_PRD",
+        "category": "eletrodomesticos/aspirador",
+        "available": false,
+        "name": "Robô Aspirador de Pó Inteligente iRobot Roomba - 690"
+    },
+    {
+        "id": "1QVSA15PTA_PRD",
+        "category": "eletrodomesticos/aspirador",
+        "available": true,
+        "name": "Aspirador de Pó Midea Vert Midea Agil com Capacidade de 0,35 Litros sem Saco para Pó - VSA15"
+    },
+    {
+        "id": "SGG570MWDRD_PRD",
+        "category": "smartphone/aparelhos/android",
+        "available": true,
+        "name": "Samsung Galaxy J5 Prime Dourado com Tela 5”, 4G, 32 GB e Câmera de 13 MP - SM-G570MWDGZTO"
+    },
+    {
+        "id": "SGG570MZPTO_PRD",
+        "category": "smartphone/aparelhos/android",
+        "available": true,
+        "name": "Samsung Galaxy J5 Prime Preto com Tela 5”, 4G, 32 GB e Câmera de 13 MP - SM-G570MZKGZTO - SGG570MZPTO_PRD"
+    },
+    {
+        "id": "MRXT19295AZL_PRD",
+        "category": "smartphone/aparelhos/android",
+        "available": true,
+        "name": "Moto Z3 Play Índigo Motorola, com Tela de 6”, 4G, 64 GB e Câmera de 12MP + 5MP - XT1929-5 - MRXT19295AZL_PRD"
+    },
+    {
+        "id": "UXZB570DRD_PRD",
+        "category": "smartphone/aparelhos/android",
+        "available": true,
+        "name": "Zenfone Max Plus (M1) Dourado Asus com Tela de 5,7”, 4G, 32 GB e Câmera de 16+8MP - ZB570KL - UXZB570DRD_PRD"
+    },
+    {
+        "id": "AEMRRM2BZAVRM_PRD",
+        "category": "smartphone/aparelhos/iphone",
+        "available": true,
+        "name": "iPhone 8 (PRODUCT) RED™ Special Edition Vermelho, com Tela de 4,7”, 4G, 64 GB e Câmera de 12 MP - MRRM2BZ/A - AEMRRM2BZAVRM_PRD"
+    },
+    {
+        "id": "SGSMG611PTO_PRD",
+        "category": "smartphone/aparelhos/android",
+        "available": false,
+        "name": "Samsung Galaxy J7 Prime2 TV Preto com Tela 5,5”, 4G, 32 GB e Câmera de 13 MP - SGSMG611PTO - SGSMG611PTO_PRD"
+    }
+]

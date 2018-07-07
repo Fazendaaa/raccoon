@@ -11,6 +11,8 @@
 [![English README](https://img.shields.io/badge/Language-EN-blue.svg?longCache=true&style=for-the-badge)](./README.md)
 [![Portuguese README](https://img.shields.io/badge/Linguagem-PT-green.svg?longCache=true&style=for-the-badge)](./docs/readme/README_PT.md)
 
+[![Codacy Badge](https://img.shields.io/codacy/grade/bd29e1bc8b5c4bf6a5a595f3f59dbaaa.svg?style=flat-square)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Fazendaaa/raccoon&amp;utm_campaign=Badge_Grade)
+
 </div>
 
 ## About
@@ -66,6 +68,10 @@ The API response will be like that:
 As the API are being consumed through a Node application -- and the all JavaScript (JS) numbers are _floats_ -- I've modified the response style presented here because, to the process, won't matter whether or not the numbers are __float__ or __int__.
 
 ## CLI
+
+<video autoplay loop muted width="400" height="400">
+    <source type="video/webm" src="./others/gif/cli/cli.webm">
+</video>
 
 # Tags
 A series of JS questions. I've implemented some of them in TS so they could be my proof of concept located at [tags](./src/tags/) folder.

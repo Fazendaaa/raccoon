@@ -18,7 +18,7 @@ const __updateProjects = (projects: Object, acc: Object, name: string): Object =
 };
 
 const updateProjects = (total: Analysis, { projects }: Review): Object => {
-    const curried = (projects: Object) => ((acc: Object, name: string)  => __updateProjects(projects, acc, name));
+    const curried = ((acc: Object, name: string)  => __updateProjects(projects, acc, name));
 
     return Object.keys(projects).reduce(curried, total.projects);
 };
@@ -50,15 +50,15 @@ const updateTimestamp = (total: Analysis, { total_timestamp }: Review): Array<nu
 };
 
 const calculateStandardDeviation = ({ total_timestamp, mean }: Analysis): number => {
-    const lastMean = mean[mean.length - 1];
-    const dividend = total_timestamp.reduce((acc, cur) => acc + (cur - lastMean), 0);
-    const divisor = total_timestamp.length;
+    const lastMean = mean[mean.length - 1] || 0;
+    const dividend = total_timestamp.reduce((acc, cur) => acc + Math.pow((cur - lastMean), 2), 0);
+    const divisor = total_timestamp.length || 1;
 
-    return Math.sqrt(Math.pow(dividend, 2) / divisor);
+    return Math.sqrt(dividend / divisor);
 };
 
 const calculateMean = ({ total_timestamp }: Analysis): number => {
-    return Math.trunc(total_timestamp.reduce((acc, cur) => acc + cur, 0) / total_timestamp.length);
+    return (total_timestamp.reduce((acc, cur) => acc + cur, 0) / total_timestamp.length) || 0;
 };
 
 export const initAnalysis = (): Analysis => {
