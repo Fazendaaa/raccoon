@@ -29,7 +29,7 @@
 * [Terceira](./tags_pt.md###Terceira)
 * [Desafio](./tags_pt.md###Desafio)
 
-As funções seguintes utilizam as seguintes funções como base:
+As questões seguintes utilizam as seguintes funções como base:
 
 ```js
 const byId = (a, b) => a.id.localeCompare(b.id);
@@ -65,7 +65,6 @@ const DOMProducts = document.getElementsByClassName('product');
 ```
 
 # Primeira
-
 ## Função 1
 O seguinte código irá retornar apenas os ids dos itens nos quais o atributo _available_ é __true__:
 
@@ -110,7 +109,7 @@ console.log(DOMAvailableIds(DOMProducts));
 ```
 
 ## Função 4
-Deve-se um array dos objetos de produtos, onde cada objeto contendo o seguinte modelo:
+Retorne um array dos objetos de produtos, onde cada objeto contendo o seguinte modelo:
 
 ```js
 {
@@ -209,3 +208,4 @@ console.log(joinProducts(productList, DOMProducts));
 Mesma justificativa do ordernar os dados da questão anterior.
 
 # Desafio
+Esta [reportagem](http://diveintohtml5.info/storage.html) me ajudou.

@@ -24,7 +24,7 @@ Job application to two categories are described as follows:
 * [Dev](./README.md#Dev)
 * [Tags](./README.md#Tags)
 
-All of this work was made in a Linux environment only, using it in Mac or Windows might need some different steps; read carefully the steps about installing and configuring the applications. 
+All of this work was made in a Linux environment only, using it in Mac or Windows might need some different steps; read carefully the steps about installing and configuring the applications.
 
 # Dev
 A Command Line Interface (CLI) application to show info about some projects. This info is processed through data consumed from an Representational State Transfer Application Programming Interface (REST API) that only accepts __GET__ method and it's response is a JSON, unicode, format; this response is an array of logs. This application needs to perform sorting and analysis of those logs, presenting the following:
@@ -133,9 +133,10 @@ npm run uglify
 * [jsdom](https://github.com/jsdom/jsdom)
 * [json2csv](https://github.com/zemirco/json2csv)
 * [TypeScript](http://typescriptlang.org/)
+* [uglify-js-es6](https://github.com/paulovieira/UglifyJS2)
 
 ## Code
-Plain and simple [Typescript](http://typescriptlang.org/) with the [Microsoft](https://github.com/Microsoft/tslint-microsoft-contrib) linter standards as base.
+Plain and simple [Typescript](http://typescriptlang.org/)(TS) with the [Microsoft](https://github.com/Microsoft/tslint-microsoft-contrib) linter standards as base. As there's use of TS in both projects, the  _.tsconfig.json_ file was configured to accept only [ECMA Script 6](http://es6-features.org) format.
 
 Some functions have side-effects, they are tagged with **__** at the end and those whom are callbacks have it at the beginning.
 

@@ -99,7 +99,7 @@ npm install
 
 # Como utilizar
 
-Para rodar os programas, antes de tudo, compile os arquivos, uma vez que foram feitos com TypeScript (TS) e devem rodar JS; para tal, abrar seu terminal no diretório raíz deste projeto e digite:
+Para rodar os programas, antes de tudo, compile os arquivos, uma vez que foram feitos com TS e devem rodar JS; para tal, abrar seu terminal no diretório raíz deste projeto e digite:
 
 ```bash
 npm run build
@@ -133,9 +133,10 @@ npm run uglify
 * [jsdom](https://github.com/jsdom/jsdom)
 * [json2csv](https://github.com/zemirco/json2csv)
 * [TypeScript](http://typescriptlang.org/)
+* [uglify-js-es6](https://github.com/paulovieira/UglifyJS2)
 
 ## Código
-Simples [Typescript](http://typescriptlang.org/) com o padrão de escrita [Microsoft](https://github.com/Microsoft/tslint-microsoft-contrib) como base.
+Simples [Typescript](http://typescriptlang.org/)(TS) com o padrão de escrita [Microsoft](https://github.com/Microsoft/tslint-microsoft-contrib) como base. Como há a utilização do TS em si em ambos os projetos, o arquivo _.tsconfig.json_ foi configurado para aceitar apenas o formato [ECMA Script 6](http://es6-features.org).
 
 Algumas funções possuem _side-effects_, elas possuem **__** no final do nome e aquelas que são callbacks no começo.
 
