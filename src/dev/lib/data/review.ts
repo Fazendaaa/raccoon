@@ -13,10 +13,10 @@ const toReview = (total: Review, current: Response): Review => {
         total.total_timestamp.push(current.timestamp);
     } if (current.hasOwnProperty('traceback')) {
         total.tracebacks.push(current);
-    } if (!total.projects.hasOwnProperty(name)) {
-        total.projects[name] = newProject(current);
     } if (total.projects.hasOwnProperty(name)) {
         total.projects[name] = addToProject(total.projects[name], current);
+    } if (!total.projects.hasOwnProperty(name)) {
+        total.projects[name] = newProject(current);
     }
 
     return total;

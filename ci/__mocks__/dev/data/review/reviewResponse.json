@@ -1,7 +1,770 @@
 [
     {
-        "label": null,
-        "input": null,
-        "output": null
-    }    
+        "label": "Empty one.",
+        "input": [],
+        "output": {
+            "projects": {},
+            "total_timestamp": [],
+            "tracebacks": []
+        }
+    },
+    {
+        "label": "Just one.",
+        "input": [
+            {
+                "project": "foo",
+                "message": "lorem ipsum",
+                "timestamp": 1530940060,
+                "level": "INFO"
+            }
+        ],
+        "output": {
+            "projects": {
+                "foo": {
+                    "logs": [
+                        {
+                            "level": "INFO",
+                            "message": "lorem ipsum",
+                            "project": "foo",
+                            "timestamp": 1530940060
+                        }
+                    ],
+                    "tmp_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    },
+                    "total_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    }
+                }
+            },
+            "total_timestamp": [],
+            "tracebacks": []
+        }
+    },
+    {
+        "label": "Two one of the same project.",
+        "input": [
+            {
+                "project": "foo",
+                "message": "lorem ipsum",
+                "timestamp": 1530940060,
+                "level": "INFO"
+            },
+            {
+                "project": "foo",
+                "message": "dolor sit amet",
+                "timestamp": 1530941380,
+                "level": "DEBUG"
+            }
+        ],
+        "output": {
+            "projects": {
+                "foo": {
+                    "logs": [
+                        {
+                            "level": "INFO",
+                            "message": "lorem ipsum",
+                            "project": "foo",
+                            "timestamp": 1530940060
+                        },
+                        {
+                            "project": "foo",
+                            "message": "dolor sit amet",
+                            "timestamp": 1530941380,
+                            "level": "DEBUG"
+                        }
+                    ],
+                    "tmp_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    },
+                    "total_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    }
+                }
+            },
+            "total_timestamp": [],
+            "tracebacks": []
+        }
+    },
+    {
+        "label": "Two one of the same project -- out of the order.",
+        "input": [
+            {
+                "project": "foo",
+                "message": "lorem ipsum",
+                "timestamp": 1530940060,
+                "level": "INFO"
+            },
+            {
+                "project": "foo",
+                "message": "dolor sit amet",
+                "timestamp": 1530941380,
+                "level": "DEBUG"
+            }
+        ],
+        "output": {
+            "projects": {
+                "foo": {
+                    "logs": [
+                        {
+                            "level": "INFO",
+                            "message": "lorem ipsum",
+                            "project": "foo",
+                            "timestamp": 1530940060
+                        },
+                        {
+                            "project": "foo",
+                            "message": "dolor sit amet",
+                            "timestamp": 1530941380,
+                            "level": "DEBUG"
+                        }
+                    ],
+                    "tmp_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    },
+                    "total_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    }
+                }
+            },
+            "total_timestamp": [],
+            "tracebacks": []
+        }
+    },
+    {
+        "label": "Two projects.",
+        "input": [
+            {
+                "project": "foo",
+                "message": "lorem ipsum",
+                "timestamp": 1530940060,
+                "level": "INFO"
+            },
+            {
+                "project": "foo",
+                "message": "dolor sit amet",
+                "timestamp": 1530941380,
+                "level": "DEBUG"
+            },
+            {
+                "project": "bar",
+                "message": "consectetur adipiscing elit",
+                "timestamp": 1530941995,
+                "level": "DEBUG"
+            }
+        ],
+        "output": {
+            "projects": {
+                "foo": {
+                    "logs": [
+                        {
+                            "level": "INFO",
+                            "message": "lorem ipsum",
+                            "project": "foo",
+                            "timestamp": 1530940060
+                        },
+                        {
+                            "project": "foo",
+                            "message": "dolor sit amet",
+                            "timestamp": 1530941380,
+                            "level": "DEBUG"
+                        }
+                    ],
+                    "tmp_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    },
+                    "total_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    }
+                },
+                "bar": {
+                    "logs": [
+                        {
+                            "project": "bar",
+                            "message": "consectetur adipiscing elit",
+                            "timestamp": 1530941995,
+                            "level": "DEBUG"
+                        }
+                    ],
+                    "tmp_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    },
+                    "total_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    }
+                }
+            },
+            "total_timestamp": [],
+            "tracebacks": []
+        }
+    },
+    {
+        "label": "With traceback.",
+        "input": [
+            {
+                "project": "foo",
+                "message": "lorem ipsum",
+                "timestamp": 1530940060,
+                "level": "INFO"
+            },
+            {
+                "project": "foo",
+                "message": "dolor sit amet",
+                "timestamp": 1530941380,
+                "level": "DEBUG"
+            },
+            {
+                "project": "bar",
+                "message": "consectetur adipiscing elit",
+                "timestamp": 1530941995,
+                "level": "DEBUG"
+
+            },
+            {
+                "project": "bar",
+                "message": "aliquip ex ea commodo consequat",
+                "traceback": "Duis aute irure dolor",
+                "timestamp": 1530941995,
+                "level": "DEBUG"
+            }
+        ],
+        "output": {
+            "projects": {
+                "foo": {
+                    "logs": [
+                        {
+                            "level": "INFO",
+                            "message": "lorem ipsum",
+                            "project": "foo",
+                            "timestamp": 1530940060
+                        },
+                        {
+                            "project": "foo",
+                            "message": "dolor sit amet",
+                            "timestamp": 1530941380,
+                            "level": "DEBUG"
+                        }
+                    ],
+                    "tmp_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    },
+                    "total_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    }
+                },
+                "bar": {
+                    "logs": [
+                        {
+                            "project": "bar",
+                            "message": "consectetur adipiscing elit",
+                            "timestamp": 1530941995,
+                            "level": "DEBUG"
+                        },
+                        {
+                            "project": "bar",
+                            "message": "aliquip ex ea commodo consequat",
+                            "traceback": "Duis aute irure dolor",
+                            "timestamp": 1530941995,
+                            "level": "DEBUG"
+                        }
+                    ],
+                    "tmp_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    },
+                    "total_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    }
+                }
+            },
+            "total_timestamp": [],
+            "tracebacks": [
+                {
+                    "project": "bar",
+                    "message": "aliquip ex ea commodo consequat",
+                    "traceback": "Duis aute irure dolor",
+                    "timestamp": 1530941995,
+                    "level": "DEBUG"
+                }
+            ]
+        }
+    },
+    {
+        "label": "With response code.",
+        "input": [
+            {
+                "project": "foo",
+                "message": "lorem ipsum",
+                "timestamp": 1530940060,
+                "level": "INFO"
+            },
+            {
+                "project": "foo",
+                "message": "dolor sit amet",
+                "timestamp": 1530941380,
+                "level": "DEBUG"
+            },
+            {
+                "project": "bar",
+                "message": "consectetur adipiscing elit",
+                "timestamp": 1530941995,
+                "level": "DEBUG"
+            },
+            {
+                "project": "bar",
+                "message": "aliquip ex ea commodo consequat",
+                "traceback": "Duis aute irure dolor",
+                "timestamp": 1530941995,
+                "level": "DEBUG"
+            },
+            {
+                "project": "foo",
+                "message": "in reprehenderit in voluptate",
+                "timestamp": 1530944223,
+                "level": "DEBUG",
+                "response_code": 404
+            }
+        ],
+        "output": {
+            "projects": {
+                "foo": {
+                    "logs": [
+                        {
+                            "level": "INFO",
+                            "message": "lorem ipsum",
+                            "project": "foo",
+                            "timestamp": 1530940060
+                        },
+                        {
+                            "project": "foo",
+                            "message": "dolor sit amet",
+                            "timestamp": 1530941380,
+                            "level": "DEBUG"
+                        },
+                        {
+                            "project": "foo",
+                            "message": "in reprehenderit in voluptate",
+                            "timestamp": 1530944223,
+                            "level": "DEBUG",
+                            "response_code": 404
+                        }
+                    ],
+                    "tmp_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    },
+                    "total_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    }
+                },
+                "bar": {
+                    "logs": [
+                        {
+                            "project": "bar",
+                            "message": "consectetur adipiscing elit",
+                            "timestamp": 1530941995,
+                            "level": "DEBUG"
+                        },
+                        {
+                            "project": "bar",
+                            "message": "aliquip ex ea commodo consequat",
+                            "traceback": "Duis aute irure dolor",
+                            "timestamp": 1530941995,
+                            "level": "DEBUG"
+                        }
+                    ],
+                    "tmp_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    },
+                    "total_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    }
+                }
+            },
+            "total_timestamp": [
+                1530944223
+            ],
+            "tracebacks": [
+                {
+                    "project": "bar",
+                    "message": "aliquip ex ea commodo consequat",
+                    "traceback": "Duis aute irure dolor",
+                    "timestamp": 1530941995,
+                    "level": "DEBUG"
+                }
+            ]
+        }
+    },
+    {
+        "label": "With response code and request_duration.",
+        "input": [
+            {
+                "project": "foo",
+                "message": "lorem ipsum",
+                "timestamp": 1530940060,
+                "level": "INFO"
+            },
+            {
+                "project": "foo",
+                "message": "dolor sit amet",
+                "timestamp": 1530941380,
+                "level": "DEBUG"
+            },
+            {
+                "project": "bar",
+                "message": "consectetur adipiscing elit",
+                "timestamp": 1530941995,
+                "level": "DEBUG"
+            },
+            {
+                "project": "bar",
+                "message": "aliquip ex ea commodo consequat",
+                "traceback": "Duis aute irure dolor",
+                "timestamp": 1530941995,
+                "level": "DEBUG"
+            },
+            {
+                "project": "foo",
+                "message": "in reprehenderit in voluptate",
+                "timestamp": 1530944223,
+                "level": "DEBUG",
+                "response_code": 404,
+                "request_duration": 10000
+            }
+        ],
+        "output": {
+            "projects": {
+                "foo": {
+                    "logs": [
+                        {
+                            "level": "INFO",
+                            "message": "lorem ipsum",
+                            "project": "foo",
+                            "timestamp": 1530940060
+                        },
+                        {
+                            "project": "foo",
+                            "message": "dolor sit amet",
+                            "timestamp": 1530941380,
+                            "level": "DEBUG"
+                        },
+                        {
+                            "project": "foo",
+                            "message": "in reprehenderit in voluptate",
+                            "timestamp": 1530944223,
+                            "level": "DEBUG",
+                            "response_code": 404,
+                            "request_duration": 10000
+                        }
+                    ],
+                    "tmp_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    },
+                    "total_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    }
+                },
+                "bar": {
+                    "logs": [
+                        {
+                            "project": "bar",
+                            "message": "consectetur adipiscing elit",
+                            "timestamp": 1530941995,
+                            "level": "DEBUG"
+                        },
+                        {
+                            "project": "bar",
+                            "message": "aliquip ex ea commodo consequat",
+                            "traceback": "Duis aute irure dolor",
+                            "timestamp": 1530941995,
+                            "level": "DEBUG"
+                        }
+                    ],
+                    "tmp_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    },
+                    "total_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    }
+                }
+            },
+            "total_timestamp": [
+                1530944223
+            ],
+            "tracebacks": [
+                {
+                    "project": "bar",
+                    "message": "aliquip ex ea commodo consequat",
+                    "traceback": "Duis aute irure dolor",
+                    "timestamp": 1530941995,
+                    "level": "DEBUG"
+                }
+            ]
+        }
+    },
+    {
+        "label": "With response code and request_duration.",
+        "input": [
+            {
+                "project": "foo",
+                "message": "lorem ipsum",
+                "timestamp": 1530940060,
+                "level": "INFO"
+            },
+            {
+                "project": "foo",
+                "message": "deserunt mollit anim id est laborum",
+                "timestamp": 1531022850,
+                "level": "DEBUG",
+                "request_duration": 1000
+            },
+            {
+                "project": "foo",
+                "message": "dolor sit amet",
+                "timestamp": 1530941380,
+                "level": "DEBUG"
+            },
+            {
+                "project": "bar",
+                "message": "unt in culpa qui officia",
+                "timestamp": 1531022786,
+                "level": "DEBUG",
+                "response_code": 200
+            },
+            {
+                "project": "bar",
+                "message": "consectetur adipiscing elit",
+                "timestamp": 1530941995,
+                "level": "DEBUG"
+            },
+            {
+                "project": "bar",
+                "message": "aliquip ex ea commodo consequat",
+                "traceback": "Duis aute irure dolor",
+                "timestamp": 1530941995,
+                "level": "DEBUG"
+            },
+            {
+                "project": "foo",
+                "message": "in reprehenderit in voluptate",
+                "timestamp": 1530944223,
+                "level": "DEBUG",
+                "response_code": 404,
+                "request_duration": 10000
+            }
+        ],
+        "output": {
+            "projects": {
+                "foo": {
+                    "logs": [
+                        {
+                            "level": "INFO",
+                            "message": "lorem ipsum",
+                            "project": "foo",
+                            "timestamp": 1530940060
+                        },
+                        {
+                            "project": "foo",
+                            "message": "dolor sit amet",
+                            "timestamp": 1530941380,
+                            "level": "DEBUG"
+                        },
+                        {
+                            "project": "foo",
+                            "message": "in reprehenderit in voluptate",
+                            "timestamp": 1530944223,
+                            "level": "DEBUG",
+                            "response_code": 404,
+                            "request_duration": 10000
+                        },
+                        {
+                            "project": "foo",
+                            "message": "deserunt mollit anim id est laborum",
+                            "timestamp": 1531022850,
+                            "level": "DEBUG",
+                            "request_duration": 1000
+                        }
+                    ],
+                    "tmp_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    },
+                    "total_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    }
+                },
+                "bar": {
+                    "logs": [
+                        {
+                            "project": "bar",
+                            "message": "consectetur adipiscing elit",
+                            "timestamp": 1530941995,
+                            "level": "DEBUG"
+                        },
+                        {
+                            "project": "bar",
+                            "message": "aliquip ex ea commodo consequat",
+                            "traceback": "Duis aute irure dolor",
+                            "timestamp": 1530941995,
+                            "level": "DEBUG"
+                        },
+                        {
+                            "project": "bar",
+                            "message": "unt in culpa qui officia",
+                            "timestamp": 1531022786,
+                            "level": "DEBUG",
+                            "response_code": 200
+                        }
+                    ],
+                    "tmp_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    },
+                    "total_counter": {
+                        "critical_counter": [
+                            0
+                        ],
+                        "error_counter": [
+                            0
+                        ]
+                    }
+                }
+            },
+            "total_timestamp": [
+                1530944223,
+                1531022786,
+                1531022850
+            ],
+            "tracebacks": [
+                {
+                    "project": "bar",
+                    "message": "aliquip ex ea commodo consequat",
+                    "traceback": "Duis aute irure dolor",
+                    "timestamp": 1530941995,
+                    "level": "DEBUG"
+                }
+            ]
+        }
+    }
 ]
