@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import { availableIds, DOMAvailableIds, DOMPartialProduct, smartphonesIds } from '../../../../src/tags/lib/first';
-import { productList, readDOMProducts__ } from '../data';
+import { readDOM__ } from '../data';
 
 const basePath = join(__dirname, '../../../__mocks__/tags/first');
 const first = JSON.parse(readFileSync(`${basePath}/availableIds.json`, 'utf8'));
@@ -13,22 +13,29 @@ const input = [];
 jest.setTimeout(10000);
 
 beforeAll(async (done) => {
-    input.push(...DOMPartialProduct(await readDOMProducts__()))
+    const { DOMProducts } = await readDOM__();
+    input.push(...DOMPartialProduct(DOMProducts))
 
     done();
 });
 
 describe('Testing first question.', () => {
-    test('Retrieving all available ids.', () => {
+    test('Retrieving all available ids.', async () => {
+        const { productList } = await readDOM__();
+
         expect(availableIds(productList)).toEqual(first);
     });
 
-    test('Retrieving all smartphones.', () => {
+    test('Retrieving all smartphones.', async () => {
+        const { productList } = await readDOM__();
+
         expect(smartphonesIds(productList)).toEqual(second);
     });
 
     test('Retrieving all available ids from the DOM.', async () => {
-        expect(DOMAvailableIds(await readDOMProducts__())).toEqual(first);
+        const { DOMProducts } = await readDOM__();
+
+        expect(DOMAvailableIds(DOMProducts)).toEqual(first);
     });
 
     test('Retrieving partial data from the DOM as id and imageURL.', () => {

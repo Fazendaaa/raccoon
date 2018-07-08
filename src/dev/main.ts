@@ -1,4 +1,4 @@
-import { getLogs__, Request } from './lib/api/raccoon';
+import { getLogs__, Response } from './lib/api/raccoon';
 import { getAnalysis__, getCounters__, initAnalysis } from './lib/data/analysis';
 import { reviewResponse } from './lib/data/review';
 import { displayAnalysis__, displayCounter__, displayRefresh__ } from './lib/display/show';
@@ -6,7 +6,7 @@ import { displayAnalysis__, displayCounter__, displayRefresh__ } from './lib/dis
 export const analysis = initAnalysis();
 
 const executeAnalysis__ = async (): Promise<void> => {
-    const logs = await getLogs__({});
+    const logs = <Array<Response>> await getLogs__({});
     const reviewed = reviewResponse(logs);
 
     getAnalysis__(analysis, reviewed);

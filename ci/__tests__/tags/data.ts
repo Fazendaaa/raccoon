@@ -1,21 +1,27 @@
 import { config } from 'dotenv';
-import { readFileSync } from 'fs';
 import { JSDOM, Options } from 'jsdom';
-import { join } from 'path';
+import { Product, TagWindow } from '../../../src/tags/main';
+
+export interface DOMData {
+    productList: Array<Product>;
+    DOMProducts: HTMLCollection;
+}
 
 const { fromURL, fromFile } = JSDOM;
 const JSDOMOptions: Options = {
-    resources: 'usable',
     runScripts: 'dangerously'
 };
 
 config();
 
-export const readDOMProducts__ = async (url = process.env.URL): Promise<HTMLCollection> => {
+export const readDOM__ = async (url = process.env.URL): Promise<DOMData> => {
     const { window } = await fromURL(url, JSDOMOptions);
-    const { document } = window;
+    const { document, productList } = <TagWindow> window;
 
-    return document.getElementsByClassName('product');
+    return {
+        productList,
+        DOMProducts: document.getElementsByClassName('product')
+    };
 };
 
 export const readMockDOMProducts__ = async (filePath: string): Promise<HTMLCollection> => {
@@ -24,5 +30,3 @@ export const readMockDOMProducts__ = async (filePath: string): Promise<HTMLColle
 
     return document.getElementsByClassName('product');
 };
-
-export const productList = JSON.parse(readFileSync(join(__dirname, '../../__mocks__/tags/productList.json'), 'utf8'));
