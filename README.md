@@ -21,8 +21,8 @@
 
 ## About
 Job application to two categories are described as follows:
-* [Dev](./README.md#Dev)
-* [Tags](./README.md#Tags)
+* [Dev](#Dev)
+* [Tags](#Tags)
 
 All of this work was made in a Linux environment only, using it in Mac or Windows might need some different steps; read carefully the steps about installing and configuring the applications.
 

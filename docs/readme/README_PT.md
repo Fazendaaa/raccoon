@@ -21,8 +21,8 @@
 
 ## Sobre
 Software desenvolvido para um processo seletivo das duas seguintes vagas:
-* [Dev](./README_PT.md#Dev)
-* [Tags](./README_PT.md#Tags)
+* [Dev](#Dev)
+* [Tags](#Tags)
 
 Todo esses trabalhos foram feitos em Linux apenas, então utilizar eles no Mac ou Windows pode requerer passos diferentes; leia com cuidado os passos de instalção e configuração dos programas.
 

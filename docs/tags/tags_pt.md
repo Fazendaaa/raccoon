@@ -20,14 +20,14 @@
 </div>
 
 ## Questões
-* [Primeira](./tags_pt.md###Primeira)
-    * [Função 1](./tags_pt.md###Função_1)
-    * [Função 2](./tags_pt.md###Função_2)
-    * [Função 3](./tags_pt.md###Função_3)
-    * [Função 4](./tags_pt.md###Função_4)
-* [Segunda](./tags_pt.md###Segunda)
-* [Terceira](./tags_pt.md###Terceira)
-* [Desafio](./tags_pt.md###Desafio)
+- [Primeira](#primeira)
+    - [Função 1](#fun%C3%A7%C3%A3o-1)
+    - [Função 2](#fun%C3%A7%C3%A3o-2)
+    - [Função 3](#fun%C3%A7%C3%A3o-3)
+    - [Função 4](#fun%C3%A7%C3%A3o-4)
+- [Segunda](#segunda)
+- [Terceira](#terceira)
+- [Desafio](#desafio)
 
 As questões seguintes utilizam as seguintes funções como base:
 

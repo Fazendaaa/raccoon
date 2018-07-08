@@ -20,14 +20,14 @@
 </div>
 
 ## Questions
-* [#1](./tags.md###1th)
-    * [1st Function](./tags_pt.md###1st_Function)
-    * [2nd Function](./tags_pt.md###2nd_Function)
-    * [3th Function](./tags_pt.md###3th_Function)
-    * [4th Function](./tags_pt.md###4th_Function)
-* [#2](./tags.md###2th)
-* [#3](./tags.md###3th)
-* [Challenge](./tags.md###Challenge)
+- [1st](#1st)
+    - [1st Function](#1st-function)
+    - [2nd Function](#2nd-function)
+    - [3th Function](#3th-function)
+    - [4th Function](#4th-function)
+- [2nd](#2nd)
+- [3th](#3th)
+- [Challenge](#challenge)
 
 The following questions use as base the following functions:
 
@@ -64,7 +64,7 @@ const { productList } = window;
 const DOMProducts = document.getElementsByClassName('product');
 ```
 
-# 1th
+# 1st
 ## 1st Function
 The following code will return only the ids of those items which attribute _available_ is __true__:
 
