@@ -1,0 +1,56 @@
+[
+    {
+        "label": "Equal values.",
+        "input": {
+            "a": {
+                "project": "foo",
+                "message": "lorem ipsum",
+                "timestamp": 1530940060,
+                "level": "INFO"
+            },
+            "b": {
+                "project": "foo",
+                "message": "dolor sit amet",
+                "timestamp": 1530940060,
+                "level": "DEBUG"
+            }
+        },
+        "output": 0
+    },
+    {
+        "label": "Lesser than.",
+        "input": {
+            "a": {
+                "project": "foo",
+                "message": "lorem ipsum",
+                "timestamp": 1530940000,
+                "level": "INFO"
+            },
+            "b": {
+                "project": "foo",
+                "message": "dolor sit amet",
+                "timestamp": 1530940060,
+                "level": "DEBUG"
+            }
+        },
+        "output": -60
+    },
+    {
+        "label": "Greater than.",
+        "input": {
+            "a": {
+                "project": "foo",
+                "message": "lorem ipsum",
+                "timestamp": 1530940080,
+                "level": "INFO"
+            },
+            "b": {
+                "project": "foo",
+                "message": "dolor sit amet",
+                "timestamp": 1530940060,
+                "level": "DEBUG"
+            }
+        },
+        "output": 20
+    }
+]

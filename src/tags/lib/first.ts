@@ -9,7 +9,7 @@ export interface PartialProduct {
 const isAvailable = (value: Product): boolean => value.available;
 
 const isSmartphone = (value: Product): boolean => {
-    const matched = value.category.match(/smartphone/gm);
+    const matched = value.category.toLocaleLowerCase().match(/smartphone/gm);
 
     if (null === matched) {
         return false;

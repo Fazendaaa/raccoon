@@ -119,6 +119,13 @@ Caso queira rodar o projeto de Tags basta rodar:
 npm run tags
 ```
 
+### Versão "enfeiurada"
+Para desenvolver a versão enfeiruda do código, rode:
+
+```bash
+npm run uglify
+```
+
 # Construído com
 * [blessed](https://github.com/chjj/blessed)
 * [blessed-contrib](https://github.com/yaronn/blessed-contrib)

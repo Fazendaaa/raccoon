@@ -1,3 +1,5 @@
+import { Product } from '../main';
+
 export interface Price {
     priceTo: number;
     priceFrom: number;
@@ -13,7 +15,16 @@ const cleanPrice = (value: string): number => {
     return parseFloat(matched.shift().replace(/\,/, '.'));
 };
 
+const mergeProducts = (a: Product, b: Product): Product => {
+    return {
+        ...a,
+        ...b
+    };
+};
+
 const fetchSpanPrice = (value: HTMLSpanElement): number => cleanPrice(value.textContent);
+
+const byId = (a: Product, b: Product): number => a.id.localeCompare(b.id);
 
 export const fetchDivId = (value: HTMLDivElement): string => value.dataset.id;
 
@@ -30,4 +41,10 @@ export const fetchDivPrice = (value: HTMLDivElement): Price => {
         priceTo: fetchSpanPrice(prices.item(1)),
         priceFrom: fetchSpanPrice(prices.item(0))
     }
+};
+
+export const joiningProducts = (array: Array<Product>, elements: HTMLCollection, divToProduct: (element: HTMLDivElement) => Product): Array<Product> => {
+    const parsed = Array.from(elements).map(divToProduct).sort(byId);
+
+    return array.sort(byId).map((product, index) => mergeProducts(product, parsed[index]));
 };

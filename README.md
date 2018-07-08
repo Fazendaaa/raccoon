@@ -119,6 +119,13 @@ To run the Tags project, just:
 npm run tags
 ```
 
+### Uglifyied version
+To have a uglifyied version just run it:
+
+```bash
+npm run uglify
+```
+
 # Built with
 * [blessed](https://github.com/chjj/blessed)
 * [blessed-contrib](https://github.com/yaronn/blessed-contrib)
