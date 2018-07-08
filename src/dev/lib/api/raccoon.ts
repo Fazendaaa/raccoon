@@ -29,33 +29,43 @@ export interface TotalRequest extends Object {
 }
 
 const handleApiData__ = (response: IncomingMessage): Promise<string | Error> => new Promise((resolve, reject) => {
+    const { statusCode } = response;
     const chunk = [];
 
-    if (200 !== response.statusCode) {
-        throw new Error('Connection not accepted.');
+    if (200 !== statusCode) {
+        reject(new Error('Connection not accepted.'));
     }
 
-    response.setEncoding('utf8');
-    response.on('data', (data: string) => chunk.push(data));
-    response.on('end', () => resolve(chunk.join('')));
+    response
+        .setEncoding('utf8')
+        .on('data', (data: string) => chunk.push(data))
+        .on('end', () => resolve(chunk.join('')))
+        .on('error', reject)
+        .on('uncaughtException', reject);
 });
 
-const getPromise__ = (request: RequestOptions): Promise<string | Error> => new Promise(resolve => {
-    get(request, async (response) => resolve(await handleApiData__(response)))
-    .on('error', (e) => {
-        throw e;
-    });
+const getPromise__ = (request: RequestOptions): Promise<string | Error> => new Promise((resolve, reject) => {
+    get(request, response => {
+        handleApiData__(response)
+            .then(resolve)
+            .catch(reject);
+    })
+    .on('error', reject)
+    .on('uncaughtException', reject);
 });
 
 const defaultAuthorization = <string> process.env.API_KEY;
 const defaultHostname = <string> process.env.HOSTNAME;
 
-export const getLogs__ = async ({ authorization = defaultAuthorization, hostname = defaultHostname }: Request): Promise<Array<Response>> => {
+export const getLogs__ = async ({ authorization = defaultAuthorization, hostname = defaultHostname }: Request): Promise<Array<Response> | Error> => {
     const split = hostname.split(/\/(.+)/);
     const request =  {
         hostname: split[0],
         path: `/${split[1]}`,
-        headers: { authorization }
+        rejectUnauthorized: false,
+        headers: {
+            authorization
+        }
     };
 
     try {

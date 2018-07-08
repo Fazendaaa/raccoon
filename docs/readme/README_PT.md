@@ -149,6 +149,8 @@ npm test
 
 Para rodar os testes não precisa "buildar" antes os arquivos de TS para JS, apenas os TS serão necessários.
 
+Para ajudar os testes da API, foi utilizado o site [mockapi](https://www.mockapi.io/).
+
 # Contribuindo
 Converse comigo através de uma _issue_ sobre isso e analizarei o pedido.
 

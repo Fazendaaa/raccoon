@@ -149,6 +149,8 @@ npm test
 
 When running the tests, there's no need of previously building it; the TS files only are needed.
 
+To help out API mocking, the [mockapi](https://www.mockapi.io/) is used.
+
 # Contributing
 Just talk to me through an _issue_.
 
