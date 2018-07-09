@@ -149,7 +149,7 @@ npm test
 
 Para rodar os testes não precisa "buildar" antes os arquivos de TS para JS, apenas os TS serão necessários.
 
-Para ajudar os testes da API, foi utilizado o site [mockapi](https://www.mockapi.io/).
+Para ajudar os testes da API, foi utilizado o site [mockapi](https://www.mockapi.io/). Além disso, [alcula](http://www.alcula.com/calculators/statistics/standard-deviation/) me ajudou a calcular o __desvio padrão__ e a __média__ para os dados de testes.
 
 # Contribuindo
 Converse comigo através de uma _issue_ sobre isso e analizarei o pedido.

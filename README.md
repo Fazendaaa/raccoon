@@ -149,7 +149,7 @@ npm test
 
 When running the tests, there's no need of previously building it; the TS files only are needed.
 
-To help out API mocking, the [mockapi](https://www.mockapi.io/) is used.
+To help out API mocking, the [mockapi](https://www.mockapi.io/) is used. And [alcula](http://www.alcula.com/calculators/statistics/standard-deviation/) help me out calculating the mocking data for __standard deviation__ and __mean__.
 
 # Contributing
 Just talk to me through an _issue_.

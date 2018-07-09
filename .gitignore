@@ -2,4 +2,5 @@ coverage
 description
 dist
 node_modules
+output
 .env

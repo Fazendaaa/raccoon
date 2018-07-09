@@ -101,6 +101,7 @@ const __exiting__ = (err: any, value: string): void => {
     if (null !== err) {
         unexpectedTermination__(err);
     } if (true === typingBoolean(value)) {
+        toCSV(analysis);
         leave__();
     } else {
         returnToProgram__();
