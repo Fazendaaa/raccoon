@@ -57,6 +57,7 @@ const getPromise__ = (request: RequestOptions): Promise<string | Error> => new P
 const defaultAuthorization = <string> process.env.API_KEY;
 const defaultHostname = <string> process.env.HOSTNAME;
 
+// istanbul ignore next
 export const getLogs__ = async ({ authorization = defaultAuthorization, hostname = defaultHostname }: Request): Promise<Array<Response> | Error> => {
     const split = hostname.split(/\/(.+)/);
     const request =  {

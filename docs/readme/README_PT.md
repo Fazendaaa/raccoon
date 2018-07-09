@@ -39,7 +39,7 @@ O consumo da API possui as seguintes características:
 Atualizar os dados a cada minuto, levando em conta os já consumidos. Como discutido com o recrutador, decidi optar por utilizar o tempo de inicialização da aplicação como o contador de tempo das requisições.
 
 ## Dados
-O _host_ e a _authorization_ a serem inseridos no header da requisão encontram-se em um arquivo __.env__ no formato:
+O _host_ e a _authorization_ a serem inseridos no header da requisão encontram-se em um arquivo __.env__, que deve estar localizado no diretório raiz do projeto no formato:
 
 ```bash
 HOSTNAME="endpoint-da-api-aqui"
@@ -78,11 +78,9 @@ Como a API será consumida por uma aplicação Node -- e os números são todos 
 </div>
 
 # Tags
-Questões sobre JS. Eu implementei algumas dela em TS para qe pudessem servir como uma prova de conceito e estão na pasta [tags](../../src/tags/).
+Questões sobre JS. Eu implementei algumas dela em TypeScript (TS) para qe pudessem servir como uma prova de conceito e estão na pasta [tags](../../src/tags/). Todas as questões respondidas, que foi o pedido para este projeto, podem ser encontradas no arquivo [tags_pt.md](../tags/tags_pt.md).
 
-Todas as questões respondidas podem ser encontradas no arquivo [tags_pt.md](../tags/tags_pt.md).
-
-As questões se atém ao que foi pedido na descrição do manual do candidato, decidi implementar em Node mesmo para facilitar testes e não depender apenas de trabalho manual de ficar verificando no navegador sempre o comportamento quando eles podem ser simulados com o auxílio de algumas ferramentas.
+As respostas se atém ao que foi pedido na descrição do manual do candidato. Mesmo assim decidi implementar em Node mesmo para facilitar testes e não depender apenas de trabalho manual de ficar verificando no navegador sempre o comportamento quando eles podem ser simulados com o auxílio de algumas ferramentas.
 
 Como o foco do projeto é em si mostrar como manipular os arquivos por isso não foram fornecidos, o link está do site utilizado está configurado no arquivo __.env__ como:
 
@@ -132,16 +130,15 @@ npm run uglify
 * [Dotenv](https://github.com/motdotla/dotenv)
 * [jsdom](https://github.com/jsdom/jsdom)
 * [json2csv](https://github.com/zemirco/json2csv)
-* [TypeScript](http://typescriptlang.org/)
 * [uglify-js-es6](https://github.com/paulovieira/UglifyJS2)
 
 ## Código
-Simples [Typescript](http://typescriptlang.org/)(TS) com o padrão de escrita [Microsoft](https://github.com/Microsoft/tslint-microsoft-contrib) como base. Como há a utilização do TS em si em ambos os projetos, o arquivo _.tsconfig.json_ foi configurado para aceitar apenas o formato [ECMA Script 6](http://es6-features.org).
+Simples [TS](http://typescriptlang.org/) com o padrão de escrita [Microsoft](https://github.com/Microsoft/tslint-microsoft-contrib) como base. Como há a utilização do TS em si em ambos os projetos, o arquivo _.tsconfig.json_ foi configurado para aceitar apenas o formato [ECMA Script 6](http://es6-features.org).
 
 Algumas funções possuem _side-effects_, elas possuem **__** no final do nome e aquelas que são callbacks no começo.
 
 ## Testes
-Testes foram escritos com [Jest](https://facebook.github.io/jest/) atavés do pacote [ts-jest](https://www.npmjs.com/package/ts-jest) e há uma integração com [Travis CI](http://travis-ci.org/). Para rodar todos os testes basta rodar:
+Testes foram escritos com [Jest](https://facebook.github.io/jest/) atavés do pacote [ts-jest](https://www.npmjs.com/package/ts-jest) e há uma integração com [Travis CI](http://travis-ci.org/) e [Codecov](https://codecov.io/). Para rodar todos os testes basta rodar:
 
 ```bash
 npm test
@@ -156,6 +153,9 @@ Converse comigo através de uma _issue_ sobre isso e analizarei o pedido.
 
 # Versionamento
 Não há nenhum sistema de versionamento a ser utilizado devido a natureza efêmera do projeto e devido a não utilização de bibliotecas com uma alta taxa de atualizações. 
+
+# Segurança
+Eu adicinei uma integração com [Synk](https://snyk.io/) para garantir que todas as dependências utilizadas não tenham erros ou bugs não concertados antes da Integração Contínua (CI).
 
 # A fazer
 Caso saiba de atualizações ao processo, as farei aqui mesmo; ou em caso de uma segunda fase que utilize esta -- o que alteraria o sistema de versionamento.

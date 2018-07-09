@@ -39,7 +39,7 @@ The API presents the following rules:
 The application must update the data each minute, assuming the already consumed data. As discussed with the recruiter, I've decided the running time from the app as the starting point for the requests.
 
 ## Data
-_Host_ and _authorization_ are being inserted in the request header through a __.env__ file as the following format:
+_Host_ and _authorization_ are being inserted in the request header through a __.env__ file, that must be located at the root project folder in the following format:
 
 ```bash
 HOSTNAME="endpoint-here"
@@ -78,11 +78,9 @@ As the API are being consumed through a Node application -- and the all JavaScri
 </div>
 
 # Tags
-A series of JS questions. I've implemented some of them in TS so they could be my proof of concept located at [tags](./src/tags/) folder.
+A series of JS questions. I've implemented some of them in TypeScript (TS) so they could be my proof of concept located at [tags](./src/tags/) folder. And all of the answered questions, which were asked in to this project, can be found at [tags.md](./tags.md) file.
 
-All of the answered questions can be found at [tags.md](./tags.md) file.
-
-The questions are the things that the job description asked, even so I've decided to implement it in Node to allow me testing it as automatically possible; that way I won't be attached to always needing to open my browser to see whether or not it works.
+The answers are what the job description asked. Even so I've decided to implement it in Node to allow me testing it as automatically possible; that way I won't be attached to always needing to open my browser to see whether or not it works.
 
 Since the idea is to provide the answers to the questions only, I won't be attaching the website used as dependency, and is configured in the __.env__ file as:
 
@@ -132,16 +130,15 @@ npm run uglify
 * [Dotenv](https://github.com/motdotla/dotenv)
 * [jsdom](https://github.com/jsdom/jsdom)
 * [json2csv](https://github.com/zemirco/json2csv)
-* [TypeScript](http://typescriptlang.org/)
 * [uglify-js-es6](https://github.com/paulovieira/UglifyJS2)
 
 ## Code
-Plain and simple [Typescript](http://typescriptlang.org/)(TS) with the [Microsoft](https://github.com/Microsoft/tslint-microsoft-contrib) linter standards as base. As there's use of TS in both projects, the  _.tsconfig.json_ file was configured to accept only [ECMA Script 6](http://es6-features.org) format.
+Plain and simple [TS](http://typescriptlang.org/) with the [Microsoft](https://github.com/Microsoft/tslint-microsoft-contrib) linter standards as base. As there's use of TS in both projects, the  _.tsconfig.json_ file was configured to accept only [ECMA Script 6](http://es6-features.org) format.
 
 Some functions have side-effects, they are tagged with **__** at the end and those whom are callbacks have it at the beginning.
 
 ## Testing
-Tests are written with [Jest](https://facebook.github.io/jest/) through [ts-jest](https://www.npmjs.com/package/ts-jest) and integrated with [Travis CI](http://travis-ci.org/). To run all tests just:
+Tests are written with [Jest](https://facebook.github.io/jest/) through [ts-jest](https://www.npmjs.com/package/ts-jest) and integrated with [Travis CI](http://travis-ci.org/) and [Codecov](https://codecov.io/). To run all tests just:
 
 ```bash
 npm test
@@ -150,6 +147,9 @@ npm test
 When running the tests, there's no need of previously building it; the TS files only are needed.
 
 To help out API mocking, the [mockapi](https://www.mockapi.io/) is used. And [alcula](http://www.alcula.com/calculators/statistics/standard-deviation/) help me out calculating the mocking data for __standard deviation__ and __mean__.
+
+# Security
+I've added a integration with [Synk](https://snyk.io/) to ensure that all of my dependencies have no bugs or errors reported without fixing it first before Continuos integration (CI).
 
 # Contributing
 Just talk to me through an _issue_.
