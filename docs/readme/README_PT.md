@@ -95,6 +95,8 @@ Os projetos dependem de [Node](https://nodejs.org/) e do [npm](https://www.npmjs
 npm install
 ```
 
+Se algum erro for reportado durante este processo relacionado com dependências utilizadas e você gostaria de ver como lidar com elas, leia mais em [Segurança](#Segurança).
+
 # Como utilizar
 
 Para rodar os programas, antes de tudo, compile os arquivos, uma vez que foram feitos com TS e devem rodar JS; para tal, abrar seu terminal no diretório raíz deste projeto e digite:
@@ -142,22 +144,36 @@ Algumas funções possuem _side-effects_, elas possuem **__** no final do nome e
 ## Testes
 Testes foram escritos com [Jest](https://facebook.github.io/jest/) atavés do pacote [ts-jest](https://www.npmjs.com/package/ts-jest) e há uma integração com [Travis CI](http://travis-ci.org/) e [Codecov](https://codecov.io/). Para rodar todos os testes basta rodar:
 
+Para rodar os testes não precisa "buildar" antes os arquivos de TS para JS, apenas os TS serão necessários.
+
+Para rodar todos os testes, você precisará configurar as seguintes variáveis de ambiente no arquivo __.env__:
+
+```bash
+MOCK_API="alguma-url-de-api-de-mock"
+MOCK_API_ERROR="alguma-url-de-api-de-mock-para-casos-inválidos"
+MOCK_KEY="alguma-chave-de-api-de-mock-para-autorização"
+```
+
+Para ajudar os testes da API, foi utilizado o site [mockapi](https://www.mockapi.io/). Além disso, [alcula](http://www.alcula.com/calculators/statistics/standard-deviation/) me ajudou a calcular o __desvio padrão__ e a __média__ para os dados de testes.
+
+
 ```bash
 npm test
 ```
 
-Para rodar os testes não precisa "buildar" antes os arquivos de TS para JS, apenas os TS serão necessários.
+Se algum erro for reportado durante este processo relacionado com dependências utilizadas e você gostaria de ver como lidar com elas, leia mais em [Segurança](#Segurança).
 
-Para ajudar os testes da API, foi utilizado o site [mockapi](https://www.mockapi.io/). Além disso, [alcula](http://www.alcula.com/calculators/statistics/standard-deviation/) me ajudou a calcular o __desvio padrão__ e a __média__ para os dados de testes.
+# Segurança
+Eu adicinei uma integração com [Synk](https://snyk.io/) para garantir que todas as dependências utilizadas não tenham erros ou bugs não concertados antes da Integração Contínua (CI) para garantir o Desenvolvimento Contínuo (CD).
+
+## Errors/Bugs em Dependência
+Se o Synk reportar algum error ou bugs que podem ser corrigidos, apenas siga os passos da ferramenta em como lidar com tais problemas -- para mais ajuda, leia a [documentação](https://github.com/snyk/snyk#cli) deles.
 
 # Contribuindo
 Converse comigo através de uma _issue_ sobre isso e analizarei o pedido.
 
 # Versionamento
 Não há nenhum sistema de versionamento a ser utilizado devido a natureza efêmera do projeto e devido a não utilização de bibliotecas com uma alta taxa de atualizações. 
-
-# Segurança
-Eu adicinei uma integração com [Synk](https://snyk.io/) para garantir que todas as dependências utilizadas não tenham erros ou bugs não concertados antes da Integração Contínua (CI).
 
 # A fazer
 Caso saiba de atualizações ao processo, as farei aqui mesmo; ou em caso de uma segunda fase que utilize esta -- o que alteraria o sistema de versionamento.

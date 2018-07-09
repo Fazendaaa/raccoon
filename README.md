@@ -95,6 +95,8 @@ The projects are written in [Node](https://nodejs.org/) and the help of [npm](ht
 npm install
 ```
 
+If you ran into some errors related to package dependencies and want to know how to handle it, read the [Security](#Security) info.
+
 # How to use it
 
 To run the projects, before all of that, compile the files. Since they are written in TypeScript (TS) and Node runs JS to do so, run the following command:
@@ -140,18 +142,33 @@ I've added also a code review through [Codacy](http://codacy.com/).
 Some functions have side-effects, they are tagged with **__** at the end and those whom are callbacks have it at the beginning.
 
 ## Testing
-Tests are written with [Jest](https://facebook.github.io/jest/) through [ts-jest](https://www.npmjs.com/package/ts-jest) and integrated with [Travis CI](http://travis-ci.org/) and [Codecov](https://codecov.io/). To run all tests just:
+Tests are written with [Jest](https://facebook.github.io/jest/) through [ts-jest](https://www.npmjs.com/package/ts-jest) and integrated with [Travis CI](http://travis-ci.org/) and [Codecov](https://codecov.io/).
+
+When running the tests, there's no need of previously building it; the TS files only are needed.
+
+To run all of the tests you will need to set the following environment variables at the __.env__ file:
+
+```bash
+MOCK_API="some-mock-api-endpoint"
+MOCK_API_ERROR="some-invalid-mock-api-endpoint"
+MOCK_KEY="some-mock-api-key-authorization"
+```
+
+To help out API mocking, the [mockapi](https://www.mockapi.io/) is used. And [alcula](http://www.alcula.com/calculators/statistics/standard-deviation/) help me out calculating the mocking data for __standard deviation__ and __mean__.
+
+To run all tests just:
 
 ```bash
 npm test
 ```
 
-When running the tests, there's no need of previously building it; the TS files only are needed.
-
-To help out API mocking, the [mockapi](https://www.mockapi.io/) is used. And [alcula](http://www.alcula.com/calculators/statistics/standard-deviation/) help me out calculating the mocking data for __standard deviation__ and __mean__.
+If you ran into some errors related to package dependencies and want to know how to handle it, read the [Security](#Security) info.
 
 # Security
-I've added a integration with [Synk](https://snyk.io/) to ensure that all of my dependencies have no bugs or errors reported without fixing it first before Continuos integration (CI).
+I've added a integration with [Synk](https://snyk.io/) to ensure that all of my dependencies have no bugs or errors reported without fixing it first before Continuos integration (CI) to ensure the Continuos Development (CD).
+
+## Errors/Bugs in Dependencies
+When Synk report some errors or bugs that can be fixed, just follow the CLI command to fix them before running -- more info at their [docs](https://github.com/snyk/snyk#cli).
 
 # Contributing
 Just talk to me through an _issue_.
