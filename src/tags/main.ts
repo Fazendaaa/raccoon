@@ -1,6 +1,6 @@
 import { config } from 'dotenv';
 import { DOMWindow, JSDOM } from 'jsdom';
-import { fetchProductsFromLocal, saveProductsToLocal__ } from './lib/challenge';
+import { fetchProductsFromLocal, MockStorage, saveProductsToLocal } from './lib/challenge';
 import { availableIds, DOMAvailableIds, DOMPartialProduct, smartphonesIds } from './lib/first';
 import { joinBaseProducts } from './lib/second';
 import { joinProducts } from './lib/third';
@@ -27,9 +27,10 @@ const runQuestions__ = async (): Promise<void> => {
     const { window } = await fromURL(process.env.URL, {
         runScripts: 'dangerously'
     });
-    const { document, productList, localStorage } = <TagWindow> window;
-
+    const { document, productList } = <TagWindow> window;
+    const localStorage = new MockStorage();
     const DOMProducts = document.getElementsByClassName('product');
+    const products = joinProducts(productList, DOMProducts);
 
     console.log('Just the answers will be printed.\n');
 
@@ -43,10 +44,11 @@ const runQuestions__ = async (): Promise<void> => {
     console.log(joinBaseProducts(productList, DOMProducts));
 
     console.log('\nThird question:\n');
-    console.log(joinProducts(productList, DOMProducts));
+    console.log(products);
 
-    // saveProductsToLocal__(total, localStorage);
-    // console.log(fetchProductsFromLocal(localStorage));
+    console.log('\nChallenge:\n');
+    console.log('\nSaving it parsed product to localStorage:\n', saveProductsToLocal(products, localStorage));
+    console.log('\nFetching parsed product from localStorage:\n', fetchProductsFromLocal(localStorage));
 };
 
 runQuestions__();

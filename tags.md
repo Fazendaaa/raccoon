@@ -20,6 +20,8 @@
 </div>
 
 ## Questions
+- [raccoon](#raccoon)
+    - [Questions](#questions)
 - [1st](#1st)
     - [1st Function](#1st-function)
     - [2nd Function](#2nd-function)
@@ -208,4 +210,36 @@ console.log(joinProducts(productList, DOMProducts));
 Same answer of ordering as the previously question.
 
 # Challenge
-This [article](http://diveintohtml5.info/storage.html) help me out.
+This [article](http://diveintohtml5.info/storage.html) help me out to learn more about __Storage__ and it's a very good website, with a relevant content to understand the "whys" to use it and the how.
+
+Since browsers are _stateless_, one possible solution to the task presented is to use the built-in storage. It's just this solution won't work in non supported browsers that don't implement __localStorage__, which means, won't work in all possibles cases scenarios. To work just inject the following code in the first webpage:
+
+```js
+const saveProductsToLocal = (data, local) => {
+    if (undefined === local) {
+        return false;
+    }
+
+    local.setItem('productList', JSON.stringify(data));
+
+    return true;
+};
+
+saveProductsToLocal(joinProducts(productList, DOMProducts), localStorage);
+```
+
+Once in the second webpage, to fetch this data just run the following code:
+
+```js
+const fetchProductsFromLocal = (local) => {
+    if (undefined === local) {
+        return null;
+    }
+
+    return JSON.parse(local.getItem('productList'));
+};
+
+window.productList = fetchProductsFromLocal(window.localStorage);
+```
+
+The localStorage and productList of presented before are different from those presented in the first part because this are variables from the second page. Because of this, the second page will be populated with the desired data; in case that the browser doesn't allow it, productList will be _null_.

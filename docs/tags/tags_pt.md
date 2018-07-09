@@ -20,6 +20,8 @@
 </div>
 
 ## Questões
+- [raccoon](#raccoon)
+    - [Questões](#quest%C3%B5es)
 - [Primeira](#primeira)
     - [Função 1](#fun%C3%A7%C3%A3o-1)
     - [Função 2](#fun%C3%A7%C3%A3o-2)
@@ -59,7 +61,7 @@ const joiningProducts = (array, elements, divToProduct) => {
 E valores básicos:
 
 ```js
-const { productList } = window;
+const { productList, localStorage } = window;
 
 const DOMProducts = document.getElementsByClassName('product');
 ```
@@ -208,4 +210,36 @@ console.log(joinProducts(productList, DOMProducts));
 Mesma justificativa do ordernar os dados da questão anterior.
 
 # Desafio
-Esta [reportagem](http://diveintohtml5.info/storage.html) me ajudou.
+Esta [reportagem](http://diveintohtml5.info/storage.html) me ajudou a entender mais sobre __Storage__ e é um site muito bom com conteúdo que achei relevante para implementar este desafio.
+
+Uma vez que navegadores são mesmo _stateless_ uma possível solução para a tarefa apresentada é aproveitar o armazenamento do navegador. Só que esta solução não funcionará em navegadores antigos que não implementam __localStorage__, ou seja, não funcionará em todos os navegadores. Para funcionar basta adicionar o seguinte código na primeira página:
+
+```js
+const saveProductsToLocal = (data, local) => {
+    if (undefined === local) {
+        return false;
+    }
+
+    local.setItem('productList', JSON.stringify(data));
+
+    return true;
+};
+
+saveProductsToLocal(joinProducts(productList, DOMProducts), localStorage);
+```
+
+Uma vez na segunda página, para retornar esses dados basta rodar o seguinte código:
+
+```js
+const fetchProductsFromLocal = (local) => {
+    if (undefined === local) {
+        return null;
+    }
+
+    return JSON.parse(local.getItem('productList'));
+};
+
+window.productList = fetchProductsFromLocal(window.localStorage);
+```
+
+O localStorage e o productList do segundo trecho de código são diferentes do primeiro, pois são as váriaveis da segunda página. Desta maneira segunda página será populada com os valores adquiridos na primeira; caso o navegador não suporte a tecnologia, productList será nulo.
