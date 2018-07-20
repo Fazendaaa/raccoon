@@ -1,11 +1,12 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
-import { getAnalysis__, getCounters__, initAnalysis } from '../../../../../src/dev/lib/data/analysis';
+import { getAnalysis__, getCounters__, initAnalysis, sanitizeAnalysis__ } from '../../../../../src/dev/lib/data/analysis';
 
 const basePath = join(__dirname, '../../../../__mocks__/dev/data/analysis');
 const first = JSON.parse(readFileSync(`${basePath}/initAnalysis.json`, 'utf8'));
 const second = JSON.parse(readFileSync(`${basePath}/getAnalysis__.json`, 'utf8'));
 const third = JSON.parse(readFileSync(`${basePath}/getCounters__.json`, 'utf8'));
+const fourth = JSON.parse(readFileSync(`${basePath}/sanitizeAnalysis__.json`, 'utf8'));
 
 describe('Testing initAnalysis.', () => {
     test('Initial values.', () => {
@@ -26,3 +27,11 @@ describe('Testing getCounters__.', () => third.map(({ label, input, output }) =>
         expect(getCounters__(input)).toEqual(output);
     });
 }));
+
+describe('Testing sanitizeAnalysis__.', () => {
+    test('Default test.', () => {
+        const { input, output } = fourth;
+
+        expect(sanitizeAnalysis__(input)).toEqual(output);
+    });
+});

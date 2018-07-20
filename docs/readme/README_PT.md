@@ -1,6 +1,6 @@
 # raccoon
 
-<div align = "center">
+<center>
     <br>
     <img src="../../others/img/logo/logo.png" height=260>
     <br>
@@ -17,7 +17,7 @@
 [![Dependencies](https://david-dm.org/Fazendaaa/raccoon.svg?style=flat-square)](https://codeclimate.com/github/Fazendaaa/raccoon/master/package.json)
 [![Known Vulnerabilities](https://snyk.io/test/github/Fazendaaa/raccoon/badge.svg)](https://snyk.io/test/github/Fazendaaa/raccoon)
 
-</div>
+</center>
 
 ## Sobre
 Software desenvolvido para um processo seletivo das duas seguintes vagas:
@@ -72,10 +72,11 @@ Já a resposta será um array do tipo:
 Como a API será consumida por uma aplicação Node -- e os números são todos _floats_ por causa do JavaScript (JS) em si -- modifiquei o estilo da resposta a ser apresentada aqui porque, para a aplicação, não vai importar se o número será __float__ ou __int__.
 
 ## CLI
+A interface é de uso bem simples. Basta seguir as instruções listadas nela.
 
-<div align="center">
-    <img src="../../others/gif/cli/cli.gif"/>
-</div>
+<center>
+    <img src="../../others/gif/cli/cli.gif" width=760 height=400/>
+</center>
 
 # Tags
 Questões sobre JS. Eu implementei algumas dela em TypeScript (TS) para qe pudessem servir como uma prova de conceito e estão na pasta [tags](../../src/tags/). Todas as questões respondidas, que foi o pedido para este projeto, podem ser encontradas no arquivo [tags_pt.md](../tags/tags_pt.md).
@@ -129,7 +130,7 @@ npm run uglify
 # Construído com
 * [blessed](https://github.com/chjj/blessed)
 * [blessed-contrib](https://github.com/yaronn/blessed-contrib)
-* [Dotenv](https://github.com/motdotla/dotenv)
+* [dotenv](https://github.com/motdotla/dotenv)
 * [jsdom](https://github.com/jsdom/jsdom)
 * [json2csv](https://github.com/zemirco/json2csv)
 * [uglify-js-es6](https://github.com/paulovieira/UglifyJS2)
@@ -164,10 +165,10 @@ npm test
 Se algum erro for reportado durante este processo relacionado com dependências utilizadas e você gostaria de ver como lidar com elas, leia mais em [Segurança](#Segurança).
 
 # Segurança
-Eu adicinei uma integração com [Synk](https://snyk.io/) para garantir que todas as dependências utilizadas não tenham erros ou bugs não concertados antes da Integração Contínua (CI) para garantir o Desenvolvimento Contínuo (CD).
+Eu adicinei uma integração com [Snyk](https://snyk.io/) para garantir que todas as dependências utilizadas não tenham erros ou bugs não concertados antes da Integração Contínua (CI) para garantir o Desenvolvimento Contínuo (CD).
 
 ## Errors/Bugs em Dependência
-Se o Synk reportar algum error ou bugs que podem ser corrigidos, apenas siga os passos da ferramenta em como lidar com tais problemas -- para mais ajuda, leia a [documentação](https://github.com/snyk/snyk#cli) deles.
+Se o Snyk reportar algum error ou bugs que podem ser corrigidos, apenas siga os passos da ferramenta em como lidar com tais problemas -- para mais ajuda, leia a [documentação](https://github.com/snyk/snyk#cli) deles.
 
 # Contribuindo
 Converse comigo através de uma _issue_ sobre isso e analizarei o pedido.
@@ -189,6 +190,9 @@ Mudar o programa para salvar os dados consumidos a cada hora; assim o consumo de
 > nota: o exemplo que eles me deram foi de rodar a aplicação por cinco anos ahahahahah
 
 Para reduzir os cálculos necessários, decidi criar novas variáveis para armazenarem valores parciais de cálculos. No começo do projeto era a maneira que eu fazia -- não lembro quando e porquê mudei no decorrer dele.
+
+### CLI
+Conversando com os entrevistadores, eles disseram que a falta de um carrosel na apresentação do gráfio não era um __GRANDE__ problema, assim sendo, foi decidido não armazenar tais dados na RAM -- eles serão salvos no arquivo CSV.
 
 ## Tags
 Ainda farei a entrevista.

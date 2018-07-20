@@ -1,0 +1,262 @@
+{
+    "input": {
+        "mean": [
+            14.3,
+            21.09090909090909,
+            31.333333333333332,
+            46.84615384615385,
+            106.4,
+            161.4375
+        ],
+        "standard_deviation": [
+            16.88223918797504,
+            26.837743251061877,
+            42.59368758656877,
+            67.54582052075824,
+            169.7558246423374,
+            269.17070994770216
+        ],
+        "projects": {
+            "foo": {
+                "logs": [
+                    {
+                        "project": "foo",
+                        "message": "lorem ipsum",
+                        "timestamp": 1530940060,
+                        "level": "INFO"
+                    },
+                    {
+                        "project": "foo",
+                        "message": "dolor sit amet",
+                        "timestamp": 1530941380,
+                        "level": "DEBUG"
+                    },
+                    {
+                        "project": "foo",
+                        "message": "consectetur adipiscing elit",
+                        "timestamp": 1530943313,
+                        "level": "DEBUG"
+                    },
+                    {
+                        "project": "foo",
+                        "message": "in reprehenderit in voluptate",
+                        "timestamp": 1530944223,
+                        "level": "DEBUG"
+                    },
+                    {
+                        "project": "foo",
+                        "message": "eu fugiat nulla pariatur",
+                        "timestamp": 1530945075,
+                        "level": "DEBUG"
+                    }
+                ],
+                "tmp_counter": {
+                    "error_counter": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "critical_counter": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "total_counter": {
+                    "error_counter": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "critical_counter": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "bar": {
+                "logs": [
+                    {
+                        "project": "bar",
+                        "message": "consectetur adipiscing elit",
+                        "timestamp": 1530941995,
+                        "level": "DEBUG"
+                    },
+                    {
+                        "project": "bar",
+                        "message": "ullamco laboris nisi ut",
+                        "timestamp": 1530944232,
+                        "level": "DEBUG"
+                    },
+                    {
+                        "project": "bar",
+                        "message": "Excepteur sint occaecat",
+                        "timestamp": 1530945099,
+                        "level": "DEBUG"
+                    }
+                ],
+                "tmp_counter": {
+                    "error_counter": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "critical_counter": [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "total_counter": {
+                    "error_counter": [
+                        0,
+                        0
+                    ],
+                    "critical_counter": [
+                        0,
+                        0
+                    ]
+                }
+            }
+        },
+        "tracebacks": [
+            {
+                "project": "bar",
+                "message": "aliquip ex ea commodo consequat",
+                "traceback": "Duis aute irure dolor",
+                "timestamp": 1530941995,
+                "level": "DEBUG"
+            },
+            {
+                "project": "foo",
+                "message": "cupidatat non proident",
+                "traceback": "sunt in culpa",
+                "timestamp": 1530945136,
+                "level": "DEBUG"
+            }
+        ],
+        "total_timestamp": [
+            1,
+            1,
+            2,
+            3,
+            5,
+            8,
+            13,
+            21,
+            34,
+            55,
+            89,
+            144,
+            233,
+            377,
+            610,
+            987
+        ]
+    },
+    "output": {
+        "mean": [],
+        "standard_deviation": [],
+        "projects": {
+            "foo": {
+                "logs": [],
+                "tmp_counter": {
+                    "error_counter": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "critical_counter": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "total_counter": {
+                    "error_counter": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "critical_counter": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "bar": {
+                "logs": [],
+                "tmp_counter": {
+                    "error_counter": [
+                        0,
+                        0,
+                        0
+                    ],
+                    "critical_counter": [
+                        0,
+                        0,
+                        0
+                    ]
+                },
+                "total_counter": {
+                    "error_counter": [
+                        0,
+                        0
+                    ],
+                    "critical_counter": [
+                        0,
+                        0
+                    ]
+                }
+            }
+        },
+        "tracebacks": [
+            {
+                "project": "bar",
+                "message": "aliquip ex ea commodo consequat",
+                "traceback": "Duis aute irure dolor",
+                "timestamp": 1530941995,
+                "level": "DEBUG"
+            },
+            {
+                "project": "foo",
+                "message": "cupidatat non proident",
+                "traceback": "sunt in culpa",
+                "timestamp": 1530945136,
+                "level": "DEBUG"
+            }
+        ],
+        "total_timestamp": [
+            1,
+            1,
+            2,
+            3,
+            5,
+            8,
+            13,
+            21,
+            34,
+            55,
+            89,
+            144,
+            233,
+            377,
+            610,
+            987
+        ]
+    }
+}

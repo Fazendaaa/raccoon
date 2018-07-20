@@ -1,11 +1,14 @@
 import { Response } from '../api/raccoon';
-import { joinProjects, newCounter } from './project';
+import { toCSV } from '../export/CSV';
+import { joinProjects, newCounter, sanitizeProject__ } from './project';
 import { Review } from './review';
 
 export interface Analysis extends Review {
     mean: Array<number>;
     standard_deviation: Array<number>;
 }
+
+const arrayLimit = 30;
 
 const __updateProjects = (projects: Object, acc: Object, name: string): Object => {
     if (acc.hasOwnProperty(name)) {
@@ -61,6 +64,10 @@ const calculateMean = ({ total_timestamp }: Analysis): number => {
     return (total_timestamp.reduce((acc, cur) => acc + cur, 0) / total_timestamp.length) || 0;
 };
 
+const sanitizeMean = (mean: Array<number>): Array<number> => mean.slice(arrayLimit - 1);
+
+const sanitizeDeviation = (deviation: Array<number>): Array<number> => deviation.slice(arrayLimit - 1);
+
 export const initAnalysis = (): Analysis => {
     return {
         mean: [],
@@ -84,6 +91,16 @@ export const getAnalysis__ = (total: Analysis, reviewed: Review): Analysis => {
 
 export const getCounters__ = (total: Analysis): Analysis => {
     total.projects = updateCounter(total);
+
+    return total;
+};
+
+export const sanitizeAnalysis__ = (total: Analysis): Analysis => {
+    toCSV(total);
+
+    total.projects = sanitizeProject__(total.projects);
+    total.mean = sanitizeMean(total.mean);
+    total.standard_deviation = sanitizeDeviation(total.standard_deviation);
 
     return total;
 };

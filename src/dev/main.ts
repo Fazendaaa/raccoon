@@ -1,8 +1,7 @@
 import { getLogs__, Response } from './lib/api/raccoon';
-import { getAnalysis__, getCounters__, initAnalysis } from './lib/data/analysis';
+import { getAnalysis__, getCounters__, initAnalysis, sanitizeAnalysis__ } from './lib/data/analysis';
 import { reviewResponse } from './lib/data/review';
 import { displayAnalysis__, displayCounter__, displayRefresh__ } from './lib/display/show';
-import { toCSV } from './lib/export/CSV';
 
 export const analysis = initAnalysis();
 
@@ -30,8 +29,7 @@ const executeAndInterval__ = async (): Promise<void> => {
 
     setInterval(() => displayAnalysis__(analysis), eachMinute);
     setInterval(() => displayCounter__(analysis), eachHour);
-
-    setInterval(() => toCSV(analysis), eachHour);
+    setInterval(() => sanitizeAnalysis__(analysis), eachHour);
 };
 
 executeAndInterval__();

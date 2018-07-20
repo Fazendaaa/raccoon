@@ -1,6 +1,6 @@
 # raccoon
 
-<div align = "center">
+<center>
     <br>
     <img src="./others/img/logo/logo.png" height=260>
     <br>
@@ -17,7 +17,7 @@
 [![Dependencies](https://david-dm.org/Fazendaaa/raccoon.svg?style=flat-square)](https://codeclimate.com/github/Fazendaaa/raccoon/master/package.json)
 [![Known Vulnerabilities](https://snyk.io/test/github/Fazendaaa/raccoon/badge.svg)](https://snyk.io/test/github/Fazendaaa/raccoon)
 
-</div>
+</center>
 
 ## About
 Job application to two categories are described as follows:
@@ -72,10 +72,11 @@ The API response will be like that:
 As the API are being consumed through a Node application -- and the all JavaScript (JS) numbers are _floats_ -- I've modified the response style presented here because, to the process, won't matter whether or not the numbers are __float__ or __int__.
 
 ## CLI
+The interface is pretty simple to use. Just follow the instructions listed there.
 
-<div align="center">
-    <img src="./others/gif/cli/cli.gif"/>
-</div>
+<center>
+    <img src="./others/gif/cli/cli.gif" width=760 height=400/>
+</center>
 
 # Tags
 A series of JS questions. I've implemented some of them in TypeScript (TS) so they could be my proof of concept located at [tags](./src/tags/) folder. And all of the answered questions, which were asked in to this project, can be found at [tags.md](./tags.md) file.
@@ -129,7 +130,7 @@ npm run uglify
 # Built with
 * [blessed](https://github.com/chjj/blessed)
 * [blessed-contrib](https://github.com/yaronn/blessed-contrib)
-* [Dotenv](https://github.com/motdotla/dotenv)
+* [dotenv](https://github.com/motdotla/dotenv)
 * [jsdom](https://github.com/jsdom/jsdom)
 * [json2csv](https://github.com/zemirco/json2csv)
 * [uglify-js-es6](https://github.com/paulovieira/UglifyJS2)
@@ -165,10 +166,10 @@ npm test
 If you ran into some errors related to package dependencies and want to know how to handle it, read the [Security](#Security) info.
 
 # Security
-I've added a integration with [Synk](https://snyk.io/) to ensure that all of my dependencies have no bugs or errors reported without fixing it first before Continuos integration (CI) to ensure the Continuos Development (CD).
+I've added a integration with [Snyk](https://snyk.io/) to ensure that all of my dependencies have no bugs or errors reported without fixing it first before Continuos integration (CI) to ensure the Continuos Development (CD).
 
 ## Errors/Bugs in Dependencies
-When Synk report some errors or bugs that can be fixed, just follow the CLI command to fix them before running -- more info at their [docs](https://github.com/snyk/snyk#cli).
+When Snyk report some errors or bugs that can be fixed, just follow the CLI command to fix them before running -- more info at their [docs](https://github.com/snyk/snyk#cli).
 
 # Contributing
 Just talk to me through an _issue_.
@@ -190,6 +191,9 @@ I've decided to save all the consumed API data each hour; so, that way, the memo
 > note: their example was if the application was running for five years ahahahahah
 
 To reduce calculations I've decided to create a new variable storing the last calculated value. This were the way that in first versions of the application was done -- don't actually remember "when" and "why" I changed the approach.
+
+### CLI
+Talking to the interviewers they said that the CLI lack of carousel graphs wasn't a __BIG__ problem, so the data that can't be shown won't be stored in RAM memory -- it will be saved to the CSV files.
 
 ## Tags
 Interview still have to be done.

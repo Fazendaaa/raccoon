@@ -1,6 +1,6 @@
 # raccoon
 
-<div align = "center">
+<center>
     <br>
     <img src="../../others/img/logo/logo.png" height=260>
     <br>
@@ -17,7 +17,7 @@
 [![Dependencies](https://david-dm.org/Fazendaaa/raccoon.svg?style=flat-square)](https://codeclimate.com/github/Fazendaaa/raccoon/master/package.json)
 [![Known Vulnerabilities](https://snyk.io/test/github/Fazendaaa/raccoon/badge.svg)](https://snyk.io/test/github/Fazendaaa/raccoon)
 
-</div>
+</center>
 
 ## Questões
 - [raccoon](#raccoon)

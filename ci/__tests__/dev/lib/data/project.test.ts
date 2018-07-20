@@ -1,12 +1,13 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
-import { addToProject, joinProjects, newCounter, newProject } from '../../../../../src/dev/lib/data/project';
+import { addToProject, joinProjects, newCounter, newProject, sanitizeProject__ } from '../../../../../src/dev/lib/data/project';
 
 const basePath = join(__dirname, '../../../../__mocks__/dev/data/project');
 const first = JSON.parse(readFileSync(`${basePath}/addToProject.json`, 'utf8'));
 const second = JSON.parse(readFileSync(`${basePath}/joinProjects.json`, 'utf8'));
 const third = JSON.parse(readFileSync(`${basePath}/newCounter.json`, 'utf8'));
 const fourth = JSON.parse(readFileSync(`${basePath}/newProject.json`, 'utf8'));
+const fifth = JSON.parse(readFileSync(`${basePath}/sanitizeProject__.json`, 'utf8'));
 
 describe('Testing addToProject.', () => {
     first.map(({ input, output, label }) => test(label, () => {
@@ -38,4 +39,12 @@ describe('Testing newProject.', () => {
     fourth.map(({ input, output, label }) => test(label, () => {
         expect(newProject(input)).toEqual(output);
     }));
+});
+
+describe('Testing sanitizeProject__.', () => {
+    test('Default test.', () => {
+        const { input, output } = fifth;
+
+        expect(sanitizeProject__(input)).toEqual(output);
+    });
 });

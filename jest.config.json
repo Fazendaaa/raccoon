@@ -1,19 +1,21 @@
 {
-    "name": "raccoon",
-    "globals": {
-        "ts-jest": {
-            "enableTsDiagnostics": true
-        }
-    },
+    "bail": true,
+    "expand": true,
     "verbose": true,
+    "name": "raccoon",
+    "useStderr": true,
+    "forceExit": true,
+    "logHeapUsage": true,
+    "collectCoverage": true,
+    "testRegex": "(./ci/__tests__/.*| (\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "transform": {
         "^.+\\.tsx?$": "ts-jest"
     },
-    "coveragePathIgnorePatterns": [
-        "./node_modules/",
-        "./dist/"
+    "coverageReporters": [
+        "json",
+        "lcov",
+        "text"
     ],
-    "testRegex": "(./ci/__tests__/.*| (\\.|/)(test|spec))\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
         "ts",
         "tsx",
@@ -22,19 +24,18 @@
         "json",
         "node"
     ],
-    "collectCoverage": true,
-    "useStderr": true,
-    "forceExit": true,
-    "coverageReporters": [
-        "json",
-        "lcov",
-        "text"
-    ],
-    "expand": true,
-    "logHeapUsage": true,
-    "bail": true,
     "testPathIgnorePatterns": [
-        "./ci/__tests__/tags/data.ts",
-        "./ci/__tests__/dev/data.ts"
-    ]
+        "./ci/__tests__/dev/data.ts",
+        "./ci/__tests__/tags/data.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+        "./dist/",
+        "./node_modules/",
+        "./src/dev/lib/export/"
+    ],
+    "globals": {
+        "ts-jest": {
+            "enableTsDiagnostics": true
+        }
+    }
 }
