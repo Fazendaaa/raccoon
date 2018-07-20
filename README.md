@@ -21,8 +21,8 @@
 
 ## About
 Job application to two categories are described as follows:
-* [Dev](#Dev)
-* [Tags](#Tags)
+* [Dev](#dev)
+* [Tags](#tags)
 
 All of this work was made in a Linux environment only, using it in Mac or Windows might need some different steps; read carefully the steps about installing and configuring the applications.
 
@@ -176,8 +176,17 @@ Just talk to me through an _issue_.
 # Versioning
 There's no versioning system being used here due to the ephemeral nature of this project. 
 
-# TODO
-If projects updates should be needed I will do it here; or any case of a following stage in this application -- which will change the versioning system.
+# Updates
+After the interview they gave me some feedback. So, all of the commits after july 18th are updates to it.
+
+The Dev and Tags interviews were not at the same day, so they are only updated after the interview itself.
+
+## Dev
+* Reduce the RAM memory consumption;
+* Improve calculations.
+
+## Tags
+Interview still have to be done.
 
 # Authors
 * Just [me](https://github.com/Fazendaaa).

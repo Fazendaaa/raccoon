@@ -21,8 +21,8 @@
 
 ## Sobre
 Software desenvolvido para um processo seletivo das duas seguintes vagas:
-* [Dev](#Dev)
-* [Tags](#Tags)
+* [Dev](#dev)
+* [Tags](#tags)
 
 Todo esses trabalhos foram feitos em Linux apenas, então utilizar eles no Mac ou Windows pode requerer passos diferentes; leia com cuidado os passos de instalção e configuração dos programas.
 
@@ -175,8 +175,17 @@ Converse comigo através de uma _issue_ sobre isso e analizarei o pedido.
 # Versionamento
 Não há nenhum sistema de versionamento a ser utilizado devido a natureza efêmera do projeto e devido a não utilização de bibliotecas com uma alta taxa de atualizações. 
 
-# A fazer
-Caso saiba de atualizações ao processo, as farei aqui mesmo; ou em caso de uma segunda fase que utilize esta -- o que alteraria o sistema de versionamento.
+# Atualizações
+Após as entrevistas eles me deram alguns conselhos. Então, todos os comits após o dia 18 de julho são uptades ao projeto.
+
+A entrevista para Dev e Tags foram feitas em dias diferentes, então as atualizações nas implementações foram feitas após as correspondentes entrevistas.
+
+## Dev
+* Reduzir o consumo de memória RAM;
+* Fazer cálculos mais práticos.
+
+## Tags
+Ainda farei a entrevista.
 
 # Autores
 * Apenas [eu](https://github.com/Fazendaaa).
