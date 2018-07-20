@@ -1,6 +1,6 @@
 # raccoon
 
-<center>
+<div align="center">
     <br>
     <img src="./others/img/logo/logo.png" height=260>
     <br>
@@ -17,7 +17,7 @@
 [![Dependencies](https://david-dm.org/Fazendaaa/raccoon.svg?style=flat-square)](https://codeclimate.com/github/Fazendaaa/raccoon/master/package.json)
 [![Known Vulnerabilities](https://snyk.io/test/github/Fazendaaa/raccoon/badge.svg)](https://snyk.io/test/github/Fazendaaa/raccoon)
 
-</center>
+</div>
 
 ## About
 Job application to two categories are described as follows:
@@ -74,9 +74,9 @@ As the API are being consumed through a Node application -- and the all JavaScri
 ## CLI
 The interface is pretty simple to use. Just follow the instructions listed there.
 
-<center>
+<div align="center">
     <img src="./others/gif/cli/cli.gif" width=760 height=400/>
-</center>
+</div>
 
 # Tags
 A series of JS questions. I've implemented some of them in TypeScript (TS) so they could be my proof of concept located at [tags](./src/tags/) folder. And all of the answered questions, which were asked in to this project, can be found at [tags.md](./tags.md) file.

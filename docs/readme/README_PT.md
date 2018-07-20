@@ -1,6 +1,6 @@
 # raccoon
 
-<center>
+<div align="center">
     <br>
     <img src="../../others/img/logo/logo.png" height=260>
     <br>
@@ -17,7 +17,7 @@
 [![Dependencies](https://david-dm.org/Fazendaaa/raccoon.svg?style=flat-square)](https://codeclimate.com/github/Fazendaaa/raccoon/master/package.json)
 [![Known Vulnerabilities](https://snyk.io/test/github/Fazendaaa/raccoon/badge.svg)](https://snyk.io/test/github/Fazendaaa/raccoon)
 
-</center>
+</div>
 
 ## Sobre
 Software desenvolvido para um processo seletivo das duas seguintes vagas:
@@ -74,9 +74,9 @@ Como a API será consumida por uma aplicação Node -- e os números são todos 
 ## CLI
 A interface é de uso bem simples. Basta seguir as instruções listadas nela.
 
-<center>
+<div align="center">
     <img src="../../others/gif/cli/cli.gif" width=760 height=400/>
-</center>
+</div>
 
 # Tags
 Questões sobre JS. Eu implementei algumas dela em TypeScript (TS) para qe pudessem servir como uma prova de conceito e estão na pasta [tags](../../src/tags/). Todas as questões respondidas, que foi o pedido para este projeto, podem ser encontradas no arquivo [tags_pt.md](../tags/tags_pt.md).
