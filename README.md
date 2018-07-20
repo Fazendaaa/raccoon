@@ -185,6 +185,12 @@ The Dev and Tags interviews were not at the same day, so they are only updated a
 * Reduce the RAM memory consumption;
 * Improve calculations.
 
+I've decided to save all the consumed API data each hour; so, that way, the memory consumption would not be that great.
+
+> note: their example was if the application was running for five years ahahahahah
+
+To reduce calculations I've decided to create a new variable storing the last calculated value. This were the way that in first versions of the application was done -- don't actually remember "when" and "why" I changed the approach.
+
 ## Tags
 Interview still have to be done.
 

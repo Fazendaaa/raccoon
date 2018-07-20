@@ -184,6 +184,12 @@ A entrevista para Dev e Tags foram feitas em dias diferentes, então as atualiza
 * Reduzir o consumo de memória RAM;
 * Fazer cálculos mais práticos.
 
+Mudar o programa para salvar os dados consumidos a cada hora; assim o consumo de memória se manterá baixo.
+
+> nota: o exemplo que eles me deram foi de rodar a aplicação por cinco anos ahahahahah
+
+Para reduzir os cálculos necessários, decidi criar novas variáveis para armazenarem valores parciais de cálculos. No começo do projeto era a maneira que eu fazia -- não lembro quando e porquê mudei no decorrer dele.
+
 ## Tags
 Ainda farei a entrevista.
 

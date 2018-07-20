@@ -8,4 +8,4 @@ patch:
         patched: '2018-07-20T00:23:16.666Z'
   'npm:request:20160119':
     - blessed-contrib > picture-tube > request:
-        patched: '2018-07-20T00:23:16.666Z'
+        patched: '2018-07-20T02:42:26.319Z'
