@@ -45,11 +45,11 @@
   },
   "dependencies": {
     "blessed": "^0.1.81",
-    "blessed-contrib": "^4.8.5",
+    "blessed-contrib": "^4.8.19",
     "dotenv": "^6.0.0",
-    "jsdom": "^11.11.0",
-    "json2csv": "^4.1.6",
-    "snyk": "^1.88.2",
+    "jsdom": "^16.6.0",
+    "json2csv": "^4.3.5",
+    "snyk": "^1.685.0",
     "uglify-js-es6": "^2.8.9"
   },
   "snyk": true
